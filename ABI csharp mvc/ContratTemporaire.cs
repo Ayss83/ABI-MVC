@@ -1,27 +1,57 @@
 /***********************************************************************
  * Module:  ContratTemporaire.cs
- * Author:  CDI14
- * Purpose: Definition of the Class ContratTemporaire
+ * Author:  Renaud
+ * Purpose: Classe métier ContratTemporaire héritant de Contrat
  ***********************************************************************/
 
 using System;
 
 public abstract class ContratTemporaire : Contrat
 {
-   public ContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin)
+   /// <summary>
+   /// Constructeur de Contrat temporaire avec date de fin définie
+   /// </summary>
+   /// <param name="unMotif">Motif du contrat temporaire</param>
+   /// <param name="uneDateFinPrev">Date de fin prévue</param>
+   /// <param name="unNum">Numéro du contrat</param>
+   /// <param name="uneQualif">Qualification</param>
+   /// <param name="uneDateDeb">Date de début du cotnrat</param>
+   /// <param name="uneDateFin">Date de fin du contrat</param>
+   public ContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
    {
-      // TODO: implement
+        this.Motif = unMotif;
+        this.DateFinPrevue = uneDateFinPrev;
    }
    
-   public ContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb)
+   /// <summary>
+   /// Constructeur de Contrat temporaire sans date de fin définie
+   /// </summary>
+   /// <param name="unMotif">Motif du contrat temporaire</param>
+   /// <param name="uneDateFinPrev">Date de fin prévue</param>
+   /// <param name="unNum">Numéro du contrat</param>
+   /// <param name="uneQualif">Qualification</param>
+   /// <param name="uneDateDeb">Date de début du contrat</param>
+   public ContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb) :base(unNum,uneQualif,uneDateDeb)
    {
-      // TODO: implement
+        this.Motif = unMotif;
+        this.DateFinPrevue = uneDateFinPrev;
    }
    
+   /// <summary>
+   /// Méthode de retour du contenu d'un objet ContratTemporaire sous forme de string
+   /// </summary>
+   /// <returns>String présentant contenu de l'objet</returns>
    public override String ToString()
    {
-      // TODO: implement
-      return null;
+      if (DateFinContrat != null)
+        {
+            return "Numéro de contrat : " + NumContrat + "\n Qualification : " + Qualification + "\n Motif : " + Motif + "\n Date d'établissement du contrat : " + DateDebutContrat + "\n Date de fin prévue : " + DateFinPrevue + "\n Date de fin de contrat : " + DateFinContrat + "\n";
+        }
+        else
+        {
+            return "Numéro de contrat : " + NumContrat + "\n Qualification : " + Qualification + "\n Motif : " + Motif + "\n Date d'établissement du contrat : " + DateDebutContrat + "\n Date de fin prévue : " + DateFinPrevue + "\n";
+
+        };
    }
 
    protected String motif;

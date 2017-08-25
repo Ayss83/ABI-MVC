@@ -1,27 +1,50 @@
 /***********************************************************************
  * Module:  Interim.cs
- * Author:  CDI14
- * Purpose: Definition of the Class Interim
+ * Author:  Renaud
+ * Purpose: Classe de l'objet Interim héritant de Contrat -> ContratTemporaire
  ***********************************************************************/
 
 using System;
 
 public class Interim : ContratTemporaire
 {
+   /// <summary>
+   /// Méthode d'affichage des informations de l'objet Interim sous forme de string
+   /// </summary>
+   /// <returns>String présentant les informations d'un objet Interim</returns>
    public override String ToString()
    {
-      // TODO: implement
-      return null;
+        return base.ToString() + "Agence intérim : " + AgenceInterim;
+      
    }
    
-   public Interim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb)
+   /// <summary>
+   /// Constructeur d'un objet Interim sans date de fin définie
+   /// </summary>
+   /// <param name="uneAgence">Nom de l'agence intérim</param>
+   /// <param name="unMotif">Motif du contrat</param>
+   /// <param name="uneDateFinPrev">Date de fin prévue</param>
+   /// <param name="unNum">Numéro du contrat</param>
+   /// <param name="uneQualif">Qualification</param>
+   /// <param name="uneDateDeb">Date de début du contrat</param>
+   public Interim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
    {
-      // TODO: implement
+        this.AgenceInterim = uneAgence;
    }
-   
-   public Interim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin)
-   {
-      // TODO: implement
+
+    /// <summary>
+    /// Constructeur d'un objet Interim avec date de fin définie
+    /// </summary>
+    /// <param name="uneAgence">Nom de l'agence intérim</param>
+    /// <param name="unMotif">Motif du contrat</param>
+    /// <param name="uneDateFinPrev">Date de fin prévue</param>
+    /// <param name="unNum">Numéro du contrat</param>
+    /// <param name="uneQualif">Qualification</param>
+    /// <param name="uneDateDeb">Date de début du contrat</param>
+    /// <param name="uneDateFin">Date de fin du contrat</param>
+    public Interim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) : base(unMotif, uneDateFinPrev, unNum, uneQualif, uneDateDeb, uneDateFin)
+    {
+        this.AgenceInterim = uneAgence;
    }
 
    private String agenceInterim;

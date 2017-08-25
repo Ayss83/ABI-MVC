@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  Contrat.cs
- * Author:  CDI14
- * Purpose: Definition of the Class Contrat
+ * Author:  Renaud
+ * Purpose: Class abstraite de l'objet Contrat
  ***********************************************************************/
 
 using System;
@@ -18,10 +18,15 @@ public abstract class Contrat
    {
       if(DateFinContrat !=null)
         {
-            return "Numéro de contrat : " + NumContrat + "\n Qualification : " + Qualification + "\n Date d'établissement du contrat : " + DateDebutContrat + "\n Date de fin de contrat : " + DateFinContrat + "\n";
+            return "Numéro de contrat : " + NumContrat +
+                "\n Qualification : " + Qualification +
+                "\n Date d'établissement du contrat : " + DateDebutContrat +
+                "\n Date de fin de contrat : " + DateFinContrat + "\n";
         }else
         {
-            return "Numéro de contrat : " + NumContrat + "\n Qualification : " + Qualification + "\n Date d'établissement du contrat : " + DateDebutContrat + "\n";
+            return "Numéro de contrat : " + NumContrat +
+                "\n Qualification : " + Qualification +
+                "\n Date d'établissement du contrat : " + DateDebutContrat + "\n";
 
         }
     }
@@ -90,17 +95,24 @@ public abstract class Contrat
          this.avenants.Add(newAvenant.NumAvenant, newAvenant);
    }
 
+   /// <summary>
+   /// Méthode retournant la liste complète des avenants
+   /// </summary>
+   /// <returns>Datatable listeAvenants</returns>
    public DataTable ListerAvenants()
     {
         DataTable listeAvenants = new DataTable();
         listeAvenants.Columns.Add("Numéro");
         listeAvenants.Columns.Add("Date");
 
-        DataRow dr;
+        DataRow dr = listeAvenants.NewRow();
         foreach(KeyValuePair<int,Avenant> kvp in avenants)
         {
-            dr
+            dr["Numéro"] = kvp.Key;
+            dr["Date"] = kvp.Value.DateAvenant;
+            listeAvenants.Rows.Add(dr);
         }
+        return listeAvenants;
     }
 
     public DateTime DateDebutContrat

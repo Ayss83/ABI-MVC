@@ -1,22 +1,32 @@
 /***********************************************************************
  * Module:  Avenant.cs
- * Author:  CDI14
- * Purpose: Definition of the Class Avenant
+ * Author:  Renaud
+ * Purpose: Classe métier de l'objet Avenant
  ***********************************************************************/
 
 using System;
 
 public class Avenant
 {
-   public String ToString()
+   /// <summary>
+   /// Méthode retournant le contenu d'un objet avenant sous forme de string
+   /// </summary>
+   /// <returns>String présentant le contenu d'un objet avenant</returns>
+   public override String ToString()
    {
-      // TODO: implement
-      return null;
+        return "Numéro : " + NumAvenant +
+            "\nDate d'établissement : " + DateAvenant;
    }
    
+   /// <summary>
+   /// Constructeur pour un objet avenant
+   /// </summary>
+   /// <param name="unNum">Numéro de l'avenant</param>
+   /// <param name="uneDate">Date d'établissement de l'avenant</param>
    public Avenant(int unNum, DateTime uneDate)
    {
-      // TODO: implement
+        this.NumAvenant = unNum;
+        this.DateAvenant = uneDate;
    }
 
    private int numAvenant;

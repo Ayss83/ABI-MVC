@@ -1,28 +1,54 @@
 /***********************************************************************
  * Module:  Cdi.cs
- * Author:  CDI14
- * Purpose: Definition of the Class Cdi
+ * Author:  Renaud
+ * Purpose: Classe métier de l'objet CDI héritant de Contrat
  ***********************************************************************/
 
 using System;
 
 public class Cdi : Contrat
 {
-   public Cdi(Double unSalaire, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin)
+    /// <summary>
+    /// Constructeur d'un objet CDI avec date de fin définie
+    /// </summary>
+    /// <param name="unSalaire">Salaire brut</param>
+    /// <param name="unNum">Numéro du contrat</param>
+    /// <param name="uneQualif">Qualification</param>
+    /// <param name="uneDateDeb">Date de début du contrat</param>
+    /// <param name="uneDateFin">Date de fin du contrat</param>
+    public Cdi(Double unSalaire, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
    {
-      // TODO: implement
+        this.SalaireBrut = unSalaire;
    }
    
-   public Cdi(Double unSalaire, int unNum, String uneQualif, DateTime uneDateDeb)
+   /// <summary>
+   /// Constructeur d'un objet CDI sans date de fin définie
+   /// </summary>
+   /// <param name="unSalaire">Salaire brut</param>
+   /// <param name="unNum">Numéro du contrat</param>
+   /// <param name="uneQualif">Qualification</param>
+   /// <param name="uneDateDeb">Date de début du contrat</param>
+   public Cdi(Double unSalaire, int unNum, String uneQualif, DateTime uneDateDeb) :base(unNum,uneQualif,uneDateDeb)
    {
-      // TODO: implement
+        this.SalaireBrut = unSalaire;
    }
    
+   /// <summary>
+   /// Méthode retournant le contenu d'un objet CDI sous forme de string
+   /// </summary>
+   /// <returns>String présentant le contenu de l'objet CDI</returns>
    public override String ToString()
    {
-      // TODO: implement
-      return null;
-   }
+        if (DateFinContrat != null)
+        {
+            return "Numéro de contrat : " + NumContrat + "\n Qualification : " + Qualification + "\n Salaire brut : " + SalaireBrut + "\n Date d'établissement du contrat : " + DateDebutContrat + "\n Date de fin de contrat : " + DateFinContrat + "\n";
+        }
+        else
+        {
+            return "Numéro de contrat : " + NumContrat + "\n Qualification : " + Qualification + "\n Salaire brut : " + SalaireBrut + "\n Date d'établissement du contrat : " + DateDebutContrat + "\n";
+
+        }
+    }
 
    private Double salaireBrut;
 

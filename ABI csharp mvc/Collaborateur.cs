@@ -1,143 +1,147 @@
 /***********************************************************************
  * Module:  Collaborateur.cs
- * Author:  CDI14
- * Purpose: Definition of the Class Collaborateur
+ * Author:  Renaud
+ * Purpose: Classe métier de l'objet collaborateur
  ***********************************************************************/
 
 using System;
+using System.Collections.Generic;
 
 public class Collaborateur
 {
+   /// <summary>
+   /// Méthode retournant les informations d'un objet collaborateur sous forme de string
+   /// </summary>
+   /// <returns>String présentant le contenu</returns>
    public override String ToString()
    {
-      // TODO: implement
-      return null;
+        return "Matricule : " + Matricule +
+            "\nNom : " + NomCollabo +
+            "\nPrénom : " + PrenomCollabo +
+            "\nAdresse : " + Adresse +
+            "\nFonction : " + FonctionCollabo +
+            "\nSituation familiale : " + SituationFamiliale +
+            "\nStatut : " + Statut +
+            "\nChemin vers la photo : " + Photo + "\n";
    }
    
    public Double GetSalaireEffectif()
    {
-      // TODO: implement
-      return null;
+      //Et là, c'est la merde
    }
-   
-   public Collaborateur(String unNom, String unPrenom, String uneAdresse, String uneFonction)
+
+    /// <summary>
+    /// constructeur pour instancier un nouveau collabo (matricule affecté par SGBD)
+    /// </summary>
+    /// <param name="unNom">Nom du collaborateur</param>
+    /// <param name="unPrenom">Prénom du collaborateur</param>
+    /// <param name="uneAdresse">Adresse du collaborateur</param>
+    /// <param name="uneFonction">Fonction du collaborateur</param>
+    public Collaborateur(String unNom, String unPrenom, String uneAdresse, String uneFonction)
    {
-      // TODO: implement
+        this.NomCollabo = unNom;
+        this.PrenomCollabo = unPrenom;
+        this.Adresse = uneAdresse;
+        this.FonctionCollabo = uneFonction;
    }
-   
-   public Collaborateur(String unNom, String unPrenom, String uneFonction)
+
+    /// <summary>
+    /// constructeur pour instancier un nouveau collabo (matricule affecté par SGBD)
+    /// </summary>
+    /// <param name="unNom">Nom du collaborateur</param>
+    /// <param name="unPrenom">Prénom du collaborateur</param>
+    /// <param name="uneFonction">Fonction du collaborateur</param>
+    public Collaborateur(String unNom, String unPrenom, String uneFonction)
    {
-      // TODO: implement
-   }
+        this.NomCollabo = unNom;
+        this.PrenomCollabo = unPrenom;
+        this.FonctionCollabo = uneFonction;
+    }
    
+    /// <summary>
+    /// constructeur principal pour instancier un nouveau collabo (matricule affecté par SGBD)
+    /// </summary>
+    /// <param name="unNom">Nom du collaborateur</param>
+    /// <param name="unPrenom">Prénom du collaborateur</param>
+    /// <param name="uneFonction">Fonction du collaborateur</param>
+    /// <param name="uneAdresse">Adresse du collaborateur</param>
+    /// <param name="unePhoto">Chemin d'accès à la photo</param>
+    /// <param name="uneSituation">Situation familiale du collaborateur</param>
+    /// <param name="unStatut">Statut du collaborateur</param>
    public Collaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut)
    {
-      // TODO: implement
-   }
-   
-   public Collaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut, int unMatricule)
+        this.NomCollabo = unNom;
+        this.PrenomCollabo = unPrenom;
+        this.Adresse = uneAdresse;
+        this.FonctionCollabo = uneFonction;
+        this.Photo = unePhoto;
+        this.SituationFamiliale = uneSituation;
+        this.Statut = unStatut;
+    }
+
+    /// <summary>
+    /// constructeur pour collaborateurs existant issu de la BDD (fourni par DAO)
+    /// </summary>
+    /// <param name="unNom">Nom du collaborateur</param>
+    /// <param name="unPrenom">Prénom du collaborateur</param>
+    /// <param name="uneFonction">Fonction du collaborateur</param>
+    /// <param name="uneAdresse">Adresse du collaborateur</param>
+    /// <param name="unePhoto">Chemin vers la photo</param>
+    /// <param name="uneSituation">Situation familiale du collaborateur</param>
+    /// <param name="unStatut">Statut du collaborateur</param>
+    /// <param name="unMatricule">Matricule du collaborateur</param>
+    public Collaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut, int unMatricule)
    {
-      // TODO: implement
-   }
+        // voir pour n'accepter que depuis la couche DAO
+        this.NomCollabo = unNom;
+        this.PrenomCollabo = unPrenom;
+        this.Adresse = uneAdresse;
+        this.FonctionCollabo = uneFonction;
+        this.Photo = unePhoto;
+        this.SituationFamiliale = uneSituation;
+        this.Statut = unStatut;
+        this.Matricule = unMatricule;
+    }
 
    private String nomCollabo;
    private String fonctionCollabo;
-   private static int matricule;
+   private int matricule;
    private String prenomCollabo;
    private String photo;
    private String adresse;
    private String situationFamiliale;
    private String statut;
    
-   private System.Collections.ArrayList contrat;
+   private SortedDictionary<int,Contrat> contrats;
    
-   /// <pdGenerated>default getter</pdGenerated>
-   public System.Collections.ArrayList GetContrat()
-   {
-      if (contrat == null)
-         contrat = new System.Collections.ArrayList();
-      return contrat;
-   }
-   
-   /// <pdGenerated>default setter</pdGenerated>
-   public void SetContrat(System.Collections.ArrayList newContrat)
-   {
-      RemoveAllContrat();
-      foreach (Contrat oContrat in newContrat)
-         AddContrat(oContrat);
-   }
-   
-   /// <pdGenerated>default Add</pdGenerated>
+   /// <summary>
+   /// Ajouter un contrat a la liste de contrats du collaborateur
+   /// </summary>
+   /// <param name="newContrat">une instance de contrat</param>
    public void AddContrat(Contrat newContrat)
    {
       if (newContrat == null)
          return;
-      if (this.contrat == null)
-         this.contrat = new System.Collections.ArrayList();
-      if (!this.contrat.Contains(newContrat))
-         this.contrat.Add(newContrat);
+      if (this.contrats == null)
+         this.contrats = new SortedDictionary<int, Contrat>();
+      if (!this.contrats.ContainsValue(newContrat))
+         this.contrats.Add(newContrat.NumContrat,newContrat);
    }
-   
-   /// <pdGenerated>default Remove</pdGenerated>
-   public void RemoveContrat(Contrat oldContrat)
+
+   private List<AugmentationSalaire> listAugmentationSalaire;
+
+    /// <summary>
+    ///  Ajouter une augmentation de salaire à la liste
+    /// </summary>
+    /// <param name="newAugmentationSalaire">Une augmentation de salaire</param>
+    public void AjouterAugmentation(AugmentationSalaire newAugmentationSalaire)
    {
-      if (oldContrat == null)
-         return;
-      if (this.contrat != null)
-         if (this.contrat.Contains(oldContrat))
-            this.contrat.Remove(oldContrat);
-   }
-   
-   /// <pdGenerated>default removeAll</pdGenerated>
-   public void RemoveAllContrat()
-   {
-      if (contrat != null)
-         contrat.Clear();
-   }
-   private System.Collections.ArrayList listAugmentationSalaire;
-   
-   /// <pdGenerated>default getter</pdGenerated>
-   public System.Collections.ArrayList GetListAugmentationSalaire()
-   {
-      if (listAugmentationSalaire == null)
-         listAugmentationSalaire = new System.Collections.ArrayList();
-      return listAugmentationSalaire;
-   }
-   
-   /// <pdGenerated>default setter</pdGenerated>
-   public void SetListAugmentationSalaire(System.Collections.ArrayList newListAugmentationSalaire)
-   {
-      RemoveAllListAugmentationSalaire();
-      foreach (ListAugmentationSalaire oListAugmentationSalaire in newListAugmentationSalaire)
-         AddListAugmentationSalaire(oListAugmentationSalaire);
-   }
-   
-   /// <pdGenerated>default Add</pdGenerated>
-   public void AddListAugmentationSalaire(ListAugmentationSalaire newListAugmentationSalaire)
-   {
-      if (newListAugmentationSalaire == null)
+      if (newAugmentationSalaire == null)
          return;
       if (this.listAugmentationSalaire == null)
-         this.listAugmentationSalaire = new System.Collections.ArrayList();
-      if (!this.listAugmentationSalaire.Contains(newListAugmentationSalaire))
-         this.listAugmentationSalaire.Add(newListAugmentationSalaire);
-   }
-   
-   /// <pdGenerated>default Remove</pdGenerated>
-   public void RemoveListAugmentationSalaire(ListAugmentationSalaire oldListAugmentationSalaire)
-   {
-      if (oldListAugmentationSalaire == null)
-         return;
-      if (this.listAugmentationSalaire != null)
-         if (this.listAugmentationSalaire.Contains(oldListAugmentationSalaire))
-            this.listAugmentationSalaire.Remove(oldListAugmentationSalaire);
-   }
-   
-   /// <pdGenerated>default removeAll</pdGenerated>
-   public void RemoveAllListAugmentationSalaire()
-   {
-      if (listAugmentationSalaire != null)
-         listAugmentationSalaire.Clear();
+         this.listAugmentationSalaire = new List<AugmentationSalaire>();
+      if (!this.listAugmentationSalaire.Contains(newAugmentationSalaire))
+         this.listAugmentationSalaire.Add(newAugmentationSalaire);
    }
 
    public String NomCollabo

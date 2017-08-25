@@ -5,59 +5,38 @@
  ***********************************************************************/
 
 using System;
+using System.Collections.Generic;
 
 public class ListeCollab
 {
+   /// <summary>
+   /// 
+   /// </summary>
+   /// <returns></returns>
    public override String ToString()
    {
-      // TODO: implement
-      return null;
+        string retourListe="";
+        foreach(KeyValuePair<int,Collaborateur> kvp in collaborateurs)
+        {
+            retourListe = retourListe + "Matricule : " + kvp.Key + ", Nom : " + kvp.Value.NomCollabo + "\n";
+        }
+      return retourListe;
    }
 
-   public System.Collections.ArrayList collaborateur;
+   public SortedDictionary<int,Collaborateur> collaborateurs;
    
-   /// <pdGenerated>default getter</pdGenerated>
-   public System.Collections.ArrayList GetCollaborateur()
-   {
-      if (collaborateur == null)
-         collaborateur = new System.Collections.ArrayList();
-      return collaborateur;
-   }
-   
-   /// <pdGenerated>default setter</pdGenerated>
-   public void SetCollaborateur(System.Collections.ArrayList newCollaborateur)
-   {
-      RemoveAllCollaborateur();
-      foreach (Collaborateur oCollaborateur in newCollaborateur)
-         AddCollaborateur(oCollaborateur);
-   }
-   
-   /// <pdGenerated>default Add</pdGenerated>
-   public void AddCollaborateur(Collaborateur newCollaborateur)
+   /// <summary>
+   /// Méthode d'ajout d'un collaborateur dans le dictionnaire
+   /// </summary>
+   /// <param name="newCollaborateur">Instance d'un objet collaborateur</param>
+   public void AjouterCollaborateur(Collaborateur newCollaborateur)
    {
       if (newCollaborateur == null)
          return;
-      if (this.collaborateur == null)
-         this.collaborateur = new System.Collections.ArrayList();
-      if (!this.collaborateur.Contains(newCollaborateur))
-         this.collaborateur.Add(newCollaborateur);
-   }
-   
-   /// <pdGenerated>default Remove</pdGenerated>
-   public void RemoveCollaborateur(Collaborateur oldCollaborateur)
-   {
-      if (oldCollaborateur == null)
-         return;
-      if (this.collaborateur != null)
-         if (this.collaborateur.Contains(oldCollaborateur))
-            this.collaborateur.Remove(oldCollaborateur);
-   }
-   
-   /// <pdGenerated>default removeAll</pdGenerated>
-   public void RemoveAllCollaborateur()
-   {
-      if (collaborateur != null)
-         collaborateur.Clear();
+      if (this.collaborateurs == null)
+         this.collaborateurs = new SortedDictionary<int, Collaborateur>();
+      if (!this.collaborateurs.ContainsKey(newCollaborateur.Matricule))
+         this.collaborateurs.Add(newCollaborateur.Matricule,newCollaborateur);
    }
 
 }
