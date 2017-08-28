@@ -16,7 +16,7 @@ public class Cdi : Contrat
     /// <param name="uneQualif">Qualification</param>
     /// <param name="uneDateDeb">Date de début du contrat</param>
     /// <param name="uneDateFin">Date de fin du contrat</param>
-    public Cdi(Double unSalaire, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
+    public Cdi(Decimal unSalaire, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
    {
         this.SalaireBrut = unSalaire;
    }
@@ -28,7 +28,7 @@ public class Cdi : Contrat
    /// <param name="unNum">Numéro du contrat</param>
    /// <param name="uneQualif">Qualification</param>
    /// <param name="uneDateDeb">Date de début du contrat</param>
-   public Cdi(Double unSalaire, int unNum, String uneQualif, DateTime uneDateDeb) :base(unNum,uneQualif,uneDateDeb)
+   public Cdi(Decimal unSalaire, int unNum, String uneQualif, DateTime uneDateDeb) :base(unNum,uneQualif,uneDateDeb)
    {
         this.SalaireBrut = unSalaire;
    }
@@ -50,9 +50,9 @@ public class Cdi : Contrat
         }
     }
 
-   private Double salaireBrut;
+   private Decimal salaireBrut;
 
-   public Double SalaireBrut
+   public Decimal SalaireBrut
    {
       get
       {

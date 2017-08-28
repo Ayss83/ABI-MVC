@@ -24,11 +24,24 @@ public class Collaborateur
             "\nStatut : " + Statut +
             "\nChemin vers la photo : " + Photo + "\n";
    }
-   
-   public Double GetSalaireEffectif()
-   {
-      //Et là, c'est la merde
-   }
+
+    /// <summary>
+    /// Méthode retournant le salaire effectif (ou indemnité effective) en fonction du type de contrat ou 0 si intérimaire
+    /// </summary>
+    /// <returns>Valeur totale du salaire (indemnité) effectif</returns>
+    public Decimal GetSalaireEffectif()
+    {
+        if(ContratActif is Cdd || ContratActif is Cdi)
+        {
+            return (ContratActif as Cdd).SalaireBrut + TotalAugment();
+        }else if(ContratActif is Stage)
+        {
+            return (ContratActif as Stage).Indemnite + TotalAugment();
+        }else
+        {
+            return 0;
+        }
+    }
 
     /// <summary>
     /// constructeur pour instancier un nouveau collabo (matricule affecté par SGBD)
@@ -39,10 +52,9 @@ public class Collaborateur
     /// <param name="uneFonction">Fonction du collaborateur</param>
     public Collaborateur(String unNom, String unPrenom, String uneAdresse, String uneFonction)
    {
-        this.NomCollabo = unNom;
-        this.PrenomCollabo = unPrenom;
+        initContrat();
+        initNomPrenomFonction(unNom, unPrenom, uneFonction);
         this.Adresse = uneAdresse;
-        this.FonctionCollabo = uneFonction;
    }
 
     /// <summary>
@@ -52,12 +64,11 @@ public class Collaborateur
     /// <param name="unPrenom">Prénom du collaborateur</param>
     /// <param name="uneFonction">Fonction du collaborateur</param>
     public Collaborateur(String unNom, String unPrenom, String uneFonction)
-   {
-        this.NomCollabo = unNom;
-        this.PrenomCollabo = unPrenom;
-        this.FonctionCollabo = uneFonction;
+    {
+        initContrat();
+        initNomPrenomFonction(unNom, unPrenom, uneFonction);
     }
-   
+
     /// <summary>
     /// constructeur principal pour instancier un nouveau collabo (matricule affecté par SGBD)
     /// </summary>
@@ -68,15 +79,11 @@ public class Collaborateur
     /// <param name="unePhoto">Chemin d'accès à la photo</param>
     /// <param name="uneSituation">Situation familiale du collaborateur</param>
     /// <param name="unStatut">Statut du collaborateur</param>
-   public Collaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut)
-   {
-        this.NomCollabo = unNom;
-        this.PrenomCollabo = unPrenom;
-        this.Adresse = uneAdresse;
-        this.FonctionCollabo = uneFonction;
-        this.Photo = unePhoto;
-        this.SituationFamiliale = uneSituation;
-        this.Statut = unStatut;
+    public Collaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut)
+    {
+        initContrat();
+        initNomPrenomFonction(unNom, unPrenom, uneFonction);
+        initAdressePhotoSituationStatut(uneAdresse, unePhoto, uneSituation, unStatut);
     }
 
     /// <summary>
@@ -93,13 +100,9 @@ public class Collaborateur
     public Collaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut, int unMatricule)
    {
         // voir pour n'accepter que depuis la couche DAO
-        this.NomCollabo = unNom;
-        this.PrenomCollabo = unPrenom;
-        this.Adresse = uneAdresse;
-        this.FonctionCollabo = uneFonction;
-        this.Photo = unePhoto;
-        this.SituationFamiliale = uneSituation;
-        this.Statut = unStatut;
+        initContrat();
+        initNomPrenomFonction(unNom, unPrenom, uneFonction);
+        initAdressePhotoSituationStatut(uneAdresse, unePhoto, uneSituation, unStatut);
         this.Matricule = unMatricule;
     }
 
@@ -111,40 +114,37 @@ public class Collaborateur
    private String adresse;
    private String situationFamiliale;
    private String statut;
+   private Contrat contratActif;
+   private List<AugmentationSalaire> listAugmentationSalaire;
    
    private SortedDictionary<int,Contrat> contrats;
    
    /// <summary>
-   /// Ajouter un contrat a la liste de contrats du collaborateur
+   /// Ajouter un contrat a la liste de contrats du collaborateur et le définit comme contrat actif
    /// </summary>
    /// <param name="newContrat">une instance de contrat</param>
    public void AddContrat(Contrat newContrat)
    {
       if (newContrat == null)
          return;
+
       if (this.contrats == null)
          this.contrats = new SortedDictionary<int, Contrat>();
-      if (!this.contrats.ContainsValue(newContrat))
-         this.contrats.Add(newContrat.NumContrat,newContrat);
+
+      if (!this.contrats.ContainsValue(newContrat)) {
+            this.contrats.Add(newContrat.NumContrat,newContrat);
+            this.ContratActif = newContrat;
+        }
+
    }
 
-   private List<AugmentationSalaire> listAugmentationSalaire;
+
 
     /// <summary>
-    ///  Ajouter une augmentation de salaire à la liste
+    /// nom du collaborateur (converti en MAJ) - Obligatoire
     /// </summary>
-    /// <param name="newAugmentationSalaire">Une augmentation de salaire</param>
-    public void AjouterAugmentation(AugmentationSalaire newAugmentationSalaire)
-   {
-      if (newAugmentationSalaire == null)
-         return;
-      if (this.listAugmentationSalaire == null)
-         this.listAugmentationSalaire = new List<AugmentationSalaire>();
-      if (!this.listAugmentationSalaire.Contains(newAugmentationSalaire))
-         this.listAugmentationSalaire.Add(newAugmentationSalaire);
-   }
-
-   public String NomCollabo
+    /// <exception cref="Exception">Valeur null refusée</exception>
+    public String NomCollabo
    {
       get
       {
@@ -152,8 +152,8 @@ public class Collaborateur
       }
       set
       {
-         if (this.nomCollabo != value)
-            this.nomCollabo = value;
+            if (this.nomCollabo != value)
+            this.nomCollabo = value.Trim().ToUpper();
       }
    }
    
@@ -248,4 +248,81 @@ public class Collaborateur
       }
    }
 
+    public Contrat ContratActif
+    {
+        get
+        {
+            return contratActif;
+        }
+
+        set
+        {
+            contratActif = value;
+        }
+    }
+
+    /// <summary>
+    ///  Ajouter une augmentation de salaire à la liste
+    /// </summary>
+    /// <param name="newAugmentationSalaire">Une augmentation de salaire</param>
+    public void AjouterAugmentation(AugmentationSalaire newAugmentationSalaire)
+   {
+      if (newAugmentationSalaire == null)
+         return;
+      if (this.listAugmentationSalaire == null)
+         this.listAugmentationSalaire = new List<AugmentationSalaire>();
+      if (!this.listAugmentationSalaire.Contains(newAugmentationSalaire))
+         this.listAugmentationSalaire.Add(newAugmentationSalaire);
+   }
+
+    /// <summary>
+    /// Méthode retournant le total de toutes les augmentations du collaborateur
+    /// </summary>
+    /// <returns>Total de toutes les augmentations</returns>
+    public decimal TotalAugment()
+    {
+        decimal total = 0;
+        foreach(AugmentationSalaire augment in listAugmentationSalaire)
+        {
+            total = total + augment.Augmentation;
+        }
+        return total;
+    }
+
+    /// <summary>
+    /// Méthode d'initialisation de la liste de contrats et du contrat actif appelée par les constructeurs
+    /// </summary>
+    private void initContrat()
+    {
+        this.contrats = new SortedDictionary<int, Contrat>();
+        this.ContratActif = null;
+    }
+
+    /// <summary>
+    /// Méthode d'initialisation des attributs nom, prenom et fonction appelée par les constructeurs
+    /// </summary>
+    /// <param name="unNom">Nom du collaborateur</param>
+    /// <param name="unPrenom">Prénom du collaborateur</param>
+    /// <param name="uneFonction">Fonction du collaborateur</param>
+    private void initNomPrenomFonction(string unNom, string unPrenom, string uneFonction)
+    {
+        this.NomCollabo = unNom;
+        this.PrenomCollabo = unPrenom;
+        this.FonctionCollabo = uneFonction;
+    }
+
+    /// <summary>
+    /// Méthode d'initialisation de l'adresse, de la photo, de la situation et du statut appelé par le constructeur principal et le constructeur depuis la BDD
+    /// </summary>
+    /// <param name="uneAdresse">Adresse du collaborateur</param>
+    /// <param name="unePhoto">Chemin vers la photo du collaborateur</param>
+    /// <param name="uneSituation">Situation familiale du collaborateur</param>
+    /// <param name="unStatut">Statut du collaborateur</param>
+    private void initAdressePhotoSituationStatut(string uneAdresse, string unePhoto, string uneSituation, string unStatut)
+    {
+        this.Adresse = uneAdresse;
+        this.Photo = unePhoto;
+        this.SituationFamiliale = uneSituation;
+        this.Statut = unStatut;
+    }
 }

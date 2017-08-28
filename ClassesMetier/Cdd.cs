@@ -34,7 +34,7 @@ public class Cdd : ContratTemporaire
    /// <param name="unNum">Numéro du contrat</param>
    /// <param name="unMotif">Motif d'établissement du contrat</param>
    /// <param name="uneDateFinPrev">Date de fin prévue</param>
-   public Cdd(Double unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
+   public Cdd(Decimal unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
    {
         this.SalaireBrut = unSalaire;
     }
@@ -49,14 +49,14 @@ public class Cdd : ContratTemporaire
    /// <param name="unMotif">Motif d'établissement du contrat</param>
    /// <param name="uneDateFinPrev">Date de fin prévue</param>
    /// <param name="uneDateFin">Date de fin du contrat</param>
-   public Cdd(Double unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev, DateTime uneDateFin) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb,uneDateFin)
+   public Cdd(Decimal unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev, DateTime uneDateFin) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb,uneDateFin)
    {
         this.SalaireBrut = unSalaire;
    }
 
-   private double salaireBrut;
+   private decimal salaireBrut;
 
-   public double SalaireBrut
+   public decimal SalaireBrut
    {
       get
       {

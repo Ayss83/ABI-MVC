@@ -43,15 +43,8 @@ public abstract class ContratTemporaire : Contrat
    /// <returns>String présentant contenu de l'objet</returns>
    public override String ToString()
    {
-      if (DateFinContrat != null)
-        {
-            return "Numéro de contrat : " + NumContrat + "\n Qualification : " + Qualification + "\n Motif : " + Motif + "\n Date d'établissement du contrat : " + DateDebutContrat + "\n Date de fin prévue : " + DateFinPrevue + "\n Date de fin de contrat : " + DateFinContrat + "\n";
-        }
-        else
-        {
-            return "Numéro de contrat : " + NumContrat + "\n Qualification : " + Qualification + "\n Motif : " + Motif + "\n Date d'établissement du contrat : " + DateDebutContrat + "\n Date de fin prévue : " + DateFinPrevue + "\n";
-
-        };
+        return base.ToString() + "Motif : " + Motif +
+            "\nDate de fin prévue : " + DateFinPrevue + "\n";
    }
 
    protected String motif;

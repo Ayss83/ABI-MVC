@@ -1,7 +1,7 @@
 /***********************************************************************
  * Module:  ListeCollab.cs
- * Author:  CDI14
- * Purpose: Definition of the Class ListeCollab
+ * Author:  Renaud
+ * Purpose: Classe métier de l'objet liste de collaborateurs listeCollab
  ***********************************************************************/
 
 using System;
@@ -10,9 +10,9 @@ using System.Collections.Generic;
 public class ListeCollab
 {
    /// <summary>
-   /// 
+   /// Méthode retournant le contenu du la liste (Matricule + Nom) sous forme de string
    /// </summary>
-   /// <returns></returns>
+   /// <returns>String contenant les paires matricule/nom de la listeCollab</returns>
    public override String ToString()
    {
         string retourListe="";
