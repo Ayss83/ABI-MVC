@@ -9,40 +9,6 @@ using System.Collections.Generic;
 
 public class Collaborateur
 {
-   /// <summary>
-   /// Méthode retournant les informations d'un objet collaborateur sous forme de string
-   /// </summary>
-   /// <returns>String présentant le contenu</returns>
-   public override String ToString()
-   {
-        return "Matricule : " + Matricule +
-            "\nNom : " + NomCollabo +
-            "\nPrénom : " + PrenomCollabo +
-            "\nAdresse : " + Adresse +
-            "\nFonction : " + FonctionCollabo +
-            "\nSituation familiale : " + SituationFamiliale +
-            "\nStatut : " + Statut +
-            "\nChemin vers la photo : " + Photo + "\n";
-   }
-
-    /// <summary>
-    /// Méthode retournant le salaire effectif (ou indemnité effective) en fonction du type de contrat ou 0 si intérimaire
-    /// </summary>
-    /// <returns>Valeur totale du salaire (indemnité) effectif</returns>
-    public Decimal GetSalaireEffectif()
-    {
-        if(ContratActif is Cdd || ContratActif is Cdi)
-        {
-            return (ContratActif as Cdd).SalaireBrut + TotalAugment();
-        }else if(ContratActif is Stage)
-        {
-            return (ContratActif as Stage).Indemnite + TotalAugment();
-        }else
-        {
-            return 0;
-        }
-    }
-
     /// <summary>
     /// constructeur pour instancier un nouveau collabo (matricule affecté par SGBD)
     /// </summary>
@@ -118,27 +84,6 @@ public class Collaborateur
    private List<AugmentationSalaire> listAugmentationSalaire;
    
    private SortedDictionary<int,Contrat> contrats;
-   
-   /// <summary>
-   /// Ajouter un contrat a la liste de contrats du collaborateur et le définit comme contrat actif
-   /// </summary>
-   /// <param name="newContrat">une instance de contrat</param>
-   public void AddContrat(Contrat newContrat)
-   {
-      if (newContrat == null)
-         return;
-
-      if (this.contrats == null)
-         this.contrats = new SortedDictionary<int, Contrat>();
-
-      if (!this.contrats.ContainsValue(newContrat)) {
-            this.contrats.Add(newContrat.NumContrat,newContrat);
-            this.ContratActif = newContrat;
-        }
-
-   }
-
-
 
     /// <summary>
     /// nom du collaborateur (converti en MAJ) - Obligatoire
@@ -157,6 +102,9 @@ public class Collaborateur
       }
    }
    
+   /// <summary>
+   /// Fonction du collaborateur (obligatoire)
+   /// </summary>
    public String FonctionCollabo
    {
       get
@@ -166,10 +114,13 @@ public class Collaborateur
       set
       {
          if (this.fonctionCollabo != value)
-            this.fonctionCollabo = value;
+            this.fonctionCollabo = value.Trim();
       }
    }
    
+   /// <summary>
+   /// Matricule du collaborateur (attribué par l'auto-incrémentation en SGBD)
+   /// </summary>
    public int Matricule
    {
       get
@@ -192,7 +143,7 @@ public class Collaborateur
       set
       {
          if (this.prenomCollabo != value)
-            this.prenomCollabo = value;
+            this.prenomCollabo = value.Trim();
       }
    }
    
@@ -205,7 +156,7 @@ public class Collaborateur
       set
       {
          if (this.photo != value)
-            this.photo = value;
+            this.photo = value.Trim();
       }
    }
    
@@ -218,7 +169,7 @@ public class Collaborateur
       set
       {
          if (this.adresse != value)
-            this.adresse = value;
+            this.adresse = value.Trim();
       }
    }
    
@@ -231,7 +182,7 @@ public class Collaborateur
       set
       {
          if (this.situationFamiliale != value)
-            this.situationFamiliale = value;
+            this.situationFamiliale = value.Trim();
       }
    }
    
@@ -244,7 +195,7 @@ public class Collaborateur
       set
       {
          if (this.statut != value)
-            this.statut = value;
+            this.statut = value.Trim();
       }
    }
 
@@ -260,6 +211,59 @@ public class Collaborateur
             contratActif = value;
         }
     }
+
+   /// <summary>
+   /// Méthode retournant les informations d'un objet collaborateur sous forme de string
+   /// </summary>
+   /// <returns>String présentant le contenu</returns>
+   public override String ToString()
+   {
+        return "Matricule : " + Matricule +
+            "\nNom : " + NomCollabo +
+            "\nPrénom : " + PrenomCollabo +
+            "\nAdresse : " + Adresse +
+            "\nFonction : " + FonctionCollabo +
+            "\nSituation familiale : " + SituationFamiliale +
+            "\nStatut : " + Statut +
+            "\nChemin vers la photo : " + Photo + "\n";
+   }
+
+    /// <summary>
+    /// Méthode retournant le salaire effectif (ou indemnité effective) en fonction du type de contrat ou 0 si intérimaire
+    /// </summary>
+    /// <returns>Valeur totale du salaire (indemnité) effectif</returns>
+    public Decimal GetSalaireEffectif()
+    {
+        if(ContratActif is Cdd || ContratActif is Cdi)
+        {
+            return (ContratActif as Cdd).SalaireBrut + TotalAugment();
+        }else if(ContratActif is Stage)
+        {
+            return (ContratActif as Stage).Indemnite + TotalAugment();
+        }else
+        {
+            return 0;
+        }
+    }
+
+   /// <summary>
+   /// Ajouter un contrat a la liste de contrats du collaborateur et le définit comme contrat actif
+   /// </summary>
+   /// <param name="newContrat">une instance de contrat</param>
+   public void AddContrat(Contrat newContrat)
+   {
+      if (newContrat == null)
+         return;
+
+      if (this.contrats == null)
+         this.contrats = new SortedDictionary<int, Contrat>();
+
+      if (!this.contrats.ContainsValue(newContrat)) {
+            this.contrats.Add(newContrat.NumContrat,newContrat);
+            this.ContratActif = newContrat;
+        }
+
+   }
 
     /// <summary>
     ///  Ajouter une augmentation de salaire à la liste

@@ -8,15 +8,6 @@ using System;
 
 public class AugmentationSalaire
 {
-   /// <summary>
-   /// Méthode retournant les informations d'un objet AugmentationSalaire sous forme de string
-   /// </summary>
-   /// <returns>String présentant les informations d'un objet AugmentationSalaire</returns>
-   public override String ToString()
-   {
-        return "Date : " + Date + "\nMontant : " + Augmentation;
-   }
-
    private DateTime date;
    private decimal augmentation;
 
@@ -56,4 +47,13 @@ public class AugmentationSalaire
             augmentation = value;
         }
     }
+
+   /// <summary>
+   /// Méthode retournant les informations d'un objet AugmentationSalaire sous forme de string
+   /// </summary>
+   /// <returns>String présentant les informations d'un objet AugmentationSalaire</returns>
+   public override String ToString()
+   {
+        return "Date : " + Date + "\nMontant : " + Augmentation;
+   }
 }

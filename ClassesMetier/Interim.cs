@@ -8,15 +8,6 @@ using System;
 
 public class Interim : ContratTemporaire
 {
-   /// <summary>
-   /// Méthode d'affichage des informations de l'objet Interim sous forme de string
-   /// </summary>
-   /// <returns>String présentant les informations d'un objet Interim</returns>
-   public override String ToString()
-   {
-        return base.ToString() + "Agence intérim : " + AgenceInterim;
-      
-   }
    
    /// <summary>
    /// Constructeur d'un objet Interim sans date de fin définie
@@ -28,9 +19,9 @@ public class Interim : ContratTemporaire
    /// <param name="uneQualif">Qualification</param>
    /// <param name="uneDateDeb">Date de début du contrat</param>
    public Interim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
-   {
-        this.AgenceInterim = uneAgence;
-   }
+    {
+        initInterim(uneAgence);
+    }
 
     /// <summary>
     /// Constructeur d'un objet Interim avec date de fin définie
@@ -44,10 +35,10 @@ public class Interim : ContratTemporaire
     /// <param name="uneDateFin">Date de fin du contrat</param>
     public Interim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) : base(unMotif, uneDateFinPrev, unNum, uneQualif, uneDateDeb, uneDateFin)
     {
-        this.AgenceInterim = uneAgence;
-   }
+        initInterim(uneAgence);
+    }
 
-   private String agenceInterim;
+    private String agenceInterim;
 
    public String AgenceInterim
    {
@@ -62,4 +53,21 @@ public class Interim : ContratTemporaire
       }
    }
 
+   /// <summary>
+   /// Méthode d'affichage des informations de l'objet Interim sous forme de string
+   /// </summary>
+   /// <returns>String présentant les informations d'un objet Interim</returns>
+   public override String ToString()
+   {
+        return base.ToString() + "Agence intérim : " + AgenceInterim;
+   }
+
+    /// <summary>
+    /// Méthode d'initialisation de l'attribut AgenceInterim pour les constructeurs
+    /// </summary>
+    /// <param name="uneAgence">Agence d'intérim</param>
+    private void initInterim(string uneAgence)
+    {
+        this.AgenceInterim = uneAgence;
+    }
 }

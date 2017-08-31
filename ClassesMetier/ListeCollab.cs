@@ -9,20 +9,6 @@ using System.Collections.Generic;
 
 public class ListeCollab
 {
-   /// <summary>
-   /// Méthode retournant le contenu du la liste (Matricule + Nom) sous forme de string
-   /// </summary>
-   /// <returns>String contenant les paires matricule/nom de la listeCollab</returns>
-   public override String ToString()
-   {
-        string retourListe="";
-        foreach(KeyValuePair<int,Collaborateur> kvp in collaborateurs)
-        {
-            retourListe = retourListe + "Matricule : " + kvp.Key + ", Nom : " + kvp.Value.NomCollabo + "\n";
-        }
-      return retourListe;
-   }
-
    public SortedDictionary<int,Collaborateur> collaborateurs;
    
    /// <summary>
@@ -39,4 +25,17 @@ public class ListeCollab
          this.collaborateurs.Add(newCollaborateur.Matricule,newCollaborateur);
    }
 
+   /// <summary>
+   /// Méthode retournant le contenu du la liste (Matricule + Nom) sous forme de string
+   /// </summary>
+   /// <returns>String contenant les paires matricule/nom de la listeCollab</returns>
+   public override String ToString()
+   {
+        string retourListe="";
+        foreach(KeyValuePair<int,Collaborateur> kvp in collaborateurs)
+        {
+            retourListe = retourListe + "Matricule : " + kvp.Key + ", Nom : " + kvp.Value.NomCollabo + "\n";
+        }
+      return retourListe;
+   }
 }

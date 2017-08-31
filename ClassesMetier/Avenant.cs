@@ -9,16 +9,6 @@ using System;
 public class Avenant
 {
    /// <summary>
-   /// Méthode retournant le contenu d'un objet avenant sous forme de string
-   /// </summary>
-   /// <returns>String présentant le contenu d'un objet avenant</returns>
-   public override String ToString()
-   {
-        return "Numéro : " + NumAvenant +
-            "\nDate d'établissement : " + DateAvenant;
-   }
-   
-   /// <summary>
    /// Constructeur pour un objet avenant
    /// </summary>
    /// <param name="unNum">Numéro de l'avenant</param>
@@ -58,4 +48,13 @@ public class Avenant
       }
    }
 
+   /// <summary>
+   /// Méthode retournant le contenu d'un objet avenant sous forme de string
+   /// </summary>
+   /// <returns>String présentant le contenu d'un objet avenant</returns>
+   public override String ToString()
+   {
+        return "Numéro : " + NumAvenant +
+            "\nDate d'établissement : " + DateAvenant;
+   }
 }
