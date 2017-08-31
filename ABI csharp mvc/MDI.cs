@@ -16,5 +16,17 @@ namespace ABI_csharp_mvc
         {
             InitializeComponent();
         }
+
+        private void collaborateur_contrat_Click(object sender, EventArgs e)
+        {
+            frmContrat contrat = new frmContrat();
+            contrat.Show();
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCollab collab = new frmCollab();
+            collab.Show();
+        }
     }
 }

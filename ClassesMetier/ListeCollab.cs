@@ -6,10 +6,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 public class ListeCollab
 {
-   public SortedDictionary<int,Collaborateur> collaborateurs;
+    private SortedDictionary<int,Collaborateur> collaborateurs;
+    private DataTable datatableCollab;
    
    /// <summary>
    /// Méthode d'ajout d'un collaborateur dans le dictionnaire
@@ -38,4 +40,13 @@ public class ListeCollab
         }
       return retourListe;
    }
+
+    public DataTable ListerCollab()
+    {
+        datatableCollab = new DataTable();
+        foreach(KeyValuePair<int,Collaborateur> kvp in collaborateurs)
+        {
+            //TODO : alimenter la datatable avec le contenu de la collecion
+        }
+    }
 }

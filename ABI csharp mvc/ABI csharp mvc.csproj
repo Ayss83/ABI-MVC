@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrlCollab.cs" />
     <Compile Include="frmCollab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="frmContrat.Designer.cs">
       <DependentUpon>frmContrat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListeCollab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListeCollab.Designer.cs">
+      <DependentUpon>frmListeCollab.cs</DependentUpon>
     </Compile>
     <Compile Include="MDI.cs">
       <SubType>Form</SubType>
@@ -71,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmContrat.resx">
       <DependentUpon>frmContrat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListeCollab.resx">
+      <DependentUpon>frmListeCollab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>

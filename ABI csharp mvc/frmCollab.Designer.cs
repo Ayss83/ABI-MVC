@@ -36,12 +36,12 @@
             this.lblStatut = new System.Windows.Forms.Label();
             this.lblPhoto = new System.Windows.Forms.Label();
             this.lblMatricule = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txtMatricule = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.cbxFonction = new System.Windows.Forms.ComboBox();
+            this.txtAdresse = new System.Windows.Forms.TextBox();
+            this.cbxSituation = new System.Windows.Forms.ComboBox();
             this.rbtActif = new System.Windows.Forms.RadioButton();
             this.rbtInactif = new System.Windows.Forms.RadioButton();
             this.btnChoixImage = new System.Windows.Forms.Button();
@@ -51,16 +51,19 @@
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnContratInit = new System.Windows.Forms.Button();
             this.lblListeContrats = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdContrats = new System.Windows.Forms.DataGridView();
             this.NumContrat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateDebContrat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAjoutContrat = new System.Windows.Forms.Button();
             this.btnDetailsContrat = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpValidAnnul = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpImgBtnContrat = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnMasquer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdContrats)).BeginInit();
+            this.flpValidAnnul.SuspendLayout();
+            this.flpImgBtnContrat.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNom
@@ -136,52 +139,52 @@
             this.lblMatricule.TabIndex = 7;
             this.lblMatricule.Text = "Matricule";
             // 
-            // textBox1
+            // txtMatricule
             // 
-            this.textBox1.Location = new System.Drawing.Point(151, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(272, 20);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMatricule.Location = new System.Drawing.Point(151, 12);
+            this.txtMatricule.Name = "txtMatricule";
+            this.txtMatricule.ReadOnly = true;
+            this.txtMatricule.Size = new System.Drawing.Size(272, 20);
+            this.txtMatricule.TabIndex = 8;
+            this.txtMatricule.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // txtNom
             // 
-            this.textBox2.Location = new System.Drawing.Point(151, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(272, 20);
-            this.textBox2.TabIndex = 9;
+            this.txtNom.Location = new System.Drawing.Point(151, 38);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(272, 20);
+            this.txtNom.TabIndex = 9;
             // 
-            // textBox3
+            // txtPrenom
             // 
-            this.textBox3.Location = new System.Drawing.Point(151, 67);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(272, 20);
-            this.textBox3.TabIndex = 10;
+            this.txtPrenom.Location = new System.Drawing.Point(151, 64);
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(272, 20);
+            this.txtPrenom.TabIndex = 10;
             // 
-            // comboBox1
+            // cbxFonction
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(151, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(272, 21);
-            this.comboBox1.TabIndex = 11;
+            this.cbxFonction.FormattingEnabled = true;
+            this.cbxFonction.Location = new System.Drawing.Point(151, 90);
+            this.cbxFonction.Name = "cbxFonction";
+            this.cbxFonction.Size = new System.Drawing.Size(272, 21);
+            this.cbxFonction.TabIndex = 11;
             // 
-            // textBox4
+            // txtAdresse
             // 
-            this.textBox4.Location = new System.Drawing.Point(151, 117);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(272, 73);
-            this.textBox4.TabIndex = 12;
+            this.txtAdresse.Location = new System.Drawing.Point(151, 117);
+            this.txtAdresse.Multiline = true;
+            this.txtAdresse.Name = "txtAdresse";
+            this.txtAdresse.Size = new System.Drawing.Size(272, 73);
+            this.txtAdresse.TabIndex = 12;
             // 
-            // comboBox2
+            // cbxSituation
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(151, 196);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(272, 21);
-            this.comboBox2.TabIndex = 13;
+            this.cbxSituation.FormattingEnabled = true;
+            this.cbxSituation.Location = new System.Drawing.Point(151, 196);
+            this.cbxSituation.Name = "cbxSituation";
+            this.cbxSituation.Size = new System.Drawing.Size(272, 21);
+            this.cbxSituation.TabIndex = 13;
             // 
             // rbtActif
             // 
@@ -207,7 +210,7 @@
             // 
             // btnChoixImage
             // 
-            this.btnChoixImage.Location = new System.Drawing.Point(151, 258);
+            this.btnChoixImage.Location = new System.Drawing.Point(3, 3);
             this.btnChoixImage.Name = "btnChoixImage";
             this.btnChoixImage.Size = new System.Drawing.Size(116, 23);
             this.btnChoixImage.TabIndex = 16;
@@ -216,7 +219,7 @@
             // 
             // pbPhoto
             // 
-            this.pbPhoto.Location = new System.Drawing.Point(151, 287);
+            this.pbPhoto.Location = new System.Drawing.Point(3, 32);
             this.pbPhoto.Name = "pbPhoto";
             this.pbPhoto.Size = new System.Drawing.Size(141, 170);
             this.pbPhoto.TabIndex = 17;
@@ -228,7 +231,7 @@
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(697, 3);
+            this.btnValider.Location = new System.Drawing.Point(263, 3);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(75, 23);
             this.btnValider.TabIndex = 18;
@@ -237,7 +240,7 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(778, 3);
+            this.btnAnnuler.Location = new System.Drawing.Point(344, 3);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 19;
@@ -246,7 +249,7 @@
             // 
             // btnContratInit
             // 
-            this.btnContratInit.Location = new System.Drawing.Point(151, 463);
+            this.btnContratInit.Location = new System.Drawing.Point(3, 208);
             this.btnContratInit.Name = "btnContratInit";
             this.btnContratInit.Size = new System.Drawing.Size(141, 23);
             this.btnContratInit.TabIndex = 20;
@@ -263,21 +266,21 @@
             this.lblListeContrats.TabIndex = 21;
             this.lblListeContrats.Text = "Liste des contrats";
             // 
-            // dataGridView1
+            // grdContrats
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdContrats.AllowUserToAddRows = false;
+            this.grdContrats.AllowUserToDeleteRows = false;
+            this.grdContrats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdContrats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumContrat,
             this.DateDebContrat,
             this.Qualification});
-            this.dataGridView1.Location = new System.Drawing.Point(474, 46);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dataGridView1.Size = new System.Drawing.Size(394, 411);
-            this.dataGridView1.TabIndex = 22;
+            this.grdContrats.Location = new System.Drawing.Point(474, 46);
+            this.grdContrats.Name = "grdContrats";
+            this.grdContrats.ReadOnly = true;
+            this.grdContrats.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.grdContrats.Size = new System.Drawing.Size(394, 411);
+            this.grdContrats.TabIndex = 22;
             // 
             // NumContrat
             // 
@@ -300,7 +303,7 @@
             // 
             // btnAjoutContrat
             // 
-            this.btnAjoutContrat.Location = new System.Drawing.Point(624, 463);
+            this.btnAjoutContrat.Location = new System.Drawing.Point(499, 463);
             this.btnAjoutContrat.Name = "btnAjoutContrat";
             this.btnAjoutContrat.Size = new System.Drawing.Size(119, 23);
             this.btnAjoutContrat.TabIndex = 23;
@@ -309,23 +312,43 @@
             // 
             // btnDetailsContrat
             // 
-            this.btnDetailsContrat.Location = new System.Drawing.Point(749, 463);
+            this.btnDetailsContrat.Location = new System.Drawing.Point(624, 463);
             this.btnDetailsContrat.Name = "btnDetailsContrat";
             this.btnDetailsContrat.Size = new System.Drawing.Size(119, 23);
             this.btnDetailsContrat.TabIndex = 24;
             this.btnDetailsContrat.Text = "Voir détails contrat";
             this.btnDetailsContrat.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // flpValidAnnul
             // 
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.Controls.Add(this.btnAnnuler);
-            this.flowLayoutPanel1.Controls.Add(this.btnValider);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 504);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(856, 33);
-            this.flowLayoutPanel1.TabIndex = 25;
+            this.flpValidAnnul.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpValidAnnul.Controls.Add(this.btnAnnuler);
+            this.flpValidAnnul.Controls.Add(this.btnValider);
+            this.flpValidAnnul.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpValidAnnul.Location = new System.Drawing.Point(12, 504);
+            this.flpValidAnnul.Name = "flpValidAnnul";
+            this.flpValidAnnul.Size = new System.Drawing.Size(422, 33);
+            this.flpValidAnnul.TabIndex = 25;
+            // 
+            // flpImgBtnContrat
+            // 
+            this.flpImgBtnContrat.Controls.Add(this.btnChoixImage);
+            this.flpImgBtnContrat.Controls.Add(this.pbPhoto);
+            this.flpImgBtnContrat.Controls.Add(this.btnContratInit);
+            this.flpImgBtnContrat.Location = new System.Drawing.Point(150, 255);
+            this.flpImgBtnContrat.Name = "flpImgBtnContrat";
+            this.flpImgBtnContrat.Size = new System.Drawing.Size(149, 243);
+            this.flpImgBtnContrat.TabIndex = 26;
+            // 
+            // btnMasquer
+            // 
+            this.btnMasquer.Location = new System.Drawing.Point(749, 463);
+            this.btnMasquer.Name = "btnMasquer";
+            this.btnMasquer.Size = new System.Drawing.Size(119, 23);
+            this.btnMasquer.TabIndex = 27;
+            this.btnMasquer.Text = "Masquer la liste";
+            this.btnMasquer.UseVisualStyleBackColor = true;
+            this.btnMasquer.Click += new System.EventHandler(this.btnMasquer_Click);
             // 
             // frmCollab
             // 
@@ -334,22 +357,21 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(880, 549);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.btnMasquer);
+            this.Controls.Add(this.flpImgBtnContrat);
+            this.Controls.Add(this.flpValidAnnul);
             this.Controls.Add(this.btnDetailsContrat);
             this.Controls.Add(this.btnAjoutContrat);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdContrats);
             this.Controls.Add(this.lblListeContrats);
-            this.Controls.Add(this.btnContratInit);
-            this.Controls.Add(this.pbPhoto);
-            this.Controls.Add(this.btnChoixImage);
             this.Controls.Add(this.rbtInactif);
             this.Controls.Add(this.rbtActif);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cbxSituation);
+            this.Controls.Add(this.txtAdresse);
+            this.Controls.Add(this.cbxFonction);
+            this.Controls.Add(this.txtPrenom);
+            this.Controls.Add(this.txtNom);
+            this.Controls.Add(this.txtMatricule);
             this.Controls.Add(this.lblMatricule);
             this.Controls.Add(this.lblPhoto);
             this.Controls.Add(this.lblStatut);
@@ -362,8 +384,9 @@
             this.Name = "frmCollab";
             this.Text = "Création collaborateur";
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdContrats)).EndInit();
+            this.flpValidAnnul.ResumeLayout(false);
+            this.flpImgBtnContrat.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,12 +402,12 @@
         private System.Windows.Forms.Label lblStatut;
         private System.Windows.Forms.Label lblPhoto;
         private System.Windows.Forms.Label lblMatricule;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox txtMatricule;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtPrenom;
+        private System.Windows.Forms.ComboBox cbxFonction;
+        private System.Windows.Forms.TextBox txtAdresse;
+        private System.Windows.Forms.ComboBox cbxSituation;
         private System.Windows.Forms.RadioButton rbtActif;
         private System.Windows.Forms.RadioButton rbtInactif;
         private System.Windows.Forms.Button btnChoixImage;
@@ -394,12 +417,14 @@
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnContratInit;
         private System.Windows.Forms.Label lblListeContrats;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdContrats;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumContrat;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateDebContrat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qualification;
         private System.Windows.Forms.Button btnAjoutContrat;
         private System.Windows.Forms.Button btnDetailsContrat;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpValidAnnul;
+        private System.Windows.Forms.FlowLayoutPanel flpImgBtnContrat;
+        private System.Windows.Forms.Button btnMasquer;
     }
 }

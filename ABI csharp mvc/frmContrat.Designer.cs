@@ -68,7 +68,7 @@
             this.rbtInterim = new System.Windows.Forms.RadioButton();
             this.rbtStage = new System.Windows.Forms.RadioButton();
             this.btnAvenants = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdAvenant = new System.Windows.Forms.DataGridView();
             this.NumAvenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateAvenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAjoutAvenant = new System.Windows.Forms.Button();
@@ -88,7 +88,7 @@
             this.pnlDateFin.SuspendLayout();
             this.pnlAgence.SuspendLayout();
             this.pnlEcole.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAvenant)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumContrat
@@ -222,6 +222,7 @@
             // 
             this.txtNumContrat.Location = new System.Drawing.Point(137, 3);
             this.txtNumContrat.Name = "txtNumContrat";
+            this.txtNumContrat.ReadOnly = true;
             this.txtNumContrat.Size = new System.Drawing.Size(200, 20);
             this.txtNumContrat.TabIndex = 1;
             // 
@@ -336,6 +337,7 @@
             this.dtpDateFinPrev.Name = "dtpDateFinPrev";
             this.dtpDateFinPrev.Size = new System.Drawing.Size(200, 20);
             this.dtpDateFinPrev.TabIndex = 6;
+            this.dtpDateFinPrev.Value = new System.DateTime(2017, 8, 31, 11, 33, 0, 0);
             // 
             // pnlDateFin
             // 
@@ -405,6 +407,7 @@
             this.rbtCdd.TabStop = true;
             this.rbtCdd.Text = "CDD";
             this.rbtCdd.UseVisualStyleBackColor = true;
+            this.rbtCdd.CheckedChanged += new System.EventHandler(this.rbtCdd_CheckedChanged);
             // 
             // rbtCdi
             // 
@@ -415,6 +418,7 @@
             this.rbtCdi.TabIndex = 14;
             this.rbtCdi.Text = "CDI";
             this.rbtCdi.UseVisualStyleBackColor = true;
+            this.rbtCdi.CheckedChanged += new System.EventHandler(this.rbtCdi_CheckedChanged);
             // 
             // rbtInterim
             // 
@@ -425,6 +429,7 @@
             this.rbtInterim.TabIndex = 15;
             this.rbtInterim.Text = "Interim";
             this.rbtInterim.UseVisualStyleBackColor = true;
+            this.rbtInterim.CheckedChanged += new System.EventHandler(this.rbtInterim_CheckedChanged);
             // 
             // rbtStage
             // 
@@ -435,6 +440,7 @@
             this.rbtStage.TabIndex = 16;
             this.rbtStage.Text = "Stage";
             this.rbtStage.UseVisualStyleBackColor = true;
+            this.rbtStage.CheckedChanged += new System.EventHandler(this.rbtStage_CheckedChanged);
             // 
             // btnAvenants
             // 
@@ -444,20 +450,21 @@
             this.btnAvenants.TabIndex = 17;
             this.btnAvenants.Text = "Avenants";
             this.btnAvenants.UseVisualStyleBackColor = true;
+            this.btnAvenants.Click += new System.EventHandler(this.btnAvenants_Click);
             // 
-            // dataGridView1
+            // grdAvenant
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdAvenant.AllowUserToAddRows = false;
+            this.grdAvenant.AllowUserToDeleteRows = false;
+            this.grdAvenant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdAvenant.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumAvenant,
             this.dateAvenant});
-            this.dataGridView1.Location = new System.Drawing.Point(409, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(394, 367);
-            this.dataGridView1.TabIndex = 18;
+            this.grdAvenant.Location = new System.Drawing.Point(409, 30);
+            this.grdAvenant.Name = "grdAvenant";
+            this.grdAvenant.ReadOnly = true;
+            this.grdAvenant.Size = new System.Drawing.Size(394, 367);
+            this.grdAvenant.TabIndex = 18;
             // 
             // NumAvenant
             // 
@@ -499,6 +506,7 @@
             this.btnMasquer.TabIndex = 21;
             this.btnMasquer.Text = "Masquer la liste";
             this.btnMasquer.UseVisualStyleBackColor = true;
+            this.btnMasquer.Click += new System.EventHandler(this.btnMasquer_Click);
             // 
             // btnValider
             // 
@@ -530,7 +538,7 @@
             this.Controls.Add(this.btnMasquer);
             this.Controls.Add(this.btnDetailsAvenant);
             this.Controls.Add(this.btnAjoutAvenant);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdAvenant);
             this.Controls.Add(this.rbtStage);
             this.Controls.Add(this.rbtInterim);
             this.Controls.Add(this.rbtCdi);
@@ -562,7 +570,7 @@
             this.pnlAgence.PerformLayout();
             this.pnlEcole.ResumeLayout(false);
             this.pnlEcole.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAvenant)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -610,7 +618,7 @@
         private System.Windows.Forms.RadioButton rbtCdi;
         private System.Windows.Forms.RadioButton rbtInterim;
         private System.Windows.Forms.RadioButton rbtStage;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdAvenant;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumAvenant;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateAvenant;
         private System.Windows.Forms.Button btnAjoutAvenant;
