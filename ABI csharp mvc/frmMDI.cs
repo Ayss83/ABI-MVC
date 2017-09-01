@@ -55,5 +55,10 @@ namespace ABI_csharp_mvc
         {
             ctrlVisuCollab collab = new ctrlVisuCollab(collabo);
         }
+
+        private void tsiListeCollab_Click(object sender, EventArgs e)
+        {
+            ctrlListeCollab listeCollab = new ctrlListeCollab();
+        }
     }
 }

@@ -53,13 +53,14 @@
             this.outilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiContrat = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiVisuCollab = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiNouvCollab = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sommaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.àproposdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsiNouvCollab = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiListeCollab = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMDI.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -241,7 +242,8 @@
             this.outilsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiContrat,
             this.tsiVisuCollab,
-            this.tsiNouvCollab});
+            this.tsiNouvCollab,
+            this.tsiListeCollab});
             this.outilsToolStripMenuItem.Name = "outilsToolStripMenuItem";
             this.outilsToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.outilsToolStripMenuItem.Text = "&Collaborateur";
@@ -259,6 +261,13 @@
             this.tsiVisuCollab.Size = new System.Drawing.Size(198, 22);
             this.tsiVisuCollab.Text = "&Visualiser Collaborateur";
             this.tsiVisuCollab.Click += new System.EventHandler(this.tsiVisuCollab_Click);
+            // 
+            // tsiNouvCollab
+            // 
+            this.tsiNouvCollab.Name = "tsiNouvCollab";
+            this.tsiNouvCollab.Size = new System.Drawing.Size(198, 22);
+            this.tsiNouvCollab.Text = "&Nouveau Collaborateur";
+            this.tsiNouvCollab.Click += new System.EventHandler(this.tsiNouvCollab_Click);
             // 
             // aideToolStripMenuItem
             // 
@@ -301,14 +310,14 @@
             this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.àproposdeToolStripMenuItem.Text = "À &propos de...";
             // 
-            // tsiNouvCollab
+            // tsiListeCollab
             // 
-            this.tsiNouvCollab.Name = "tsiNouvCollab";
-            this.tsiNouvCollab.Size = new System.Drawing.Size(198, 22);
-            this.tsiNouvCollab.Text = "&Nouveau Collaborateur";
-            this.tsiNouvCollab.Click += new System.EventHandler(this.tsiNouvCollab_Click);
+            this.tsiListeCollab.Name = "tsiListeCollab";
+            this.tsiListeCollab.Size = new System.Drawing.Size(198, 22);
+            this.tsiListeCollab.Text = "Liste des collaborateurs";
+            this.tsiListeCollab.Click += new System.EventHandler(this.tsiListeCollab_Click);
             // 
-            // MDI
+            // frmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -316,7 +325,7 @@
             this.Controls.Add(this.menuMDI);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuMDI;
-            this.Name = "MDI";
+            this.Name = "frmMDI";
             this.Text = "Active Bretagne Informatique";
             this.menuMDI.ResumeLayout(false);
             this.menuMDI.PerformLayout();
@@ -358,6 +367,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem àproposdeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsiNouvCollab;
+        private System.Windows.Forms.ToolStripMenuItem tsiListeCollab;
     }
 }
 
