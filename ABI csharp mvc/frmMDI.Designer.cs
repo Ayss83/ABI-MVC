@@ -1,6 +1,6 @@
 ﻿namespace ABI_csharp_mvc
 {
-    partial class MDI
+    partial class frmMDI
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMDI));
             this.menuMDI = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,14 +51,15 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.sélectionnertoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiContrat = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiContrat = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiVisuCollab = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sommaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.àproposdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiNouvCollab = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMDI.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -238,25 +239,26 @@
             // outilsToolStripMenuItem
             // 
             this.outilsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiContrat,
-            this.optionsToolStripMenuItem});
+            this.tsiContrat,
+            this.tsiVisuCollab,
+            this.tsiNouvCollab});
             this.outilsToolStripMenuItem.Name = "outilsToolStripMenuItem";
             this.outilsToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.outilsToolStripMenuItem.Text = "&Collaborateur";
             // 
-            // tsmiContrat
+            // tsiContrat
             // 
-            this.tsmiContrat.Name = "tsmiContrat";
-            this.tsmiContrat.Size = new System.Drawing.Size(152, 22);
-            this.tsmiContrat.Text = "Co&ntrat";
-            this.tsmiContrat.Click += new System.EventHandler(this.collaborateur_contrat_Click);
+            this.tsiContrat.Name = "tsiContrat";
+            this.tsiContrat.Size = new System.Drawing.Size(198, 22);
+            this.tsiContrat.Text = "Co&ntrat";
+            this.tsiContrat.Click += new System.EventHandler(this.tsiContrat_Click);
             // 
-            // optionsToolStripMenuItem
+            // tsiVisuCollab
             // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.optionsToolStripMenuItem.Text = "Co&llaborateur";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            this.tsiVisuCollab.Name = "tsiVisuCollab";
+            this.tsiVisuCollab.Size = new System.Drawing.Size(198, 22);
+            this.tsiVisuCollab.Text = "&Visualiser Collaborateur";
+            this.tsiVisuCollab.Click += new System.EventHandler(this.tsiVisuCollab_Click);
             // 
             // aideToolStripMenuItem
             // 
@@ -299,6 +301,13 @@
             this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.àproposdeToolStripMenuItem.Text = "À &propos de...";
             // 
+            // tsiNouvCollab
+            // 
+            this.tsiNouvCollab.Name = "tsiNouvCollab";
+            this.tsiNouvCollab.Size = new System.Drawing.Size(198, 22);
+            this.tsiNouvCollab.Text = "&Nouveau Collaborateur";
+            this.tsiNouvCollab.Click += new System.EventHandler(this.tsiNouvCollab_Click);
+            // 
             // MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,14 +349,15 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem sélectionnertoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem outilsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmiContrat;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsiContrat;
+        private System.Windows.Forms.ToolStripMenuItem tsiVisuCollab;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sommaireToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rechercherToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem àproposdeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsiNouvCollab;
     }
 }
 

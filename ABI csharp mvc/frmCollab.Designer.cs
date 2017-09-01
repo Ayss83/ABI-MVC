@@ -141,6 +141,7 @@
             // 
             // txtMatricule
             // 
+            this.txtMatricule.Enabled = false;
             this.txtMatricule.Location = new System.Drawing.Point(151, 12);
             this.txtMatricule.Name = "txtMatricule";
             this.txtMatricule.ReadOnly = true;
@@ -231,6 +232,7 @@
             // 
             // btnValider
             // 
+            this.btnValider.AutoSize = true;
             this.btnValider.Location = new System.Drawing.Point(263, 3);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(75, 23);
@@ -386,6 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdContrats)).EndInit();
             this.flpValidAnnul.ResumeLayout(false);
+            this.flpValidAnnul.PerformLayout();
             this.flpImgBtnContrat.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -410,21 +413,21 @@
         private System.Windows.Forms.ComboBox cbxSituation;
         private System.Windows.Forms.RadioButton rbtActif;
         private System.Windows.Forms.RadioButton rbtInactif;
-        private System.Windows.Forms.Button btnChoixImage;
         private System.Windows.Forms.PictureBox pbPhoto;
         private System.Windows.Forms.OpenFileDialog ofdChoixImage;
-        private System.Windows.Forms.Button btnValider;
-        private System.Windows.Forms.Button btnAnnuler;
-        private System.Windows.Forms.Button btnContratInit;
         private System.Windows.Forms.Label lblListeContrats;
         private System.Windows.Forms.DataGridView grdContrats;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumContrat;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateDebContrat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qualification;
-        private System.Windows.Forms.Button btnAjoutContrat;
-        private System.Windows.Forms.Button btnDetailsContrat;
         private System.Windows.Forms.FlowLayoutPanel flpValidAnnul;
         private System.Windows.Forms.FlowLayoutPanel flpImgBtnContrat;
         private System.Windows.Forms.Button btnMasquer;
+        internal System.Windows.Forms.Button btnChoixImage;
+        internal System.Windows.Forms.Button btnValider;
+        internal System.Windows.Forms.Button btnAnnuler;
+        internal System.Windows.Forms.Button btnContratInit;
+        internal System.Windows.Forms.Button btnAjoutContrat;
+        internal System.Windows.Forms.Button btnDetailsContrat;
     }
 }

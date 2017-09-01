@@ -41,12 +41,30 @@ public class ListeCollab
       return retourListe;
    }
 
+    /// <summary>
+    /// Méthode recréant la datatable et l'alimentant avec le contenu du dictionnaire
+    /// </summary>
+    /// <returns>La datatable listant les collaborateurs</returns>
     public DataTable ListerCollab()
     {
         datatableCollab = new DataTable();
+        datatableCollab.Columns.Add(new DataColumn("Matricule", typeof(Int32)));
+        datatableCollab.Columns.Add(new DataColumn("Nom", typeof(String)));
+        datatableCollab.Columns.Add(new DataColumn("Prénom", typeof(String)));
+        datatableCollab.Columns.Add(new DataColumn("Fonction", typeof(String)));
+        datatableCollab.Columns.Add(new DataColumn("Statut", typeof(String)));
+
         foreach(KeyValuePair<int,Collaborateur> kvp in collaborateurs)
         {
-            //TODO : alimenter la datatable avec le contenu de la collecion
+            DataRow dr = datatableCollab.NewRow();
+            dr[0] = kvp.Key;
+            dr[1] = kvp.Value.NomCollabo;
+            dr[2] = kvp.Value.PrenomCollabo;
+            dr[3] = kvp.Value.FonctionCollabo;
+            dr[4] = kvp.Value.Statut;
+
+            datatableCollab.Rows.Add(dr);
         }
+        return datatableCollab;
     }
 }
