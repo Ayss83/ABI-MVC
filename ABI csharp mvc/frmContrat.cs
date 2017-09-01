@@ -90,6 +90,7 @@ namespace ABI_csharp_mvc
             this.btnDetailsAvenant.Visible = true;
             this.btnMasquer.Visible = true;
             this.btnAvenants.Enabled = false;
+            this.flpValidAnnul.Width = 796;
         }
 
         /// <summary>
@@ -104,6 +105,7 @@ namespace ABI_csharp_mvc
             this.btnDetailsAvenant.Visible = false;
             this.btnMasquer.Visible = false;
             this.btnAvenants.Enabled = true;
+            this.flpValidAnnul.Width = 359;
         }
 
         /// <summary>

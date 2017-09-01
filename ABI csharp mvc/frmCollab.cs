@@ -44,6 +44,22 @@ namespace ABI_csharp_mvc
             this.txtAdresse.Text = unCollab.Adresse;
             this.cbxFonction.Text = unCollab.FonctionCollabo;
             this.cbxSituation.SelectedText = unCollab.SituationFamiliale;
+
+            if (unCollab.Photo == null)
+            {
+                this.pbPhoto.Visible = false;
+            }
+
+            this.btnContratInit.Text = "Voir la liste de contrats";
+            this.btnValider.Visible = false;
+            this.btnAnnuler.Text = "OK";
+            this.lblListeContrats.Visible = false;
+            this.grdContrats.Visible = false;
+            this.btnAjoutContrat.Visible = false;
+            this.btnDetailsContrat.Visible = false;
+            this.btnMasquer.Visible = false;
+            this.flpValidAnnul.Width = 422;
+            this.btnContratInit.Click += new EventHandler(this.btnContratInit_Click);
         }
 
         /// <summary>
@@ -59,6 +75,21 @@ namespace ABI_csharp_mvc
             this.btnDetailsContrat.Visible = false;
             this.btnMasquer.Visible = false;
             this.flpValidAnnul.Width = 422;
+        }
+
+        /// <summary>
+        /// Action attribuée au bouton btnContratInit quand le constructeur destiné à la visualisation/modification est appelé
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnContratInit_Click(object sender, EventArgs e)
+        {
+            this.lblListeContrats.Visible = true;
+            this.grdContrats.Visible = true;
+            this.btnAjoutContrat.Visible = true;
+            this.btnDetailsContrat.Visible = true;
+            this.btnMasquer.Visible = true;
+            this.flpValidAnnul.Width = 856;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace ABI_csharp_mvc
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMDI());
+            Application.Run(frmMDI.getInstance());
         }
     }
 }

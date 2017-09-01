@@ -62,12 +62,12 @@
             this.txtAgence = new System.Windows.Forms.TextBox();
             this.pnlEcole = new System.Windows.Forms.Panel();
             this.txtEcole = new System.Windows.Forms.TextBox();
+            this.btnAvenants = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rbtCdd = new System.Windows.Forms.RadioButton();
             this.rbtCdi = new System.Windows.Forms.RadioButton();
             this.rbtInterim = new System.Windows.Forms.RadioButton();
             this.rbtStage = new System.Windows.Forms.RadioButton();
-            this.btnAvenants = new System.Windows.Forms.Button();
             this.grdAvenant = new System.Windows.Forms.DataGridView();
             this.NumAvenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateAvenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +76,7 @@
             this.btnMasquer = new System.Windows.Forms.Button();
             this.btnValider = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
+            this.flpValidAnnul = new System.Windows.Forms.FlowLayoutPanel();
             this.flpContrat.SuspendLayout();
             this.pnlNumContrat.SuspendLayout();
             this.pnlQualif.SuspendLayout();
@@ -89,6 +90,7 @@
             this.pnlAgence.SuspendLayout();
             this.pnlEcole.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAvenant)).BeginInit();
+            this.flpValidAnnul.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNumContrat
@@ -387,6 +389,16 @@
             this.txtEcole.Size = new System.Drawing.Size(200, 20);
             this.txtEcole.TabIndex = 9;
             // 
+            // btnAvenants
+            // 
+            this.btnAvenants.Location = new System.Drawing.Point(3, 360);
+            this.btnAvenants.Name = "btnAvenants";
+            this.btnAvenants.Size = new System.Drawing.Size(75, 23);
+            this.btnAvenants.TabIndex = 17;
+            this.btnAvenants.Text = "Avenants";
+            this.btnAvenants.UseVisualStyleBackColor = true;
+            this.btnAvenants.Click += new System.EventHandler(this.btnAvenants_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -441,16 +453,6 @@
             this.rbtStage.Text = "Stage";
             this.rbtStage.UseVisualStyleBackColor = true;
             this.rbtStage.CheckedChanged += new System.EventHandler(this.rbtStage_CheckedChanged);
-            // 
-            // btnAvenants
-            // 
-            this.btnAvenants.Location = new System.Drawing.Point(3, 360);
-            this.btnAvenants.Name = "btnAvenants";
-            this.btnAvenants.Size = new System.Drawing.Size(75, 23);
-            this.btnAvenants.TabIndex = 17;
-            this.btnAvenants.Text = "Avenants";
-            this.btnAvenants.UseVisualStyleBackColor = true;
-            this.btnAvenants.Click += new System.EventHandler(this.btnAvenants_Click);
             // 
             // grdAvenant
             // 
@@ -510,7 +512,7 @@
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(211, 432);
+            this.btnValider.Location = new System.Drawing.Point(200, 3);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(75, 23);
             this.btnValider.TabIndex = 22;
@@ -519,12 +521,22 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(292, 432);
+            this.btnAnnuler.Location = new System.Drawing.Point(281, 3);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 23;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            // 
+            // flpValidAnnul
+            // 
+            this.flpValidAnnul.Controls.Add(this.btnAnnuler);
+            this.flpValidAnnul.Controls.Add(this.btnValider);
+            this.flpValidAnnul.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flpValidAnnul.Location = new System.Drawing.Point(8, 432);
+            this.flpValidAnnul.Name = "flpValidAnnul";
+            this.flpValidAnnul.Size = new System.Drawing.Size(359, 33);
+            this.flpValidAnnul.TabIndex = 24;
             // 
             // frmContrat
             // 
@@ -533,8 +545,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(816, 463);
-            this.Controls.Add(this.btnAnnuler);
-            this.Controls.Add(this.btnValider);
+            this.Controls.Add(this.flpValidAnnul);
             this.Controls.Add(this.btnMasquer);
             this.Controls.Add(this.btnDetailsAvenant);
             this.Controls.Add(this.btnAjoutAvenant);
@@ -571,6 +582,7 @@
             this.pnlEcole.ResumeLayout(false);
             this.pnlEcole.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdAvenant)).EndInit();
+            this.flpValidAnnul.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -626,5 +638,6 @@
         private System.Windows.Forms.Button btnMasquer;
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Button btnAnnuler;
+        private System.Windows.Forms.FlowLayoutPanel flpValidAnnul;
     }
 }

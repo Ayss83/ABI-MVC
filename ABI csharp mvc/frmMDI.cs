@@ -16,10 +16,27 @@ namespace ABI_csharp_mvc
         /// Collaborateur en dur pour tests
         /// </summary>
         private Collaborateur collabo = new Collaborateur("De la Roque", "Jean-Charles", "315 Avenue de la liberté", "PDG");
+        private static frmMDI Instance;
 
-        public frmMDI()
+        /// <summary>
+        /// Constructeur privé
+        /// </summary>
+        private frmMDI()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Méthode statique appelant le constructeur
+        /// </summary>
+        /// <returns>l'instance de frmMDI</returns>
+        public static frmMDI getInstance()
+        {
+            if(Instance == null)
+            {
+                Instance = new frmMDI();
+            }
+            return Instance;
         }
 
         private void tsiNouvCollab_Click(object sender, EventArgs e)
@@ -36,7 +53,7 @@ namespace ABI_csharp_mvc
 
         private void tsiVisuCollab_Click(object sender, EventArgs e)
         {
-            ctrlVisuCollab collab = new ctrlVisuCollab(collabo, this);
+            ctrlVisuCollab collab = new ctrlVisuCollab(collabo);
         }
     }
 }

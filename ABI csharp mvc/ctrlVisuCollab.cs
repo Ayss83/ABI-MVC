@@ -11,11 +11,11 @@ namespace ABI_csharp_mvc
     {
         private frmCollab leForm;
 
-        public ctrlVisuCollab(Collaborateur unCollab, frmMDI unMDI)
+        public ctrlVisuCollab(Collaborateur unCollab)
         {
             leForm = new frmCollab(unCollab);
             leForm.Text = unCollab.PrenomCollabo + " " + unCollab.NomCollabo;
-            leForm.MdiParent = unMDI;
+            leForm.MdiParent = frmMDI.getInstance();
             leForm.Show();
         }
     }
