@@ -18,5 +18,10 @@ namespace ABI_csharp_mvc
             leForm.MdiParent = frmMDI.getInstance();
             leForm.Show();
         }
+
+        private void init()
+        {
+
+        }
     }
 }

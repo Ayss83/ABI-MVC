@@ -12,6 +12,17 @@ public class ListeCollab
 {
     private SortedDictionary<int,Collaborateur> collaborateurs;
     private DataTable datatableCollab;
+
+    /// <summary>
+    /// Constructeur de l'objet ListeCollab, Rempli le dictionnaire avec le contenu de la base de données (prévu)
+    /// </summary>
+    public ListeCollab()
+    {
+        //Ajout d'un collaborateur en dur pour tests,
+        //A remplacer par une lecture base de donnees pour la release
+        Collaborateur unCollab = new Collaborateur("Bouchard", "Gérard", "Cadre exécutif", "23 Avenue de Steve le berger allemand", "", "Célibataire", "Actif", 1);
+        this.AjouterCollaborateur(unCollab);
+    }
    
    /// <summary>
    /// Méthode d'ajout d'un collaborateur dans le dictionnaire

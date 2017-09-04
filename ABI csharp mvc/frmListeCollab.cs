@@ -27,6 +27,7 @@ namespace ABI_csharp_mvc
         public frmListeCollab(DataTable uneListe)
         {
             InitializeComponent();
+            
         }
     }
 }
