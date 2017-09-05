@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*************************************************************
+ * 
+ * Controleur pour la création d'un nouveau collaborateur
+ * -Instancie et affiche un form frmCollab
+ * -Affecte les actions aux boutons de création de contrat initial, Valider et Annuler
+ * 
+ **************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +19,7 @@ namespace ABI_csharp_mvc
         private frmCollab leForm;
         private ListeCollab laListe;
         internal DialogResult Retour;
+        internal Collaborateur leCollab;
 
         /// <summary>
         /// Constructeur, instancie, affecte les actions à différents boutons et affiche un form pour créer un nouveau collaborateur
@@ -54,7 +62,8 @@ namespace ABI_csharp_mvc
                 if (leForm.Instancie())
                 {
                     laListe = new ListeCollab();
-                    laListe.AjouterCollaborateur(leForm.Collab);
+                    //laListe.AjouterCollaborateur(leForm.Collab);
+                    this.leCollab = leForm.Collab;
                     leForm.DialogResult = DialogResult.OK;
                     this.Retour = DialogResult.OK;
                 }

@@ -13,6 +13,9 @@ namespace ABI_csharp_mvc
         private frmListeCollab leForm;
         private ListeCollab lesCollabs;
 
+        /// <summary>
+        /// Constructeur, initialise la liste de collaborateurs et le form frmListeCollab puis l'affiche, attribue les actions aux boutons
+        /// </summary>
         public ctrlListeCollab()
         {
             lesCollabs = new ListeCollab();
@@ -25,34 +28,56 @@ namespace ABI_csharp_mvc
             leForm.Show();
         }
 
+//Méthodes évenementielles
+        /// <summary>
+        /// Méthode évenementielle au double clic sur une case de la datagridview, instancie un controleur ctrlVisuCollab avec le collaborateur correspondant à la ligne en paramètre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grdCollabs_DoubleClick(object sender, EventArgs e)
         {
-            Int32 matricule;
-            Collaborateur unCollab;
-            matricule = (Int32)leForm.grdCollab.CurrentRow.Cells[0].Value;
-            unCollab = lesCollabs.RestituerCollaborateur(matricule);
-            ctrlVisuCollab ctrlVisu = new ctrlVisuCollab(unCollab);
+            ctrlVisuCollab ctrlVisu = new ctrlVisuCollab(this.selectLigne());
         }
 
+        /// <summary>
+        /// Méthode évenementielle du bouton Ajouter, instancie un controleur ctrlNouvCollab et ajoute le collaborateur créé au dictionnaire à la fin si retour OK
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ajoutCollab(object sender, EventArgs e)
         {
             ctrlNouvCollab nouvCollab = new ctrlNouvCollab();
             if (nouvCollab.Retour == DialogResult.OK)
             {
+                //Récupération du collaborateur créé dans le form et ajout dans la liste
+                lesCollabs.AjouterCollaborateur(nouvCollab.leCollab);
+                //Remise à jour de l'affichage
                 this.leForm.grdCollab.DataSource=lesCollabs.ListerCollab();
             }
         }
 
+        /// <summary>
+        /// Méthode évenementielle du bouton voir détails, instancie un controleur ctrlVisuCollab avec le collaborateur correspondant à la ligne sélectionnée en paramètre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void voirCollab(object sender, EventArgs e)
         {
             ctrlVisuCollab visuCollab = new ctrlVisuCollab(this.selectLigne());
         }
 
+        /// <summary>
+        /// Méthode évenementielle du bouton Modifier, instancie un controleur ctrlModifCollab avec le collaborateur correspondant à la ligne sélectionnée en paramètre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modifCollab(object sender, EventArgs e)
         {
             ctrlModifCollab modifCollab = new ctrlModifCollab(this.selectLigne());
         }
+//Fin méthodes évenementielles
 
+//Méthode d'instance
         /// <summary>
         /// Méthode retournant l'objet collaborateur correspondant à la ligne actuellement sélectionnée
         /// </summary>

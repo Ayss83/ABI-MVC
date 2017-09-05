@@ -22,6 +22,7 @@ namespace ABI_csharp_mvc
             this.ModeCdd();
         }
 
+//Méthodes changement de type de contrat
         /// <summary>
         /// Méthode de changement d'affichage pour un contrat de type CDD
         /// </summary>
@@ -77,22 +78,10 @@ namespace ABI_csharp_mvc
             this.pnlMotif.Visible = true;
             this.pnlSalaire.Visible = false;
         }
+//Fin méthodes changement de type de contrat
 
-        /// <summary>
-        /// Méthode rendant la datagridview et ses boutons associés visibles, cela aggrandit la fenêtre et désactive le bouton avenants
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAvenants_Click(object sender, EventArgs e)
-        {
-            this.grdAvenant.Visible = true;
-            this.btnAjoutAvenant.Visible = true;
-            this.btnDetailsAvenant.Visible = true;
-            this.btnMasquer.Visible = true;
-            this.btnAvenants.Enabled = false;
-            this.flpValidAnnul.Width = 796;
-        }
 
+//Méthodes évenementielles
         /// <summary>
         /// Méthode permettant de masquer la datagridview et ses boutons associés et réactive le bouton avenants
         /// </summary>
@@ -108,6 +97,22 @@ namespace ABI_csharp_mvc
             this.flpValidAnnul.Width = 359;
         }
 
+        /// <summary>
+        /// Méthode rendant la datagridview et ses boutons associés visibles, cela agrandit la fenêtre et désactive le bouton avenants
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAvenants_Click(object sender, EventArgs e)
+        {
+            this.grdAvenant.Visible = true;
+            this.btnAjoutAvenant.Visible = true;
+            this.btnDetailsAvenant.Visible = true;
+            this.btnMasquer.Visible = true;
+            this.btnAvenants.Enabled = false;
+            this.flpValidAnnul.Width = 796;
+        }
+
+   //Méthodes évenementielles des boutons radios de changement de type de contrat
         /// <summary>
         /// Méthode de changement des contrôles affichés si le radioButton rbtCdd est sélectionné
         /// </summary>
@@ -151,5 +156,8 @@ namespace ABI_csharp_mvc
             if (this.rbtStage.Checked == true)
                 this.ModeStage();
         }
+   //Fin méthodes évenementielles des boutons radios de changement de type de contrat
+
+//Fin méthodes évenementielles
     }
 }

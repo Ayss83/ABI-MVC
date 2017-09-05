@@ -77,6 +77,7 @@
             this.btnValider = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.flpValidAnnul = new System.Windows.Forms.FlowLayoutPanel();
+            this.chkFinNonConnue = new System.Windows.Forms.CheckBox();
             this.flpContrat.SuspendLayout();
             this.pnlNumContrat.SuspendLayout();
             this.pnlQualif.SuspendLayout();
@@ -208,7 +209,7 @@
             this.flpContrat.Controls.Add(this.btnAvenants);
             this.flpContrat.Location = new System.Drawing.Point(12, 30);
             this.flpContrat.Name = "flpContrat";
-            this.flpContrat.Size = new System.Drawing.Size(355, 396);
+            this.flpContrat.Size = new System.Drawing.Size(355, 417);
             this.flpContrat.TabIndex = 11;
             // 
             // pnlNumContrat
@@ -339,20 +340,21 @@
             this.dtpDateFinPrev.Name = "dtpDateFinPrev";
             this.dtpDateFinPrev.Size = new System.Drawing.Size(200, 20);
             this.dtpDateFinPrev.TabIndex = 6;
-            this.dtpDateFinPrev.Value = new System.DateTime(2017, 8, 31, 11, 33, 0, 0);
+            this.dtpDateFinPrev.Value = new System.DateTime(2017, 9, 5, 0, 0, 0, 0);
             // 
             // pnlDateFin
             // 
+            this.pnlDateFin.Controls.Add(this.chkFinNonConnue);
             this.pnlDateFin.Controls.Add(this.dtpDateFin);
             this.pnlDateFin.Controls.Add(this.lblDateFin);
             this.pnlDateFin.Location = new System.Drawing.Point(3, 265);
             this.pnlDateFin.Name = "pnlDateFin";
-            this.pnlDateFin.Size = new System.Drawing.Size(345, 25);
+            this.pnlDateFin.Size = new System.Drawing.Size(345, 54);
             this.pnlDateFin.TabIndex = 8;
             // 
             // dtpDateFin
             // 
-            this.dtpDateFin.Location = new System.Drawing.Point(137, 3);
+            this.dtpDateFin.Location = new System.Drawing.Point(137, 26);
             this.dtpDateFin.Name = "dtpDateFin";
             this.dtpDateFin.Size = new System.Drawing.Size(200, 20);
             this.dtpDateFin.TabIndex = 4;
@@ -361,7 +363,7 @@
             // 
             this.pnlAgence.Controls.Add(this.txtAgence);
             this.pnlAgence.Controls.Add(this.lblAgence);
-            this.pnlAgence.Location = new System.Drawing.Point(3, 296);
+            this.pnlAgence.Location = new System.Drawing.Point(3, 325);
             this.pnlAgence.Name = "pnlAgence";
             this.pnlAgence.Size = new System.Drawing.Size(345, 26);
             this.pnlAgence.TabIndex = 9;
@@ -377,7 +379,7 @@
             // 
             this.pnlEcole.Controls.Add(this.txtEcole);
             this.pnlEcole.Controls.Add(this.lblEcole);
-            this.pnlEcole.Location = new System.Drawing.Point(3, 328);
+            this.pnlEcole.Location = new System.Drawing.Point(3, 357);
             this.pnlEcole.Name = "pnlEcole";
             this.pnlEcole.Size = new System.Drawing.Size(345, 26);
             this.pnlEcole.TabIndex = 10;
@@ -391,7 +393,7 @@
             // 
             // btnAvenants
             // 
-            this.btnAvenants.Location = new System.Drawing.Point(3, 360);
+            this.btnAvenants.Location = new System.Drawing.Point(3, 389);
             this.btnAvenants.Name = "btnAvenants";
             this.btnAvenants.Size = new System.Drawing.Size(75, 23);
             this.btnAvenants.TabIndex = 17;
@@ -533,10 +535,22 @@
             this.flpValidAnnul.Controls.Add(this.btnAnnuler);
             this.flpValidAnnul.Controls.Add(this.btnValider);
             this.flpValidAnnul.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpValidAnnul.Location = new System.Drawing.Point(8, 432);
+            this.flpValidAnnul.Location = new System.Drawing.Point(12, 453);
             this.flpValidAnnul.Name = "flpValidAnnul";
             this.flpValidAnnul.Size = new System.Drawing.Size(359, 33);
             this.flpValidAnnul.TabIndex = 24;
+            // 
+            // chkFinNonConnue
+            // 
+            this.chkFinNonConnue.AutoSize = true;
+            this.chkFinNonConnue.Checked = true;
+            this.chkFinNonConnue.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkFinNonConnue.Location = new System.Drawing.Point(137, 3);
+            this.chkFinNonConnue.Name = "chkFinNonConnue";
+            this.chkFinNonConnue.Size = new System.Drawing.Size(85, 17);
+            this.chkFinNonConnue.TabIndex = 5;
+            this.chkFinNonConnue.Text = "Non connue";
+            this.chkFinNonConnue.UseVisualStyleBackColor = true;
             // 
             // frmContrat
             // 
@@ -545,7 +559,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(816, 463);
+            this.ClientSize = new System.Drawing.Size(816, 489);
             this.Controls.Add(this.flpValidAnnul);
             this.Controls.Add(this.btnMasquer);
             this.Controls.Add(this.btnDetailsAvenant);
@@ -620,7 +634,6 @@
         private System.Windows.Forms.Panel pnlDateFinPrev;
         private System.Windows.Forms.DateTimePicker dtpDateFinPrev;
         private System.Windows.Forms.Panel pnlDateFin;
-        private System.Windows.Forms.DateTimePicker dtpDateFin;
         private System.Windows.Forms.Panel pnlAgence;
         private System.Windows.Forms.TextBox txtAgence;
         private System.Windows.Forms.Panel pnlEcole;
@@ -640,5 +653,7 @@
         private System.Windows.Forms.FlowLayoutPanel flpValidAnnul;
         internal System.Windows.Forms.Button btnValider;
         internal System.Windows.Forms.Button btnAnnuler;
+        internal System.Windows.Forms.CheckBox chkFinNonConnue;
+        internal System.Windows.Forms.DateTimePicker dtpDateFin;
     }
 }

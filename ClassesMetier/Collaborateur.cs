@@ -97,8 +97,16 @@ public class Collaborateur
       }
       set
       {
-            if (this.nomCollabo != value)
-            this.nomCollabo = value.Trim().ToUpper();
+        if (this.nomCollabo != value)
+        {
+            if(this.nomCollabo == null || this.nomCollabo == "")
+            {
+                throw new Exception("Le nom doit être renseigné");
+            }else
+            {
+                this.nomCollabo = value.Trim().ToUpper();
+            }
+        }
       }
    }
    
