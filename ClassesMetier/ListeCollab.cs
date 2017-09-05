@@ -22,6 +22,8 @@ public class ListeCollab
         //A remplacer par une lecture base de donnees pour la release
         Collaborateur unCollab = new Collaborateur("Bouchard", "Gérard", "Cadre exécutif", "23 Avenue de Steve le berger allemand", "", "Célibataire", "Actif", 1);
         this.AjouterCollaborateur(unCollab);
+        Collaborateur unCollab2 = new Collaborateur("Guiche", "Albert", "Porte flingue", "pas d'adresse connue", "", "Veuf... 6 fois", "Actif", 2);
+        this.AjouterCollaborateur(unCollab2);
     }
    
    /// <summary>
@@ -77,5 +79,15 @@ public class ListeCollab
             datatableCollab.Rows.Add(dr);
         }
         return datatableCollab;
+    }
+
+    /// <summary>
+    /// Méthode retournant une instance de collaborateur correspondant au matricule reçu en paramètre depuis le dictionnaire
+    /// </summary>
+    /// <param name="matricule">Matricule recherché</param>
+    /// <returns></returns>
+    public Collaborateur RestituerCollaborateur(Int32 matricule)
+    {
+        return collaborateurs[matricule];
     }
 }

@@ -637,8 +637,8 @@
         private System.Windows.Forms.Button btnAjoutAvenant;
         private System.Windows.Forms.Button btnDetailsAvenant;
         private System.Windows.Forms.Button btnMasquer;
-        private System.Windows.Forms.Button btnValider;
-        private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.FlowLayoutPanel flpValidAnnul;
+        internal System.Windows.Forms.Button btnValider;
+        internal System.Windows.Forms.Button btnAnnuler;
     }
 }

@@ -12,6 +12,7 @@ namespace ABI_csharp_mvc
 {
     public partial class frmListeCollab : Form
     {
+
         /// <summary>
         /// Constructeur d'origine pour tests, à supprimer en sortie de beta
         /// </summary>
@@ -24,10 +25,15 @@ namespace ABI_csharp_mvc
         /// Constructeur recevant la liste de collaborateurs en paramètre pour l'affichage
         /// </summary>
         /// <param name="uneListe">La liste de collaborateurs</param>
-        public frmListeCollab(DataTable uneListe)
+        public frmListeCollab(DataTable lesCollabs)
         {
             InitializeComponent();
-            
+            this.grdCollab.DataSource = lesCollabs;
+        }
+
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

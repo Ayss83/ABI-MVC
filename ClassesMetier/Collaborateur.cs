@@ -16,10 +16,10 @@ public class Collaborateur
     /// <param name="unPrenom">Prénom du collaborateur</param>
     /// <param name="uneAdresse">Adresse du collaborateur</param>
     /// <param name="uneFonction">Fonction du collaborateur</param>
-    public Collaborateur(String unNom, String unPrenom, String uneAdresse, String uneFonction)
+    public Collaborateur(String unNom, String unPrenom, String uneAdresse, String uneFonction, String unStatut)
    {
         initContrat();
-        initNomPrenomFonction(unNom, unPrenom, uneFonction);
+        initNomPrenomFonctionStatut(unNom, unPrenom, uneFonction, unStatut);
         this.Adresse = uneAdresse;
    }
 
@@ -29,10 +29,10 @@ public class Collaborateur
     /// <param name="unNom">Nom du collaborateur</param>
     /// <param name="unPrenom">Prénom du collaborateur</param>
     /// <param name="uneFonction">Fonction du collaborateur</param>
-    public Collaborateur(String unNom, String unPrenom, String uneFonction)
+    public Collaborateur(String unNom, String unPrenom, String uneFonction, String unStatut)
     {
         initContrat();
-        initNomPrenomFonction(unNom, unPrenom, uneFonction);
+        initNomPrenomFonctionStatut(unNom, unPrenom, uneFonction, unStatut);
     }
 
     /// <summary>
@@ -48,8 +48,8 @@ public class Collaborateur
     public Collaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut)
     {
         initContrat();
-        initNomPrenomFonction(unNom, unPrenom, uneFonction);
-        initAdressePhotoSituationStatut(uneAdresse, unePhoto, uneSituation, unStatut);
+        initNomPrenomFonctionStatut(unNom, unPrenom, uneFonction, unStatut);
+        initAdressePhotoSituation(uneAdresse, unePhoto, uneSituation);
     }
 
     /// <summary>
@@ -67,8 +67,8 @@ public class Collaborateur
    {
         // voir pour n'accepter que depuis la couche DAO
         initContrat();
-        initNomPrenomFonction(unNom, unPrenom, uneFonction);
-        initAdressePhotoSituationStatut(uneAdresse, unePhoto, uneSituation, unStatut);
+        initNomPrenomFonctionStatut(unNom, unPrenom, uneFonction,unStatut);
+        initAdressePhotoSituation(uneAdresse, unePhoto, uneSituation);
         this.Matricule = unMatricule;
     }
 
@@ -308,25 +308,25 @@ public class Collaborateur
     /// <param name="unNom">Nom du collaborateur</param>
     /// <param name="unPrenom">Prénom du collaborateur</param>
     /// <param name="uneFonction">Fonction du collaborateur</param>
-    private void initNomPrenomFonction(string unNom, string unPrenom, string uneFonction)
+    private void initNomPrenomFonctionStatut(string unNom, string unPrenom, string uneFonction, string unStatut)
     {
         this.NomCollabo = unNom;
         this.PrenomCollabo = unPrenom;
         this.FonctionCollabo = uneFonction;
+        this.Statut = unStatut;
     }
 
     /// <summary>
-    /// Méthode d'initialisation de l'adresse, de la photo, de la situation et du statut appelé par le constructeur principal et le constructeur depuis la BDD
+    /// Méthode d'initialisation de l'adresse, de la photo et de la situation appelées par le constructeur principal et le constructeur depuis la BDD
     /// </summary>
     /// <param name="uneAdresse">Adresse du collaborateur</param>
     /// <param name="unePhoto">Chemin vers la photo du collaborateur</param>
     /// <param name="uneSituation">Situation familiale du collaborateur</param>
     /// <param name="unStatut">Statut du collaborateur</param>
-    private void initAdressePhotoSituationStatut(string uneAdresse, string unePhoto, string uneSituation, string unStatut)
+    private void initAdressePhotoSituation(string uneAdresse, string unePhoto, string uneSituation)
     {
         this.Adresse = uneAdresse;
         this.Photo = unePhoto;
         this.SituationFamiliale = uneSituation;
-        this.Statut = unStatut;
     }
 }
