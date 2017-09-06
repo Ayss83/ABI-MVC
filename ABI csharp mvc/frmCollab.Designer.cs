@@ -52,9 +52,6 @@
             this.btnContratInit = new System.Windows.Forms.Button();
             this.lblListeContrats = new System.Windows.Forms.Label();
             this.grdContrats = new System.Windows.Forms.DataGridView();
-            this.NumContrat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateDebContrat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAjoutContrat = new System.Windows.Forms.Button();
             this.btnDetailsContrat = new System.Windows.Forms.Button();
             this.flpValidAnnul = new System.Windows.Forms.FlowLayoutPanel();
@@ -273,35 +270,12 @@
             this.grdContrats.AllowUserToAddRows = false;
             this.grdContrats.AllowUserToDeleteRows = false;
             this.grdContrats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdContrats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NumContrat,
-            this.DateDebContrat,
-            this.Qualification});
             this.grdContrats.Location = new System.Drawing.Point(474, 46);
             this.grdContrats.Name = "grdContrats";
             this.grdContrats.ReadOnly = true;
             this.grdContrats.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.grdContrats.Size = new System.Drawing.Size(394, 411);
             this.grdContrats.TabIndex = 22;
-            // 
-            // NumContrat
-            // 
-            this.NumContrat.HeaderText = "Numéro de contrat";
-            this.NumContrat.Name = "NumContrat";
-            this.NumContrat.ReadOnly = true;
-            // 
-            // DateDebContrat
-            // 
-            this.DateDebContrat.HeaderText = "Date de début de contrat";
-            this.DateDebContrat.Name = "DateDebContrat";
-            this.DateDebContrat.ReadOnly = true;
-            // 
-            // Qualification
-            // 
-            this.Qualification.HeaderText = "Qualification";
-            this.Qualification.Name = "Qualification";
-            this.Qualification.ReadOnly = true;
-            this.Qualification.Width = 150;
             // 
             // btnAjoutContrat
             // 
@@ -416,10 +390,6 @@
         private System.Windows.Forms.PictureBox pbPhoto;
         private System.Windows.Forms.OpenFileDialog ofdChoixImage;
         private System.Windows.Forms.Label lblListeContrats;
-        private System.Windows.Forms.DataGridView grdContrats;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumContrat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateDebContrat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qualification;
         private System.Windows.Forms.FlowLayoutPanel flpValidAnnul;
         private System.Windows.Forms.FlowLayoutPanel flpImgBtnContrat;
         private System.Windows.Forms.Button btnMasquer;
@@ -429,5 +399,6 @@
         internal System.Windows.Forms.Button btnContratInit;
         internal System.Windows.Forms.Button btnAjoutContrat;
         internal System.Windows.Forms.Button btnDetailsContrat;
+        internal System.Windows.Forms.DataGridView grdContrats;
     }
 }

@@ -11,6 +11,7 @@ namespace ABI_csharp_mvc
     {
         private frmContrat leForm;
         private DialogResult resultat;
+        private Contrat leContrat;
 
         /// <summary>
         /// Constructeur, instancie et affiche un form frmContrat vide et Ajoute les actions aux boutons Valider et Annuler
@@ -33,9 +34,15 @@ namespace ABI_csharp_mvc
         /// <param name="e"></param>
         public void btnValider_Click(object sender, EventArgs e)
         {
-            //Demander vérification des champs avant
-            leForm.DialogResult = DialogResult.OK;
-            resultat = leForm.DialogResult;
+            if (leForm.VerifChamps())
+            {
+                if (leForm.Instancie())
+                {
+                    leContrat = leForm.Contrat;
+                    leForm.DialogResult = DialogResult.OK;
+                    resultat = leForm.DialogResult;
+                }
+            }
         }
 
         /// <summary>
@@ -73,6 +80,11 @@ namespace ABI_csharp_mvc
         public DialogResult Resultat()
         {
             return resultat;
+        }
+
+        public Contrat Contrat()
+        {
+            return leContrat;
         }
     }
 }

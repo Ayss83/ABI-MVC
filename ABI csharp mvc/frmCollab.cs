@@ -55,7 +55,7 @@ namespace ABI_csharp_mvc
             this.cbxFonction.Text = unCollab.FonctionCollabo;
             this.cbxSituation.SelectedText = unCollab.SituationFamiliale;
 
-            if (unCollab.Photo == null || unCollab.Photo=="")
+            if (unCollab.Photo.Length < 7) // Condition temporaire, à modifier plus tard si besoin
             {
                 this.pbPhoto.Visible = false;
             }

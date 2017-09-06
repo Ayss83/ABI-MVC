@@ -20,6 +20,7 @@ namespace ABI_csharp_mvc
         private ListeCollab laListe;
         internal DialogResult Retour;
         internal Collaborateur leCollab;
+        private Contrat leContrat;
 
         /// <summary>
         /// Constructeur, instancie, affecte les actions à différents boutons et affiche un form pour créer un nouveau collaborateur
@@ -43,6 +44,7 @@ namespace ABI_csharp_mvc
             ctrlNouvContrat Contrat = new ctrlNouvContrat();
             if (Contrat.Resultat()==DialogResult.OK)
             {
+                this.leContrat = Contrat.Contrat();
                 leForm.btnValider.Text = "Valider";
                 leForm.btnValider.Enabled = true;
                 leForm.btnValider.Width = 75;
@@ -61,9 +63,8 @@ namespace ABI_csharp_mvc
             {
                 if (leForm.Instancie())
                 {
-                    laListe = new ListeCollab();
-                    //laListe.AjouterCollaborateur(leForm.Collab);
                     this.leCollab = leForm.Collab;
+                    leCollab.AddContrat(this.leContrat);
                     leForm.DialogResult = DialogResult.OK;
                     this.Retour = DialogResult.OK;
                 }

@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 public class Collaborateur
 {
@@ -100,12 +101,12 @@ public class Collaborateur
         if (this.nomCollabo != value)
         {
             if(this.nomCollabo == null || this.nomCollabo == "")
-            {
-                throw new Exception("Le nom doit être renseigné");
-            }else
-            {
+            //{
+            //    throw new Exception("Le nom doit être renseigné");
+            //}else
+            //{
                 this.nomCollabo = value.Trim().ToUpper();
-            }
+            //}
         }
       }
    }
@@ -272,6 +273,27 @@ public class Collaborateur
         }
 
    }
+
+    public DataTable ListerContrats()
+    {
+        DataTable datatableContrats;
+        datatableContrats = new DataTable();
+        datatableContrats.Columns.Add("Numéro de contrat", typeof(Int32));
+        datatableContrats.Columns.Add("Date d'établissement", typeof(String));
+        datatableContrats.Columns.Add("Qualification", typeof(String));
+
+        foreach(KeyValuePair<int,Contrat> kvp in contrats)
+        {
+            DataRow dr;
+            dr = datatableContrats.NewRow();
+            dr[0] = kvp.Key;
+            dr[1] = kvp.Value.DateDebutContrat.ToShortDateString();
+            dr[2] = kvp.Value.Qualification;
+
+            datatableContrats.Rows.Add(dr);
+        }
+        return datatableContrats;
+    }
 
     /// <summary>
     ///  Ajouter une augmentation de salaire à la liste
