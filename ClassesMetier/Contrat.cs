@@ -19,6 +19,7 @@ public abstract class Contrat
    public Contrat(int unNum, String uneQualif, DateTime uneDateDeb)
     {
         initContrat(unNum, uneQualif, uneDateDeb);
+        this.DateFinContrat = null;
     }
 
     /// <summary>
@@ -37,7 +38,7 @@ public abstract class Contrat
    protected DateTime dateDebutContrat;
    protected String qualification;
    protected int numContrat;
-   protected DateTime dateFinContrat;
+   protected DateTime? dateFinContrat;
 
    private SortedDictionary<int, Avenant> avenants;
    
@@ -67,7 +68,7 @@ public abstract class Contrat
       }
    }
    
-   public DateTime DateFinContrat
+   public DateTime? DateFinContrat
    {
       get
       {

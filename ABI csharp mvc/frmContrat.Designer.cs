@@ -43,25 +43,35 @@
             this.pnlNumContrat = new System.Windows.Forms.Panel();
             this.txtNumContrat = new System.Windows.Forms.TextBox();
             this.pnlQualif = new System.Windows.Forms.Panel();
+            this.lblErreurQualif = new System.Windows.Forms.Label();
             this.txtQualif = new System.Windows.Forms.TextBox();
             this.pnlSalaire = new System.Windows.Forms.Panel();
+            this.lblErreurSalaire = new System.Windows.Forms.Label();
             this.txtSalaire = new System.Windows.Forms.TextBox();
             this.pnlIndemnite = new System.Windows.Forms.Panel();
+            this.lblErreurIndemnite = new System.Windows.Forms.Label();
             this.txtIndemnite = new System.Windows.Forms.TextBox();
             this.pnlMotif = new System.Windows.Forms.Panel();
+            this.lblErreurMotif = new System.Windows.Forms.Label();
             this.txtMotif = new System.Windows.Forms.TextBox();
             this.pnlMission = new System.Windows.Forms.Panel();
+            this.lblErreurMission = new System.Windows.Forms.Label();
             this.txtMission = new System.Windows.Forms.TextBox();
             this.pnlDateDeb = new System.Windows.Forms.Panel();
+            this.lblErreurDateDebut = new System.Windows.Forms.Label();
             this.dtpDateDebut = new System.Windows.Forms.DateTimePicker();
             this.pnlDateFinPrev = new System.Windows.Forms.Panel();
+            this.lblErreurFinPrevue = new System.Windows.Forms.Label();
             this.dtpDateFinPrev = new System.Windows.Forms.DateTimePicker();
             this.pnlDateFin = new System.Windows.Forms.Panel();
+            this.lblErreurDateFin = new System.Windows.Forms.Label();
             this.chkFinNonConnue = new System.Windows.Forms.CheckBox();
             this.dtpDateFin = new System.Windows.Forms.DateTimePicker();
             this.pnlAgence = new System.Windows.Forms.Panel();
+            this.lblErreurAgence = new System.Windows.Forms.Label();
             this.txtAgence = new System.Windows.Forms.TextBox();
             this.pnlEcole = new System.Windows.Forms.Panel();
+            this.lblErreurEcole = new System.Windows.Forms.Label();
             this.txtEcole = new System.Windows.Forms.TextBox();
             this.btnAvenants = new System.Windows.Forms.Button();
             this.lblTypeContrat = new System.Windows.Forms.Label();
@@ -78,16 +88,6 @@
             this.btnValider = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.flpValidAnnul = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblErreurQualif = new System.Windows.Forms.Label();
-            this.lblErreurSalaire = new System.Windows.Forms.Label();
-            this.lblErreurIndemnite = new System.Windows.Forms.Label();
-            this.lblErreurMotif = new System.Windows.Forms.Label();
-            this.lblErreurMission = new System.Windows.Forms.Label();
-            this.lblErreurDateDebut = new System.Windows.Forms.Label();
-            this.lblErreurDateFin = new System.Windows.Forms.Label();
-            this.lblErreurAgence = new System.Windows.Forms.Label();
-            this.lblErreurEcole = new System.Windows.Forms.Label();
-            this.lblErreurFinPrevue = new System.Windows.Forms.Label();
             this.flpContrat.SuspendLayout();
             this.pnlNumContrat.SuspendLayout();
             this.pnlQualif.SuspendLayout();
@@ -205,6 +205,7 @@
             // 
             // flpContrat
             // 
+            this.flpContrat.AutoScroll = true;
             this.flpContrat.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpContrat.Controls.Add(this.pnlNumContrat);
             this.flpContrat.Controls.Add(this.pnlQualif);
@@ -218,9 +219,10 @@
             this.flpContrat.Controls.Add(this.pnlAgence);
             this.flpContrat.Controls.Add(this.pnlEcole);
             this.flpContrat.Controls.Add(this.btnAvenants);
+            this.flpContrat.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpContrat.Location = new System.Drawing.Point(12, 30);
             this.flpContrat.Name = "flpContrat";
-            this.flpContrat.Size = new System.Drawing.Size(355, 547);
+            this.flpContrat.Size = new System.Drawing.Size(346, 442);
             this.flpContrat.TabIndex = 11;
             // 
             // pnlNumContrat
@@ -252,6 +254,17 @@
             this.pnlQualif.Size = new System.Drawing.Size(340, 39);
             this.pnlQualif.TabIndex = 1;
             // 
+            // lblErreurQualif
+            // 
+            this.lblErreurQualif.AutoSize = true;
+            this.lblErreurQualif.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurQualif.Location = new System.Drawing.Point(134, 26);
+            this.lblErreurQualif.Name = "lblErreurQualif";
+            this.lblErreurQualif.Size = new System.Drawing.Size(149, 13);
+            this.lblErreurQualif.TabIndex = 3;
+            this.lblErreurQualif.Text = "Veuillez saisir une qualification";
+            this.lblErreurQualif.Visible = false;
+            // 
             // txtQualif
             // 
             this.txtQualif.Location = new System.Drawing.Point(137, 3);
@@ -270,6 +283,17 @@
             this.pnlSalaire.Name = "pnlSalaire";
             this.pnlSalaire.Size = new System.Drawing.Size(340, 39);
             this.pnlSalaire.TabIndex = 2;
+            // 
+            // lblErreurSalaire
+            // 
+            this.lblErreurSalaire.AutoSize = true;
+            this.lblErreurSalaire.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurSalaire.Location = new System.Drawing.Point(134, 26);
+            this.lblErreurSalaire.Name = "lblErreurSalaire";
+            this.lblErreurSalaire.Size = new System.Drawing.Size(117, 13);
+            this.lblErreurSalaire.TabIndex = 6;
+            this.lblErreurSalaire.Text = "Veuillez saisir un salaire";
+            this.lblErreurSalaire.Visible = false;
             // 
             // txtSalaire
             // 
@@ -290,6 +314,16 @@
             this.pnlIndemnite.Size = new System.Drawing.Size(340, 55);
             this.pnlIndemnite.TabIndex = 3;
             // 
+            // lblErreurIndemnite
+            // 
+            this.lblErreurIndemnite.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurIndemnite.Location = new System.Drawing.Point(134, 26);
+            this.lblErreurIndemnite.Name = "lblErreurIndemnite";
+            this.lblErreurIndemnite.Size = new System.Drawing.Size(203, 29);
+            this.lblErreurIndemnite.TabIndex = 12;
+            this.lblErreurIndemnite.Text = "Veuillez saisir une indemnité";
+            this.lblErreurIndemnite.Visible = false;
+            // 
             // txtIndemnite
             // 
             this.txtIndemnite.Location = new System.Drawing.Point(137, 3);
@@ -308,6 +342,17 @@
             this.pnlMotif.Name = "pnlMotif";
             this.pnlMotif.Size = new System.Drawing.Size(340, 39);
             this.pnlMotif.TabIndex = 4;
+            // 
+            // lblErreurMotif
+            // 
+            this.lblErreurMotif.AutoSize = true;
+            this.lblErreurMotif.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurMotif.Location = new System.Drawing.Point(134, 26);
+            this.lblErreurMotif.Name = "lblErreurMotif";
+            this.lblErreurMotif.Size = new System.Drawing.Size(109, 13);
+            this.lblErreurMotif.TabIndex = 8;
+            this.lblErreurMotif.Text = "Veuillez saisir un motif";
+            this.lblErreurMotif.Visible = false;
             // 
             // txtMotif
             // 
@@ -328,6 +373,17 @@
             this.pnlMission.Size = new System.Drawing.Size(340, 39);
             this.pnlMission.TabIndex = 5;
             // 
+            // lblErreurMission
+            // 
+            this.lblErreurMission.AutoSize = true;
+            this.lblErreurMission.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurMission.Location = new System.Drawing.Point(134, 26);
+            this.lblErreurMission.Name = "lblErreurMission";
+            this.lblErreurMission.Size = new System.Drawing.Size(127, 13);
+            this.lblErreurMission.TabIndex = 11;
+            this.lblErreurMission.Text = "Veuillez saisir une mission";
+            this.lblErreurMission.Visible = false;
+            // 
             // txtMission
             // 
             this.txtMission.Location = new System.Drawing.Point(137, 3);
@@ -346,6 +402,17 @@
             this.pnlDateDeb.Name = "pnlDateDeb";
             this.pnlDateDeb.Size = new System.Drawing.Size(340, 39);
             this.pnlDateDeb.TabIndex = 6;
+            // 
+            // lblErreurDateDebut
+            // 
+            this.lblErreurDateDebut.AutoSize = true;
+            this.lblErreurDateDebut.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurDateDebut.Location = new System.Drawing.Point(134, 26);
+            this.lblErreurDateDebut.Name = "lblErreurDateDebut";
+            this.lblErreurDateDebut.Size = new System.Drawing.Size(145, 13);
+            this.lblErreurDateDebut.TabIndex = 4;
+            this.lblErreurDateDebut.Text = "Veuillez saisir une date valide";
+            this.lblErreurDateDebut.Visible = false;
             // 
             // dtpDateDebut
             // 
@@ -367,6 +434,16 @@
             this.pnlDateFinPrev.Size = new System.Drawing.Size(340, 57);
             this.pnlDateFinPrev.TabIndex = 7;
             // 
+            // lblErreurFinPrevue
+            // 
+            this.lblErreurFinPrevue.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurFinPrevue.Location = new System.Drawing.Point(137, 30);
+            this.lblErreurFinPrevue.Name = "lblErreurFinPrevue";
+            this.lblErreurFinPrevue.Size = new System.Drawing.Size(200, 27);
+            this.lblErreurFinPrevue.TabIndex = 7;
+            this.lblErreurFinPrevue.Text = "La date de fin prévue ne peut être antérieur à la date de début";
+            this.lblErreurFinPrevue.Visible = false;
+            // 
             // dtpDateFinPrev
             // 
             this.dtpDateFinPrev.Location = new System.Drawing.Point(137, 3);
@@ -383,10 +460,20 @@
             this.pnlDateFin.Controls.Add(this.chkFinNonConnue);
             this.pnlDateFin.Controls.Add(this.dtpDateFin);
             this.pnlDateFin.Controls.Add(this.lblDateFin);
-            this.pnlDateFin.Location = new System.Drawing.Point(3, 386);
+            this.pnlDateFin.Location = new System.Drawing.Point(349, 3);
             this.pnlDateFin.Name = "pnlDateFin";
             this.pnlDateFin.Size = new System.Drawing.Size(340, 80);
             this.pnlDateFin.TabIndex = 8;
+            // 
+            // lblErreurDateFin
+            // 
+            this.lblErreurDateFin.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurDateFin.Location = new System.Drawing.Point(134, 49);
+            this.lblErreurDateFin.Name = "lblErreurDateFin";
+            this.lblErreurDateFin.Size = new System.Drawing.Size(203, 31);
+            this.lblErreurDateFin.TabIndex = 6;
+            this.lblErreurDateFin.Text = "La date de fin ne peut être antérieure à la date de début";
+            this.lblErreurDateFin.Visible = false;
             // 
             // chkFinNonConnue
             // 
@@ -399,6 +486,7 @@
             this.chkFinNonConnue.TabIndex = 5;
             this.chkFinNonConnue.Text = "Non connue";
             this.chkFinNonConnue.UseVisualStyleBackColor = true;
+            this.chkFinNonConnue.CheckedChanged += new System.EventHandler(this.chkFinNonConnue_CheckedChanged);
             // 
             // dtpDateFin
             // 
@@ -415,10 +503,21 @@
             this.pnlAgence.Controls.Add(this.lblErreurAgence);
             this.pnlAgence.Controls.Add(this.txtAgence);
             this.pnlAgence.Controls.Add(this.lblAgence);
-            this.pnlAgence.Location = new System.Drawing.Point(3, 472);
+            this.pnlAgence.Location = new System.Drawing.Point(349, 89);
             this.pnlAgence.Name = "pnlAgence";
             this.pnlAgence.Size = new System.Drawing.Size(340, 40);
             this.pnlAgence.TabIndex = 9;
+            // 
+            // lblErreurAgence
+            // 
+            this.lblErreurAgence.AutoSize = true;
+            this.lblErreurAgence.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurAgence.Location = new System.Drawing.Point(134, 27);
+            this.lblErreurAgence.Name = "lblErreurAgence";
+            this.lblErreurAgence.Size = new System.Drawing.Size(161, 13);
+            this.lblErreurAgence.TabIndex = 9;
+            this.lblErreurAgence.Text = "Veuillez saisir le nom de l\'agence";
+            this.lblErreurAgence.Visible = false;
             // 
             // txtAgence
             // 
@@ -434,10 +533,21 @@
             this.pnlEcole.Controls.Add(this.lblErreurEcole);
             this.pnlEcole.Controls.Add(this.txtEcole);
             this.pnlEcole.Controls.Add(this.lblEcole);
-            this.pnlEcole.Location = new System.Drawing.Point(3, 518);
+            this.pnlEcole.Location = new System.Drawing.Point(349, 135);
             this.pnlEcole.Name = "pnlEcole";
             this.pnlEcole.Size = new System.Drawing.Size(340, 43);
             this.pnlEcole.TabIndex = 10;
+            // 
+            // lblErreurEcole
+            // 
+            this.lblErreurEcole.AutoSize = true;
+            this.lblErreurEcole.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblErreurEcole.Location = new System.Drawing.Point(137, 30);
+            this.lblErreurEcole.Name = "lblErreurEcole";
+            this.lblErreurEcole.Size = new System.Drawing.Size(151, 13);
+            this.lblErreurEcole.TabIndex = 10;
+            this.lblErreurEcole.Text = "Veuillez saisir le nom de l\'école";
+            this.lblErreurEcole.Visible = false;
             // 
             // txtEcole
             // 
@@ -449,7 +559,7 @@
             // 
             // btnAvenants
             // 
-            this.btnAvenants.Location = new System.Drawing.Point(3, 567);
+            this.btnAvenants.Location = new System.Drawing.Point(349, 184);
             this.btnAvenants.Name = "btnAvenants";
             this.btnAvenants.Size = new System.Drawing.Size(75, 23);
             this.btnAvenants.TabIndex = 17;
@@ -570,7 +680,7 @@
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(200, 3);
+            this.btnValider.Location = new System.Drawing.Point(187, 3);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(75, 23);
             this.btnValider.TabIndex = 22;
@@ -579,7 +689,7 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(281, 3);
+            this.btnAnnuler.Location = new System.Drawing.Point(268, 3);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 23;
@@ -591,117 +701,10 @@
             this.flpValidAnnul.Controls.Add(this.btnAnnuler);
             this.flpValidAnnul.Controls.Add(this.btnValider);
             this.flpValidAnnul.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flpValidAnnul.Location = new System.Drawing.Point(12, 583);
+            this.flpValidAnnul.Location = new System.Drawing.Point(12, 478);
             this.flpValidAnnul.Name = "flpValidAnnul";
-            this.flpValidAnnul.Size = new System.Drawing.Size(359, 33);
+            this.flpValidAnnul.Size = new System.Drawing.Size(346, 32);
             this.flpValidAnnul.TabIndex = 24;
-            // 
-            // lblErreurQualif
-            // 
-            this.lblErreurQualif.AutoSize = true;
-            this.lblErreurQualif.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurQualif.Location = new System.Drawing.Point(134, 26);
-            this.lblErreurQualif.Name = "lblErreurQualif";
-            this.lblErreurQualif.Size = new System.Drawing.Size(149, 13);
-            this.lblErreurQualif.TabIndex = 3;
-            this.lblErreurQualif.Text = "Veuillez saisir une qualification";
-            this.lblErreurQualif.Visible = false;
-            // 
-            // lblErreurSalaire
-            // 
-            this.lblErreurSalaire.AutoSize = true;
-            this.lblErreurSalaire.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurSalaire.Location = new System.Drawing.Point(134, 26);
-            this.lblErreurSalaire.Name = "lblErreurSalaire";
-            this.lblErreurSalaire.Size = new System.Drawing.Size(117, 13);
-            this.lblErreurSalaire.TabIndex = 6;
-            this.lblErreurSalaire.Text = "Veuillez saisir un salaire";
-            this.lblErreurSalaire.Visible = false;
-            // 
-            // lblErreurIndemnite
-            // 
-            this.lblErreurIndemnite.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurIndemnite.Location = new System.Drawing.Point(134, 26);
-            this.lblErreurIndemnite.Name = "lblErreurIndemnite";
-            this.lblErreurIndemnite.Size = new System.Drawing.Size(203, 29);
-            this.lblErreurIndemnite.TabIndex = 12;
-            this.lblErreurIndemnite.Text = "Veuillez saisir une indemnité";
-            this.lblErreurIndemnite.Visible = false;
-            // 
-            // lblErreurMotif
-            // 
-            this.lblErreurMotif.AutoSize = true;
-            this.lblErreurMotif.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurMotif.Location = new System.Drawing.Point(134, 26);
-            this.lblErreurMotif.Name = "lblErreurMotif";
-            this.lblErreurMotif.Size = new System.Drawing.Size(109, 13);
-            this.lblErreurMotif.TabIndex = 8;
-            this.lblErreurMotif.Text = "Veuillez saisir un motif";
-            this.lblErreurMotif.Visible = false;
-            // 
-            // lblErreurMission
-            // 
-            this.lblErreurMission.AutoSize = true;
-            this.lblErreurMission.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurMission.Location = new System.Drawing.Point(134, 26);
-            this.lblErreurMission.Name = "lblErreurMission";
-            this.lblErreurMission.Size = new System.Drawing.Size(127, 13);
-            this.lblErreurMission.TabIndex = 11;
-            this.lblErreurMission.Text = "Veuillez saisir une mission";
-            this.lblErreurMission.Visible = false;
-            // 
-            // lblErreurDateDebut
-            // 
-            this.lblErreurDateDebut.AutoSize = true;
-            this.lblErreurDateDebut.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurDateDebut.Location = new System.Drawing.Point(134, 26);
-            this.lblErreurDateDebut.Name = "lblErreurDateDebut";
-            this.lblErreurDateDebut.Size = new System.Drawing.Size(145, 13);
-            this.lblErreurDateDebut.TabIndex = 4;
-            this.lblErreurDateDebut.Text = "Veuillez saisir une date valide";
-            this.lblErreurDateDebut.Visible = false;
-            // 
-            // lblErreurDateFin
-            // 
-            this.lblErreurDateFin.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurDateFin.Location = new System.Drawing.Point(134, 49);
-            this.lblErreurDateFin.Name = "lblErreurDateFin";
-            this.lblErreurDateFin.Size = new System.Drawing.Size(203, 31);
-            this.lblErreurDateFin.TabIndex = 6;
-            this.lblErreurDateFin.Text = "La date de fin ne peut être antérieure à la date de début";
-            this.lblErreurDateFin.Visible = false;
-            // 
-            // lblErreurAgence
-            // 
-            this.lblErreurAgence.AutoSize = true;
-            this.lblErreurAgence.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurAgence.Location = new System.Drawing.Point(134, 27);
-            this.lblErreurAgence.Name = "lblErreurAgence";
-            this.lblErreurAgence.Size = new System.Drawing.Size(161, 13);
-            this.lblErreurAgence.TabIndex = 9;
-            this.lblErreurAgence.Text = "Veuillez saisir le nom de l\'agence";
-            this.lblErreurAgence.Visible = false;
-            // 
-            // lblErreurEcole
-            // 
-            this.lblErreurEcole.AutoSize = true;
-            this.lblErreurEcole.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurEcole.Location = new System.Drawing.Point(137, 30);
-            this.lblErreurEcole.Name = "lblErreurEcole";
-            this.lblErreurEcole.Size = new System.Drawing.Size(151, 13);
-            this.lblErreurEcole.TabIndex = 10;
-            this.lblErreurEcole.Text = "Veuillez saisir le nom de l\'école";
-            this.lblErreurEcole.Visible = false;
-            // 
-            // lblErreurFinPrevue
-            // 
-            this.lblErreurFinPrevue.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblErreurFinPrevue.Location = new System.Drawing.Point(137, 30);
-            this.lblErreurFinPrevue.Name = "lblErreurFinPrevue";
-            this.lblErreurFinPrevue.Size = new System.Drawing.Size(200, 27);
-            this.lblErreurFinPrevue.TabIndex = 7;
-            this.lblErreurFinPrevue.Text = "La date de fin prévue ne peut être antérieur à la date de début";
-            this.lblErreurFinPrevue.Visible = false;
             // 
             // frmContrat
             // 
@@ -710,7 +713,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(816, 624);
+            this.ClientSize = new System.Drawing.Size(816, 512);
             this.Controls.Add(this.flpValidAnnul);
             this.Controls.Add(this.btnMasquer);
             this.Controls.Add(this.btnDetailsAvenant);

@@ -17,13 +17,43 @@ namespace ABI_csharp_mvc
         public frmContrat()
         {
             InitializeComponent();
+            this.masqueGridview();
+            this.ModeCdd();
+            //Mise à zéro en attendant de récupérer un numéro depuis la base de données
+            this.txtNumContrat.Text = "0";
+        }
+
+        public frmContrat(Contrat unContrat)
+        {
+            if(unContrat is Cdd)
+            {
+                InitializeComponent();
+                this.ModeCdd();
+                this.masqueGridview();
+                this.txtNumContrat.Text = Convert.ToString(unContrat.NumContrat);
+                this.txtQualif.Text = unContrat.Qualification;
+                this.txtMotif.Text = (unContrat as Cdd).Motif;
+                this.dtpDateDebut.Value = unContrat.DateDebutContrat;
+                this.dtpDateFinPrev.Value = (unContrat as Cdd).DateFinPrevue;
+                this.txtSalaire.Text = Convert.ToString((unContrat as Cdd).SalaireBrut);
+                if((unContrat as Cdd).DateFinContrat == null)
+                {
+                    this.chkFinNonConnue.Checked = true;
+                    this.dtpDateFin.Enabled = false;
+                }else
+                {
+                    this.chkFinNonConnue.Checked = false;
+                    this.dtpDateFin.Value = (DateTime)unContrat.DateFinContrat;
+                }
+            }
+        }
+
+        private void masqueGridview()
+        {
             this.grdAvenant.Visible = false;
             this.btnAjoutAvenant.Visible = false;
             this.btnDetailsAvenant.Visible = false;
             this.btnMasquer.Visible = false;
-            this.ModeCdd();
-            //Mise à zéro en attendant de récupérer un numéro depuis la base de données
-            this.txtNumContrat.Text = "0";
         }
 
         public bool Instancie()
@@ -414,7 +444,25 @@ namespace ABI_csharp_mvc
         {
             this.lblErreurEcole.Visible = false;
         }
-    //Fin méthodes évenementielles d'effacement de label erreur correspondant
+
+     //Fin méthodes évenementielles d'effacement de label erreur correspondant
+
+        /// <summary>
+        /// Méthode évenementielle d'activation ou désactivation du dtpFinContrat selon la coche de chkFinNonConnue
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkFinNonConnue_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chkFinNonConnue.Checked == true)
+            {
+                this.dtpDateFin.Enabled = false;
+            }
+            else
+            {
+                this.dtpDateFin.Enabled = true;
+            }
+        }
 
 //Fin méthodes évenementielles
     }

@@ -295,6 +295,11 @@ public class Collaborateur
         return datatableContrats;
     }
 
+    public Contrat RetourneContrat(int numero)
+    {
+        return this.contrats[numero];
+    }
+
     /// <summary>
     ///  Ajouter une augmentation de salaire à la liste
     /// </summary>

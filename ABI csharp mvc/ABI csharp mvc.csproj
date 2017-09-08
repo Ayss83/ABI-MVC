@@ -51,6 +51,7 @@
     <Compile Include="ctrlNouvCollab.cs" />
     <Compile Include="ctrlNouvContrat.cs" />
     <Compile Include="ctrlVisuCollab.cs" />
+    <Compile Include="ctrlVisuContrat.cs" />
     <Compile Include="frmCollab.cs">
       <SubType>Form</SubType>
     </Compile>
