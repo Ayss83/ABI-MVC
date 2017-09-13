@@ -79,6 +79,7 @@
       <DependentUpon>AbiDao.tt</DependentUpon>
     </Compile>
     <Compile Include="CollaborateurDAOEFStatic.cs" />
+    <Compile Include="ContratDAOEFStatic.cs" />
     <Compile Include="DonneesDAO.cs" />
     <Compile Include="Collaborateur.cs">
       <DependentUpon>AbiDao.tt</DependentUpon>

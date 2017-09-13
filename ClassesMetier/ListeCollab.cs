@@ -23,10 +23,10 @@ namespace ClassesMetier
         {
             //Ajout d'un collaborateur en dur pour tests,
             //A remplacer par une lecture base de donnees pour la release
-            MCollaborateur unCollab = new MCollaborateur("Bouchard", "Gérard", "chef de projet", "23 Avenue de Steve le berger allemand", "", "Divorcé", "Actif", 1);
-            this.AjouterCollaborateur(unCollab);
-            MCollaborateur unCollab2 = new MCollaborateur("Guiche", "Albert", "Technicien", "pas d'adresse connue", "", "Marié", "Actif", 2);
-            this.AjouterCollaborateur(unCollab2);
+            //MCollaborateur unCollab = new MCollaborateur("Bouchard", "Gérard", "chef de projet", "23 Avenue de Steve le berger allemand", "", "Divorcé", "Actif", 1);
+            //this.AjouterCollaborateur(unCollab);
+            //MCollaborateur unCollab2 = new MCollaborateur("Guiche", "Albert", "Technicien", "pas d'adresse connue", "", "Marié", "Actif", 2);
+            //this.AjouterCollaborateur(unCollab2);
         }
    
        /// <summary>

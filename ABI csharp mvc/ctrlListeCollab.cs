@@ -21,7 +21,7 @@ namespace ABI_csharp_mvc
         public ctrlListeCollab()
         {
             lesCollabs = new MListeCollab();
-
+            CollaborateurDAOEFStatic.InstancieCollaborateurs(lesCollabs);
             leForm = new frmListeCollab(lesCollabs.ListerCollab());
             leForm.grdCollab.CellDoubleClick += new DataGridViewCellEventHandler(this.grdCollabs_DoubleClick);
             leForm.btnAjouter.Click += new EventHandler(this.ajoutCollab);
@@ -54,6 +54,7 @@ namespace ABI_csharp_mvc
             {
                 //Récupération du collaborateur créé dans le form et ajout dans la liste
                 lesCollabs.AjouterCollaborateur(nouvCollab.leCollab);
+                CollaborateurDAOEFStatic.InsereCollaborateur(nouvCollab.leCollab);
                 //Remise à jour de l'affichage
                 this.leForm.grdCollab.DataSource=lesCollabs.ListerCollab();
             }

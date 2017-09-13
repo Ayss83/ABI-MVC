@@ -56,7 +56,7 @@ namespace ABI_csharp_mvc
             this.txtPrenom.Text = unCollab.PrenomCollabo;
             this.txtAdresse.Text = unCollab.Adresse;
 
-            if (unCollab.Photo.Length < 7) // Condition temporaire, à modifier plus tard si besoin
+            if (unCollab.Photo == null || unCollab.Photo.Length < 7) // Condition temporaire, à modifier plus tard si besoin
             {
                 this.pbPhoto.Visible = false;
             }

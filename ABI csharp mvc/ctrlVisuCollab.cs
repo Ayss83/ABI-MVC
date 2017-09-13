@@ -50,7 +50,7 @@ namespace ABI_csharp_mvc
             }
 
             //Masquage du label photo si pas de photo associée au collaborateur
-            if (leCollab.Photo.Length < 7) 
+            if (leCollab.Photo == null || leCollab.Photo.Length < 7) 
             {
                 leForm.lblPhoto.Visible = false;
             }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassesMetier;
+using ABIDAO;
 
 namespace ABI_csharp_mvc
 {
@@ -15,8 +16,31 @@ namespace ABI_csharp_mvc
         {
             leForm = new frmCollab(unCollab);
             leForm.Text = unCollab.PrenomCollabo + " " + unCollab.NomCollabo;
-            leForm.MdiParent = frmMDI.getInstance();
-            leForm.Show();
+            leForm.btnValider.Visible = true;
+            leForm.btnAnnuler.Text = "Annuler";
+            leForm.btnValider.Click += this.btnOK_Click;
+            leForm.btnAnnuler.Click += this.btnAnnuler_Click;
+            //leForm.MdiParent = frmMDI.getInstance();
+            if (leForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (leForm.VerifChamps())
+                {
+                    if (leForm.Instancie())
+                    {
+                        CollaborateurDAOEFStatic.ModifieCollaborateur(leForm.Collab);
+                    }
+                }
+            }
+        }
+
+        public void btnOK_Click(object sender, EventArgs e)
+        {
+            this.leForm.DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        public void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            this.leForm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
         }
     }
 }
