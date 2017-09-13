@@ -11,13 +11,13 @@ namespace ABI_csharp_mvc
     class ctrlVisuCollab
     {
         private frmCollab leForm;
-        private Collaborateur leCollab;
+        private MCollaborateur leCollab;
 
         /// <summary>
         /// Constructeur, instancie et configure un frmCollab de visualisation, le remplit avec les informations du collaborateur reçu en paramètre
         /// </summary>
         /// <param name="unCollab">une instance de Collaborateur</param>
-        public ctrlVisuCollab(Collaborateur unCollab)
+        public ctrlVisuCollab(MCollaborateur unCollab)
         {
             leCollab = unCollab;
             leForm = new frmCollab(unCollab);
@@ -110,7 +110,7 @@ namespace ABI_csharp_mvc
         /// </summary>
         private void selectContrat()
         {
-            Contrat leContrat;
+            MContrat leContrat;
             leContrat = leCollab.RetourneContrat(Convert.ToInt32(leForm.grdContrats.CurrentRow.Cells[0].Value));
             ctrlVisuContrat leFormContrat = new ctrlVisuContrat(leContrat);
         }

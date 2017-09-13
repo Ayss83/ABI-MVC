@@ -9,7 +9,7 @@ using System;
 namespace ClassesMetier
 {
 
-    public class Interim : ContratTemporaire
+    public class MInterim : MContratTemporaire
     {
    
        /// <summary>
@@ -21,7 +21,7 @@ namespace ClassesMetier
        /// <param name="unNum">Numéro du contrat</param>
        /// <param name="uneQualif">Qualification</param>
        /// <param name="uneDateDeb">Date de début du contrat</param>
-       public Interim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
+       public MInterim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
         {
             initInterim(uneAgence);
         }
@@ -36,7 +36,7 @@ namespace ClassesMetier
         /// <param name="uneQualif">Qualification</param>
         /// <param name="uneDateDeb">Date de début du contrat</param>
         /// <param name="uneDateFin">Date de fin du contrat</param>
-        public Interim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) : base(unMotif, uneDateFinPrev, unNum, uneQualif, uneDateDeb, uneDateFin)
+        public MInterim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) : base(unMotif, uneDateFinPrev, unNum, uneQualif, uneDateDeb, uneDateFin)
         {
             initInterim(uneAgence);
         }

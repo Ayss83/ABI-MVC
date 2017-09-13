@@ -11,7 +11,7 @@ using System.Data;
 namespace ClassesMetier
 {
 
-    public abstract class Contrat
+    public abstract class MContrat
     {
        /// <summary>
        /// Constructeur du contrat sans date de fin définie
@@ -19,7 +19,7 @@ namespace ClassesMetier
        /// <param name="unNum">Numéro de contrat</param>
        /// <param name="uneQualif">Qualification du collaborateur</param>
        /// <param name="uneDateDeb">Date de début du contrat</param>
-       public Contrat(int unNum, String uneQualif, DateTime uneDateDeb)
+       public MContrat(int unNum, String uneQualif, DateTime uneDateDeb)
         {
             initContrat(unNum, uneQualif, uneDateDeb);
             this.DateFinContrat = null;
@@ -32,7 +32,7 @@ namespace ClassesMetier
         /// <param name="uneQualif">Qualification du collaborateur</param>
         /// <param name="uneDateDeb">Date de début du contrat</param>
         /// <param name="uneDateFin">Date de fin du contrat</param>
-        public Contrat(int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin)
+        public MContrat(int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin)
        {
             initContrat(unNum, uneQualif, uneDateDeb);
             DateFinContrat = uneDateFin;
@@ -43,7 +43,7 @@ namespace ClassesMetier
        protected int numContrat;
        protected DateTime? dateFinContrat;
 
-       private SortedDictionary<int, Avenant> avenants;
+       private SortedDictionary<int, MAvenant> avenants;
    
         public DateTime DateDebutContrat
        {
@@ -101,12 +101,12 @@ namespace ClassesMetier
        /// Ajout d'un avenant dans le dictionnaire
        /// </summary>
        /// <param name="newAvenant">Référence d'un avenant</param>
-       public void AddAvenant(Avenant newAvenant)
+       public void AddAvenant(MAvenant newAvenant)
        {
           if (newAvenant == null)
              return;
           if (this.avenants == null)
-             this.avenants = new SortedDictionary<int,Avenant>();
+             this.avenants = new SortedDictionary<int,MAvenant>();
           if (!this.avenants.ContainsValue(newAvenant))
              this.avenants.Add(newAvenant.NumAvenant, newAvenant);
        }
@@ -122,7 +122,7 @@ namespace ClassesMetier
             listeAvenants.Columns.Add("Date");
 
             DataRow dr = listeAvenants.NewRow();
-            foreach(KeyValuePair<int,Avenant> kvp in avenants)
+            foreach(KeyValuePair<int,MAvenant> kvp in avenants)
             {
                 dr["Numéro"] = kvp.Key;
                 dr["Date"] = kvp.Value.DateAvenant;

@@ -16,7 +16,7 @@ namespace ABI_csharp_mvc
         /// <summary>
         /// Collaborateur en dur pour tests
         /// </summary>
-        private Collaborateur collabo = new Collaborateur("De la Roque", "Jean-Charles", "315 Avenue de la liberté", "PDG");
+        private MCollaborateur collabo = new MCollaborateur("De la Roque", "Jean-Charles", "315 Avenue de la liberté", "PDG");
         private static frmMDI Instance;
 
         /// <summary>

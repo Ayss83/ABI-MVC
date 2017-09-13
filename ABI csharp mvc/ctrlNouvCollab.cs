@@ -18,10 +18,10 @@ namespace ABI_csharp_mvc
     class ctrlNouvCollab
     {
         private frmCollab leForm;
-        private ListeCollab laListe;
+        private MListeCollab laListe;
         internal DialogResult Retour;
-        internal Collaborateur leCollab;
-        private Contrat leContrat;
+        internal MCollaborateur leCollab;
+        private MContrat leContrat;
 
         /// <summary>
         /// Constructeur, instancie, affecte les actions à différents boutons et affiche un form pour créer un nouveau collaborateur

@@ -9,7 +9,7 @@ using System;
 namespace ClassesMetier
 {
 
-    public class Stage : ContratTemporaire
+    public class MStage : MContratTemporaire
     {
    
        /// <summary>
@@ -23,7 +23,7 @@ namespace ClassesMetier
        /// <param name="unNum">Numéro du contrat de stage</param>
        /// <param name="uneQualif">Qualification</param>
        /// <param name="uneDateDeb">Date de début du stage</param>
-       public Stage(String uneEcole, String uneMission, Decimal uneIndemnite, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
+       public MStage(String uneEcole, String uneMission, Decimal uneIndemnite, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
         {
             initStage(uneEcole, uneMission, uneIndemnite);
         }
@@ -40,7 +40,7 @@ namespace ClassesMetier
         /// <param name="uneQualif">Qualification</param>
         /// <param name="uneDateDeb">Date de début du stage</param>
         /// <param name="uneDateFin">Date de fin du stage</param>
-        public Stage(String uneEcole, String uneMission, Decimal uneIndemnite, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) : base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb,uneDateFin)
+        public MStage(String uneEcole, String uneMission, Decimal uneIndemnite, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) : base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb,uneDateFin)
         {
             initStage(uneEcole, uneMission, uneIndemnite);
         }

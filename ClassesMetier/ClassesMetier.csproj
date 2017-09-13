@@ -44,12 +44,12 @@
     <Compile Include="Avenant.cs" />
     <Compile Include="Cdd.cs" />
     <Compile Include="Cdi.cs" />
-    <Compile Include="Collaborateur.cs" />
     <Compile Include="Contrat.cs" />
     <Compile Include="ContratTemporaire.cs" />
     <Compile Include="Donnees.cs" />
     <Compile Include="Interim.cs" />
     <Compile Include="ListeCollab.cs" />
+    <Compile Include="Collaborateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stage.cs" />
   </ItemGroup>

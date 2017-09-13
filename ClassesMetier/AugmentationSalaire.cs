@@ -9,7 +9,7 @@ using System;
 namespace ClassesMetier
 {
 
-    public class AugmentationSalaire
+    public class MAugmentationSalaire
     {
        private DateTime date;
        private decimal augmentation;
@@ -19,7 +19,7 @@ namespace ClassesMetier
         /// </summary>
         /// <param name="uneDate">Date de l'augmentation</param>
         /// <param name="uneAugmentation">Montant de l'augmentation</param>
-        public AugmentationSalaire(DateTime uneDate,decimal uneAugmentation)
+        public MAugmentationSalaire(DateTime uneDate,decimal uneAugmentation)
         {
             this.Date = uneDate;
             this.Augmentation = uneAugmentation;

@@ -9,7 +9,7 @@ namespace ABIDAO
 {
     public class CollaborateurDAOEFStatic
     {
-        public static void InstancieCollaborateurs(ListeCollab laListe)
+        public static void InstancieCollaborateurs(MListeCollab laListe)
         {
             if (DonneesDAO.DbContextAbiDao == null)
             {
@@ -18,11 +18,11 @@ namespace ABIDAO
             var query = from c in DonneesDAO.DbContextAbiDao.CollaborateurSet
                         select c;
 
-            ClassesMetier.Collaborateur leCollab;
+            ClassesMetier.MCollaborateur leCollab;
 
             foreach(Collaborateur collab in query)
             {
-                leCollab = new ClassesMetier.Collaborateur(collab.NomCollabo,
+                leCollab = new ClassesMetier.MCollaborateur(collab.NomCollabo,
                     collab.PrenomCollabo,
                     collab.FonctionCollabo,
                     collab.Adresse,

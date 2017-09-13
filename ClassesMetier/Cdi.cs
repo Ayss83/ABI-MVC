@@ -9,7 +9,7 @@ using System;
 namespace ClassesMetier
 {
 
-    public class Cdi : Contrat
+    public class MCdi : MContrat
     {
         /// <summary>
         /// Constructeur d'un objet CDI avec date de fin définie
@@ -19,7 +19,7 @@ namespace ClassesMetier
         /// <param name="uneQualif">Qualification</param>
         /// <param name="uneDateDeb">Date de début du contrat</param>
         /// <param name="uneDateFin">Date de fin du contrat</param>
-        public Cdi(Decimal unSalaire, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
+        public MCdi(Decimal unSalaire, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
         {
             initSalaire(unSalaire);
         }
@@ -32,7 +32,7 @@ namespace ClassesMetier
         /// <param name="unNum">Numéro du contrat</param>
         /// <param name="uneQualif">Qualification</param>
         /// <param name="uneDateDeb">Date de début du contrat</param>
-        public Cdi(Decimal unSalaire, int unNum, String uneQualif, DateTime uneDateDeb) :base(unNum,uneQualif,uneDateDeb)
+        public MCdi(Decimal unSalaire, int unNum, String uneQualif, DateTime uneDateDeb) :base(unNum,uneQualif,uneDateDeb)
        {
             initSalaire(unSalaire);
         }

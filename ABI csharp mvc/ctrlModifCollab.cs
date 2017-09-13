@@ -11,7 +11,7 @@ namespace ABI_csharp_mvc
     {
         private frmCollab leForm;
 
-        public ctrlModifCollab(Collaborateur unCollab)
+        public ctrlModifCollab(MCollaborateur unCollab)
         {
             leForm = new frmCollab(unCollab);
             leForm.Text = unCollab.PrenomCollabo + " " + unCollab.NomCollabo;

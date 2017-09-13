@@ -11,7 +11,7 @@ using System.Data;
 namespace ClassesMetier
 {
 
-    public class Collaborateur
+    public class MCollaborateur
     {
         /// <summary>
         /// constructeur pour instancier un nouveau collabo (matricule affecté par SGBD)
@@ -20,7 +20,7 @@ namespace ClassesMetier
         /// <param name="unPrenom">Prénom du collaborateur</param>
         /// <param name="uneAdresse">Adresse du collaborateur</param>
         /// <param name="uneFonction">Fonction du collaborateur</param>
-        public Collaborateur(String unNom, String unPrenom, String uneAdresse, String uneFonction, String unStatut)
+        public MCollaborateur(String unNom, String unPrenom, String uneAdresse, String uneFonction, String unStatut)
        {
             initContrat();
             initNomPrenomFonctionStatut(unNom, unPrenom, uneFonction, unStatut);
@@ -33,7 +33,7 @@ namespace ClassesMetier
         /// <param name="unNom">Nom du collaborateur</param>
         /// <param name="unPrenom">Prénom du collaborateur</param>
         /// <param name="uneFonction">Fonction du collaborateur</param>
-        public Collaborateur(String unNom, String unPrenom, String uneFonction, String unStatut)
+        public MCollaborateur(String unNom, String unPrenom, String uneFonction, String unStatut)
         {
             initContrat();
             initNomPrenomFonctionStatut(unNom, unPrenom, uneFonction, unStatut);
@@ -49,7 +49,7 @@ namespace ClassesMetier
         /// <param name="unePhoto">Chemin d'accès à la photo</param>
         /// <param name="uneSituation">Situation familiale du collaborateur</param>
         /// <param name="unStatut">Statut du collaborateur</param>
-        public Collaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut)
+        public MCollaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut)
         {
             initContrat();
             initNomPrenomFonctionStatut(unNom, unPrenom, uneFonction, unStatut);
@@ -67,7 +67,7 @@ namespace ClassesMetier
         /// <param name="uneSituation">Situation familiale du collaborateur</param>
         /// <param name="unStatut">Statut du collaborateur</param>
         /// <param name="unMatricule">Matricule du collaborateur</param>
-        public Collaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut, int unMatricule)
+        public MCollaborateur(String unNom, String unPrenom, String uneFonction, String uneAdresse, String unePhoto, String uneSituation, String unStatut, int unMatricule)
        {
             // voir pour n'accepter que depuis la couche DAO
             initContrat();
@@ -84,10 +84,10 @@ namespace ClassesMetier
        private String adresse;
        private String situationFamiliale;
        private String statut;
-       private Contrat contratActif;
-       private List<AugmentationSalaire> listAugmentationSalaire;
+       private MContrat contratActif;
+       private List<MAugmentationSalaire> listAugmentationSalaire;
    
-       private SortedDictionary<int,Contrat> contrats;
+       private SortedDictionary<int,MContrat> contrats;
 
         /// <summary>
         /// nom du collaborateur (converti en MAJ) - Obligatoire
@@ -211,7 +211,7 @@ namespace ClassesMetier
           }
        }
 
-        public Contrat ContratActif
+        public MContrat ContratActif
         {
             get
             {
@@ -246,12 +246,12 @@ namespace ClassesMetier
         /// <returns>Valeur totale du salaire (indemnité) effectif</returns>
         public Decimal GetSalaireEffectif()
         {
-            if(ContratActif is Cdd || ContratActif is Cdi)
+            if(ContratActif is MCdd || ContratActif is MCdi)
             {
-                return (ContratActif as Cdd).SalaireBrut + TotalAugment();
-            }else if(ContratActif is Stage)
+                return (ContratActif as MCdd).SalaireBrut + TotalAugment();
+            }else if(ContratActif is MStage)
             {
-                return (ContratActif as Stage).Indemnite + TotalAugment();
+                return (ContratActif as MStage).Indemnite + TotalAugment();
             }else
             {
                 return 0;
@@ -262,13 +262,13 @@ namespace ClassesMetier
        /// Ajouter un contrat a la liste de contrats du collaborateur et le définit comme contrat actif
        /// </summary>
        /// <param name="newContrat">une instance de contrat</param>
-       public void AddContrat(Contrat newContrat)
+       public void AddContrat(MContrat newContrat)
        {
           if (newContrat == null)
              return;
 
           if (this.contrats == null)
-             this.contrats = new SortedDictionary<int, Contrat>();
+             this.contrats = new SortedDictionary<int, MContrat>();
 
           if (!this.contrats.ContainsValue(newContrat)) {
                 this.contrats.Add(newContrat.NumContrat,newContrat);
@@ -285,7 +285,7 @@ namespace ClassesMetier
             datatableContrats.Columns.Add("Date d'établissement", typeof(String));
             datatableContrats.Columns.Add("Qualification", typeof(String));
 
-            foreach(KeyValuePair<int,Contrat> kvp in contrats)
+            foreach(KeyValuePair<int,MContrat> kvp in contrats)
             {
                 DataRow dr;
                 dr = datatableContrats.NewRow();
@@ -298,7 +298,7 @@ namespace ClassesMetier
             return datatableContrats;
         }
 
-        public Contrat RetourneContrat(int numero)
+        public MContrat RetourneContrat(int numero)
         {
             return this.contrats[numero];
         }
@@ -307,12 +307,12 @@ namespace ClassesMetier
         ///  Ajouter une augmentation de salaire à la liste
         /// </summary>
         /// <param name="newAugmentationSalaire">Une augmentation de salaire</param>
-        public void AjouterAugmentation(AugmentationSalaire newAugmentationSalaire)
+        public void AjouterAugmentation(MAugmentationSalaire newAugmentationSalaire)
        {
           if (newAugmentationSalaire == null)
              return;
           if (this.listAugmentationSalaire == null)
-             this.listAugmentationSalaire = new List<AugmentationSalaire>();
+             this.listAugmentationSalaire = new List<MAugmentationSalaire>();
           if (!this.listAugmentationSalaire.Contains(newAugmentationSalaire))
              this.listAugmentationSalaire.Add(newAugmentationSalaire);
        }
@@ -324,7 +324,7 @@ namespace ClassesMetier
         public decimal TotalAugment()
         {
             decimal total = 0;
-            foreach(AugmentationSalaire augment in listAugmentationSalaire)
+            foreach(MAugmentationSalaire augment in listAugmentationSalaire)
             {
                 total = total + augment.Augmentation;
             }
@@ -336,7 +336,7 @@ namespace ClassesMetier
         /// </summary>
         private void initContrat()
         {
-            this.contrats = new SortedDictionary<int, Contrat>();
+            this.contrats = new SortedDictionary<int, MContrat>();
             this.ContratActif = null;
         }
 

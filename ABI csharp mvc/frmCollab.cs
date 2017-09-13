@@ -16,7 +16,7 @@ namespace ABI_csharp_mvc
 
         private List<String> fonctions = new List<string>();
         private List<String> situations = new List<string>();
-        internal Collaborateur Collab;
+        internal MCollaborateur Collab;
 
         
 
@@ -46,7 +46,7 @@ namespace ABI_csharp_mvc
         /// Constructeur avec un collaborateur en paramètre pour affichage du détail
         /// </summary>
         /// <param name="unCollab">Une instance de collaborateur</param>
-        public frmCollab(Collaborateur unCollab)
+        public frmCollab(MCollaborateur unCollab)
         {
             InitializeComponent();
 
@@ -140,11 +140,11 @@ namespace ABI_csharp_mvc
             {
                 if (this.rbtActif.Checked == true)
                 {
-                    Collab = new Collaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.SelectedItem, this.txtAdresse.Text, this.ofdChoixImage.FileName, (string)this.cbxSituation.SelectedItem, this.rbtActif.Text);
+                    Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.SelectedItem, this.txtAdresse.Text, this.ofdChoixImage.FileName, (string)this.cbxSituation.SelectedItem, this.rbtActif.Text);
                     return true;
                 }else
                 {
-                    Collab = new Collaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.SelectedItem, this.txtAdresse.Text, this.ofdChoixImage.FileName, (string)this.cbxSituation.SelectedItem, this.rbtInactif.Text);
+                    Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.SelectedItem, this.txtAdresse.Text, this.ofdChoixImage.FileName, (string)this.cbxSituation.SelectedItem, this.rbtInactif.Text);
                     return true;
                 }
             }catch(Exception ex)
@@ -153,11 +153,11 @@ namespace ABI_csharp_mvc
                 {
                     if (this.rbtActif.Checked == true)
                     {
-                        Collab = new Collaborateur(this.txtNom.Text, this.txtPrenom.Text, this.txtAdresse.Text, (string)this.cbxFonction.SelectedItem, this.rbtActif.Text);
+                        Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, this.txtAdresse.Text, (string)this.cbxFonction.SelectedItem, this.rbtActif.Text);
                         return true;
                     }else
                     {
-                        Collab = new Collaborateur(this.txtNom.Text, this.txtPrenom.Text, this.txtAdresse.Text, (string)this.cbxFonction.SelectedItem, this.rbtInactif.Text);
+                        Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, this.txtAdresse.Text, (string)this.cbxFonction.SelectedItem, this.rbtInactif.Text);
                         return true;
                     }
                 }catch(Exception exc)
@@ -166,11 +166,11 @@ namespace ABI_csharp_mvc
                     {
                         if (this.rbtActif.Checked == true)
                         {
-                            Collab = new Collaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.Text, this.rbtActif.Text);
+                            Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.Text, this.rbtActif.Text);
                             return true;
                         }else
                         {
-                            Collab = new Collaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.Text, this.rbtInactif.Text);
+                            Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.Text, this.rbtInactif.Text);
                             return true;
                         }
                     }catch(Exception exce)

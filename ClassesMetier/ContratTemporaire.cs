@@ -9,7 +9,7 @@ using System;
 namespace ClassesMetier
 {
 
-    public abstract class ContratTemporaire : Contrat
+    public abstract class MContratTemporaire : MContrat
     {
        /// <summary>
        /// Constructeur de Contrat temporaire avec date de fin définie
@@ -20,7 +20,7 @@ namespace ClassesMetier
        /// <param name="uneQualif">Qualification</param>
        /// <param name="uneDateDeb">Date de début du cotnrat</param>
        /// <param name="uneDateFin">Date de fin du contrat</param>
-       public ContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
+       public MContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
         {
             initContratTemp(unMotif, uneDateFinPrev);
         }
@@ -34,7 +34,7 @@ namespace ClassesMetier
         /// <param name="unNum">Numéro du contrat</param>
         /// <param name="uneQualif">Qualification</param>
         /// <param name="uneDateDeb">Date de début du contrat</param>
-        public ContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb) :base(unNum,uneQualif,uneDateDeb)
+        public MContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb) :base(unNum,uneQualif,uneDateDeb)
         {
             initContratTemp(unMotif, uneDateFinPrev);
         }

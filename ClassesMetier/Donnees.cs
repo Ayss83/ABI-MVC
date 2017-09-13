@@ -8,7 +8,7 @@ namespace ClassesMetier
 {
     class Donnees
     {
-        public static ListeCollab laListe = new ListeCollab();
+        public static MListeCollab laListe = new MListeCollab();
     }
 
 }

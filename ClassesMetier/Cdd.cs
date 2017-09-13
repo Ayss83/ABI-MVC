@@ -9,7 +9,7 @@ using System;
 namespace ClassesMetier
 {
 
-    public class Cdd : ContratTemporaire
+    public class MCdd : MContratTemporaire
     {
    
        /// <summary>
@@ -21,7 +21,7 @@ namespace ClassesMetier
        /// <param name="unNum">Numéro du contrat</param>
        /// <param name="unMotif">Motif d'établissement du contrat</param>
        /// <param name="uneDateFinPrev">Date de fin prévue</param>
-       public Cdd(Decimal unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
+       public MCdd(Decimal unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb)
         {
             initSalaire(unSalaire);
         }
@@ -36,7 +36,7 @@ namespace ClassesMetier
         /// <param name="unMotif">Motif d'établissement du contrat</param>
         /// <param name="uneDateFinPrev">Date de fin prévue</param>
         /// <param name="uneDateFin">Date de fin du contrat</param>
-        public Cdd(Decimal unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev, DateTime uneDateFin) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb,uneDateFin)
+        public MCdd(Decimal unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev, DateTime uneDateFin) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb,uneDateFin)
        {
             initSalaire(unSalaire);
         }

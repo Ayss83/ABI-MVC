@@ -11,7 +11,7 @@ namespace ABI_csharp_mvc
     {
         private frmContrat leForm;
 
-        public ctrlVisuContrat(Contrat unContrat)
+        public ctrlVisuContrat(MContrat unContrat)
         {
             leForm = new frmContrat(unContrat);
             leForm.MdiParent = frmMDI.getInstance();

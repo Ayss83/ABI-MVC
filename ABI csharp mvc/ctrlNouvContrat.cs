@@ -12,7 +12,7 @@ namespace ABI_csharp_mvc
     {
         private frmContrat leForm;
         private DialogResult resultat;
-        private Contrat leContrat;
+        private MContrat leContrat;
 
         /// <summary>
         /// Constructeur, instancie et affiche un form frmContrat vide et Ajoute les actions aux boutons Valider et Annuler
@@ -71,7 +71,7 @@ namespace ABI_csharp_mvc
         /// Méthode d'accès à la variable leContrat
         /// </summary>
         /// <returns>Instance de Contrat</returns>
-        public Contrat Contrat()
+        public MContrat Contrat()
         {
             return leContrat;
         }

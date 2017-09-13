@@ -9,14 +9,14 @@ using System;
 namespace ClassesMetier
 {
 
-    public class Avenant
+    public class MAvenant
     {
        /// <summary>
        /// Constructeur pour un objet avenant
        /// </summary>
        /// <param name="unNum">Numéro de l'avenant</param>
        /// <param name="uneDate">Date d'établissement de l'avenant</param>
-       public Avenant(int unNum, DateTime uneDate)
+       public MAvenant(int unNum, DateTime uneDate)
        {
             this.NumAvenant = unNum;
             this.DateAvenant = uneDate;

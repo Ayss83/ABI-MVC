@@ -13,14 +13,14 @@ namespace ABI_csharp_mvc
     class ctrlListeCollab
     {
         private frmListeCollab leForm;
-        private ListeCollab lesCollabs;
+        private MListeCollab lesCollabs;
 
         /// <summary>
         /// Constructeur, initialise la liste de collaborateurs et le form frmListeCollab puis l'affiche, attribue les actions aux boutons
         /// </summary>
         public ctrlListeCollab()
         {
-            lesCollabs = new ListeCollab();
+            lesCollabs = new MListeCollab();
 
             leForm = new frmListeCollab(lesCollabs.ListerCollab());
             leForm.grdCollab.CellDoubleClick += new DataGridViewCellEventHandler(this.grdCollabs_DoubleClick);
@@ -85,12 +85,12 @@ namespace ABI_csharp_mvc
         /// Méthode retournant l'objet collaborateur correspondant à la ligne actuellement sélectionnée
         /// </summary>
         /// <returns>Collaborateur correspondant à la ligne</returns>
-        private ClassesMetier.Collaborateur selectLigne()
+        private MCollaborateur selectLigne()
         {
             Int32 matricule;
             //Récupération valeur du matricule dans la première case de la rangée
             matricule = (Int32)leForm.grdCollab.CurrentRow.Cells[0].Value;
-            Collaborateur unCollab;
+            ClassesMetier.MCollaborateur unCollab;
             //Recherche du collaborateur correspondant au matricule dans le dictionnaire
             unCollab = lesCollabs.RestituerCollaborateur(matricule);
             return unCollab;

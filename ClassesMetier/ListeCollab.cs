@@ -11,21 +11,21 @@ using System.Data;
 namespace ClassesMetier
 {
 
-    public class ListeCollab
+    public class MListeCollab
     {
-        private SortedDictionary<int,Collaborateur> collaborateurs;
+        private SortedDictionary<int,MCollaborateur> collaborateurs;
         private DataTable datatableCollab;
 
         /// <summary>
         /// Constructeur de l'objet ListeCollab, Rempli le dictionnaire avec le contenu de la base de données (prévu)
         /// </summary>
-        public ListeCollab()
+        public MListeCollab()
         {
             //Ajout d'un collaborateur en dur pour tests,
             //A remplacer par une lecture base de donnees pour la release
-            Collaborateur unCollab = new Collaborateur("Bouchard", "Gérard", "chef de projet", "23 Avenue de Steve le berger allemand", "", "Divorcé", "Actif", 1);
+            MCollaborateur unCollab = new MCollaborateur("Bouchard", "Gérard", "chef de projet", "23 Avenue de Steve le berger allemand", "", "Divorcé", "Actif", 1);
             this.AjouterCollaborateur(unCollab);
-            Collaborateur unCollab2 = new Collaborateur("Guiche", "Albert", "Technicien", "pas d'adresse connue", "", "Marié", "Actif", 2);
+            MCollaborateur unCollab2 = new MCollaborateur("Guiche", "Albert", "Technicien", "pas d'adresse connue", "", "Marié", "Actif", 2);
             this.AjouterCollaborateur(unCollab2);
         }
    
@@ -33,12 +33,12 @@ namespace ClassesMetier
        /// Méthode d'ajout d'un collaborateur dans le dictionnaire
        /// </summary>
        /// <param name="newCollaborateur">Instance d'un objet collaborateur</param>
-       public void AjouterCollaborateur(Collaborateur newCollaborateur)
+       public void AjouterCollaborateur(MCollaborateur newCollaborateur)
        {
           if (newCollaborateur == null)
              return;
           if (this.collaborateurs == null)
-             this.collaborateurs = new SortedDictionary<int, Collaborateur>();
+             this.collaborateurs = new SortedDictionary<int, MCollaborateur>();
           if (!this.collaborateurs.ContainsKey(newCollaborateur.Matricule))
              this.collaborateurs.Add(newCollaborateur.Matricule,newCollaborateur);
        }
@@ -50,7 +50,7 @@ namespace ClassesMetier
        public override String ToString()
        {
             string retourListe="";
-            foreach(KeyValuePair<int,Collaborateur> kvp in collaborateurs)
+            foreach(KeyValuePair<int,MCollaborateur> kvp in collaborateurs)
             {
                 retourListe = retourListe + "Matricule : " + kvp.Key + ", Nom : " + kvp.Value.NomCollabo + "\n";
             }
@@ -70,7 +70,7 @@ namespace ClassesMetier
             datatableCollab.Columns.Add(new DataColumn("Fonction", typeof(String)));
             datatableCollab.Columns.Add(new DataColumn("Statut", typeof(String)));
 
-            foreach(KeyValuePair<int,Collaborateur> kvp in collaborateurs)
+            foreach(KeyValuePair<int,MCollaborateur> kvp in collaborateurs)
             {
                 DataRow dr = datatableCollab.NewRow();
                 dr[0] = kvp.Key;
@@ -89,7 +89,7 @@ namespace ClassesMetier
         /// </summary>
         /// <param name="matricule">Matricule recherché</param>
         /// <returns></returns>
-        public Collaborateur RestituerCollaborateur(Int32 matricule)
+        public MCollaborateur RestituerCollaborateur(Int32 matricule)
         {
             return collaborateurs[matricule];
         }
