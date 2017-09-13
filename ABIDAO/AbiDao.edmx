@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AbiDao.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AbiDaoStoreContainer">
+    <EntitySet Name="CollaborateurSet" EntityType="AbiDao.Store.CollaborateurSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratSet" EntityType="AbiDao.Store.ContratSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AugmentationSalaireSet" EntityType="AbiDao.Store.AugmentationSalaireSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AvenantSet" EntityType="AbiDao.Store.AvenantSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratSet_CDI" EntityType="AbiDao.Store.ContratSet_CDI" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratSet_ContratTemporaire" EntityType="AbiDao.Store.ContratSet_ContratTemporaire" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratSet_CDD" EntityType="AbiDao.Store.ContratSet_CDD" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratSet_Stage" EntityType="AbiDao.Store.ContratSet_Stage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContratSet_Interim" EntityType="AbiDao.Store.ContratSet_Interim" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CollaborateurContrat" Association="AbiDao.Store.CollaborateurContrat">
+      <End Role="Collaborateur" EntitySet="CollaborateurSet" />
+      <End Role="Contrat" EntitySet="ContratSet" />
+    </AssociationSet>
+    <AssociationSet Name="CollaborateurAugmentationSalaire" Association="AbiDao.Store.CollaborateurAugmentationSalaire">
+      <End Role="Collaborateur" EntitySet="CollaborateurSet" />
+      <End Role="AugmentationSalaire" EntitySet="AugmentationSalaireSet" />
+    </AssociationSet>
+    <AssociationSet Name="ContratAvenant" Association="AbiDao.Store.ContratAvenant">
+      <End Role="Contrat" EntitySet="ContratSet" />
+      <End Role="Avenant" EntitySet="AvenantSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CDI_inherits_Contrat" Association="AbiDao.Store.FK_CDI_inherits_Contrat">
+      <End Role="Contrat" EntitySet="ContratSet" />
+      <End Role="CDI" EntitySet="ContratSet_CDI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContratTemporaire_inherits_Contrat" Association="AbiDao.Store.FK_ContratTemporaire_inherits_Contrat">
+      <End Role="Contrat" EntitySet="ContratSet" />
+      <End Role="ContratTemporaire" EntitySet="ContratSet_ContratTemporaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CDD_inherits_ContratTemporaire" Association="AbiDao.Store.FK_CDD_inherits_ContratTemporaire">
+      <End Role="ContratTemporaire" EntitySet="ContratSet_ContratTemporaire" />
+      <End Role="CDD" EntitySet="ContratSet_CDD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stage_inherits_ContratTemporaire" Association="AbiDao.Store.FK_Stage_inherits_ContratTemporaire">
+      <End Role="ContratTemporaire" EntitySet="ContratSet_ContratTemporaire" />
+      <End Role="Stage" EntitySet="ContratSet_Stage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Interim_inherits_ContratTemporaire" Association="AbiDao.Store.FK_Interim_inherits_ContratTemporaire">
+      <End Role="ContratTemporaire" EntitySet="ContratSet_ContratTemporaire" />
+      <End Role="Interim" EntitySet="ContratSet_Interim" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CollaborateurSet">
+    <Key>
+      <PropertyRef Name="Matricule" />
+    </Key>
+    <Property Name="Matricule" Type="int" Nullable="false" />
+    <Property Name="NomCollabo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrenomCollabo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FonctionCollabo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adresse" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Statut" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Photo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SituationFamiliale" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ContratSet">
+    <Key>
+      <PropertyRef Name="NumContrat" />
+    </Key>
+    <Property Name="NumContrat" Type="int" Nullable="false" />
+    <Property Name="Qualification" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateDebutContrat" Type="datetime" Nullable="false" />
+    <Property Name="DateFinContrat" Type="datetime" Nullable="true" />
+    <Property Name="Collaborateur_Matricule" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AugmentationSalaireSet">
+    <Key>
+      <PropertyRef Name="IdAugmentation" />
+    </Key>
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Augmentation" Type="decimal" Nullable="false" />
+    <Property Name="IdAugmentation" Type="int" Nullable="false" />
+    <Property Name="Collaborateur_Matricule" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AvenantSet">
+    <Key>
+      <PropertyRef Name="NumAvenant" />
+    </Key>
+    <Property Name="NumAvenant" Type="int" Nullable="false" />
+    <Property Name="DateAvenant" Type="datetime" Nullable="false" />
+    <Property Name="Contrat_NumContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratSet_CDI">
+    <Key>
+      <PropertyRef Name="NumContrat" />
+    </Key>
+    <Property Name="SalaireBrut" Type="decimal" Nullable="false" />
+    <Property Name="NumContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratSet_ContratTemporaire">
+    <Key>
+      <PropertyRef Name="NumContrat" />
+    </Key>
+    <Property Name="Motif" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateFinPrevue" Type="datetime" Nullable="true" />
+    <Property Name="NumContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratSet_CDD">
+    <Key>
+      <PropertyRef Name="NumContrat" />
+    </Key>
+    <Property Name="SalaireBrut" Type="decimal" Nullable="false" />
+    <Property Name="NumContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratSet_Stage">
+    <Key>
+      <PropertyRef Name="NumContrat" />
+    </Key>
+    <Property Name="Ecole" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mission" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Indemnite" Type="decimal" Nullable="true" />
+    <Property Name="NumContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContratSet_Interim">
+    <Key>
+      <PropertyRef Name="NumContrat" />
+    </Key>
+    <Property Name="AgenceInterim" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumContrat" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CollaborateurContrat">
+    <End Role="Collaborateur" Type="AbiDao.Store.CollaborateurSet" Multiplicity="1" />
+    <End Role="Contrat" Type="AbiDao.Store.ContratSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collaborateur">
+        <PropertyRef Name="Matricule" />
+      </Principal>
+      <Dependent Role="Contrat">
+        <PropertyRef Name="Collaborateur_Matricule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CollaborateurAugmentationSalaire">
+    <End Role="Collaborateur" Type="AbiDao.Store.CollaborateurSet" Multiplicity="1" />
+    <End Role="AugmentationSalaire" Type="AbiDao.Store.AugmentationSalaireSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Collaborateur">
+        <PropertyRef Name="Matricule" />
+      </Principal>
+      <Dependent Role="AugmentationSalaire">
+        <PropertyRef Name="Collaborateur_Matricule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContratAvenant">
+    <End Role="Contrat" Type="AbiDao.Store.ContratSet" Multiplicity="1" />
+    <End Role="Avenant" Type="AbiDao.Store.AvenantSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contrat">
+        <PropertyRef Name="NumContrat" />
+      </Principal>
+      <Dependent Role="Avenant">
+        <PropertyRef Name="Contrat_NumContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CDI_inherits_Contrat">
+    <End Role="Contrat" Type="AbiDao.Store.ContratSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CDI" Type="AbiDao.Store.ContratSet_CDI" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contrat">
+        <PropertyRef Name="NumContrat" />
+      </Principal>
+      <Dependent Role="CDI">
+        <PropertyRef Name="NumContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContratTemporaire_inherits_Contrat">
+    <End Role="Contrat" Type="AbiDao.Store.ContratSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ContratTemporaire" Type="AbiDao.Store.ContratSet_ContratTemporaire" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Contrat">
+        <PropertyRef Name="NumContrat" />
+      </Principal>
+      <Dependent Role="ContratTemporaire">
+        <PropertyRef Name="NumContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CDD_inherits_ContratTemporaire">
+    <End Role="ContratTemporaire" Type="AbiDao.Store.ContratSet_ContratTemporaire" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CDD" Type="AbiDao.Store.ContratSet_CDD" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ContratTemporaire">
+        <PropertyRef Name="NumContrat" />
+      </Principal>
+      <Dependent Role="CDD">
+        <PropertyRef Name="NumContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stage_inherits_ContratTemporaire">
+    <End Role="ContratTemporaire" Type="AbiDao.Store.ContratSet_ContratTemporaire" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Stage" Type="AbiDao.Store.ContratSet_Stage" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ContratTemporaire">
+        <PropertyRef Name="NumContrat" />
+      </Principal>
+      <Dependent Role="Stage">
+        <PropertyRef Name="NumContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Interim_inherits_ContratTemporaire">
+    <End Role="ContratTemporaire" Type="AbiDao.Store.ContratSet_ContratTemporaire" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Interim" Type="AbiDao.Store.ContratSet_Interim" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ContratTemporaire">
+        <PropertyRef Name="NumContrat" />
+      </Principal>
+      <Dependent Role="Interim">
+        <PropertyRef Name="NumContrat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="AbiDao" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="AbiDaoContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CollaborateurSet" EntityType="AbiDao.Collaborateur" />
+          <EntitySet Name="ContratSet" EntityType="AbiDao.Contrat" />
+          <AssociationSet Name="CollaborateurContrat" Association="AbiDao.CollaborateurContrat">
+            <End Role="Collaborateur" EntitySet="CollaborateurSet" />
+            <End Role="Contrat" EntitySet="ContratSet" />
+          </AssociationSet>
+          <EntitySet Name="AugmentationSalaireSet" EntityType="AbiDao.AugmentationSalaire" />
+          <AssociationSet Name="CollaborateurAugmentationSalaire" Association="AbiDao.CollaborateurAugmentationSalaire">
+            <End Role="Collaborateur" EntitySet="CollaborateurSet" />
+            <End Role="AugmentationSalaire" EntitySet="AugmentationSalaireSet" />
+          </AssociationSet>
+          <EntitySet Name="AvenantSet" EntityType="AbiDao.Avenant" />
+          <AssociationSet Name="ContratAvenant" Association="AbiDao.ContratAvenant">
+            <End Role="Contrat" EntitySet="ContratSet" />
+            <End Role="Avenant" EntitySet="AvenantSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Collaborateur" >
+          <Key>
+            <PropertyRef Name="Matricule" />
+          </Key>
+          <Property Name="Matricule" Type="Int32" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
+          <Property Name="NomCollabo" Type="String" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
+          <Property Name="PrenomCollabo" Type="String" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
+          <Property Name="FonctionCollabo" Type="String" Nullable="false" />
+          <Property Name="Adresse" Type="String" Nullable="true" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
+          <Property Name="Statut" Type="String" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Photo" Type="String" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="SituationFamiliale" Type="String" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Contrat" Relationship="AbiDao.CollaborateurContrat" FromRole="Collaborateur" ToRole="Contrat" />
+          <NavigationProperty Name="AugmentationSalaire" Relationship="AbiDao.CollaborateurAugmentationSalaire" FromRole="Collaborateur" ToRole="AugmentationSalaire" />
+        </EntityType>
+        <EntityType Name="Contrat" Abstract="true" >
+          <Key>
+            <PropertyRef Name="NumContrat" />
+          </Key>
+          <Property Name="NumContrat" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Qualification" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="DateDebutContrat" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="DateFinContrat" Type="DateTime" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Collaborateur" Relationship="AbiDao.CollaborateurContrat" FromRole="Contrat" ToRole="Collaborateur" />
+          <NavigationProperty Name="Avenant" Relationship="AbiDao.ContratAvenant" FromRole="Contrat" ToRole="Avenant" />
+        </EntityType>
+        <Association Name="CollaborateurContrat">
+          <End Type="AbiDao.Collaborateur" Role="Collaborateur" Multiplicity="1" />
+          <End Type="AbiDao.Contrat" Role="Contrat" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CDI" BaseType="AbiDao.Contrat" >
+          <Property Name="SalaireBrut" Type="Decimal" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+        </EntityType>
+        <EntityType Name="ContratTemporaire" BaseType="AbiDao.Contrat">
+          <Property Name="Motif" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="DateFinPrevue" Type="DateTime" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+        </EntityType>
+        <EntityType Name="CDD" BaseType="AbiDao.ContratTemporaire" >
+          <Property Name="SalaireBrut" Type="Decimal" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
+        </EntityType>
+        <EntityType Name="Stage" BaseType="AbiDao.ContratTemporaire" >
+          <Property Name="Ecole" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Mission" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Indemnite" Type="Decimal" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+        </EntityType>
+        <EntityType Name="Interim" BaseType="AbiDao.ContratTemporaire">
+          <Property Name="AgenceInterim" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+        </EntityType>
+        <EntityType Name="AugmentationSalaire" >
+          <Key>
+            <PropertyRef Name="IdAugmentation" />
+          </Key>
+          <Property Name="Date" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="Augmentation" Type="Decimal" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Collaborateur" Relationship="AbiDao.CollaborateurAugmentationSalaire" FromRole="AugmentationSalaire" ToRole="Collaborateur" />
+          <Property Name="IdAugmentation" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+        </EntityType>
+        <Association Name="CollaborateurAugmentationSalaire">
+          <End Type="AbiDao.Collaborateur" Role="Collaborateur" Multiplicity="1" />
+          <End Type="AbiDao.AugmentationSalaire" Role="AugmentationSalaire" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Avenant" >
+          <Key>
+            <PropertyRef Name="NumAvenant" />
+          </Key>
+          <Property Name="NumAvenant" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="DateAvenant" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Contrat" Relationship="AbiDao.ContratAvenant" FromRole="Avenant" ToRole="Contrat" />
+        </EntityType>
+        <Association Name="ContratAvenant">
+          <End Type="AbiDao.Contrat" Role="Contrat" Multiplicity="1" />
+          <End Type="AbiDao.Avenant" Role="Avenant" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AbiDaoStoreContainer" CdmEntityContainer="AbiDaoContainer">
+    <EntitySetMapping Name="CollaborateurSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AbiDao.Collaborateur)">
+        <MappingFragment StoreEntitySet="CollaborateurSet">
+          <ScalarProperty Name="Matricule" ColumnName="Matricule" />
+          <ScalarProperty Name="NomCollabo" ColumnName="NomCollabo" />
+          <ScalarProperty Name="PrenomCollabo" ColumnName="PrenomCollabo" />
+          <ScalarProperty Name="FonctionCollabo" ColumnName="FonctionCollabo" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Statut" ColumnName="Statut" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="SituationFamiliale" ColumnName="SituationFamiliale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContratSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AbiDao.Contrat)">
+        <MappingFragment StoreEntitySet="ContratSet">
+          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="DateDebutContrat" ColumnName="DateDebutContrat" />
+          <ScalarProperty Name="DateFinContrat" ColumnName="DateFinContrat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AbiDao.CDI)">
+        <MappingFragment StoreEntitySet="ContratSet_CDI">
+          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="SalaireBrut" ColumnName="SalaireBrut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AbiDao.ContratTemporaire)">
+        <MappingFragment StoreEntitySet="ContratSet_ContratTemporaire">
+          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="Motif" ColumnName="Motif" />
+          <ScalarProperty Name="DateFinPrevue" ColumnName="DateFinPrevue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AbiDao.CDD)">
+        <MappingFragment StoreEntitySet="ContratSet_CDD">
+          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="SalaireBrut" ColumnName="SalaireBrut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AbiDao.Stage)">
+        <MappingFragment StoreEntitySet="ContratSet_Stage">
+          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="Ecole" ColumnName="Ecole" />
+          <ScalarProperty Name="Mission" ColumnName="Mission" />
+          <ScalarProperty Name="Indemnite" ColumnName="Indemnite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(AbiDao.Interim)">
+        <MappingFragment StoreEntitySet="ContratSet_Interim">
+          <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+          <ScalarProperty Name="AgenceInterim" ColumnName="AgenceInterim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AugmentationSalaireSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AbiDao.AugmentationSalaire)">
+        <MappingFragment StoreEntitySet="AugmentationSalaireSet">
+          <ScalarProperty Name="IdAugmentation" ColumnName="IdAugmentation" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Augmentation" ColumnName="Augmentation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AvenantSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AbiDao.Avenant)">
+        <MappingFragment StoreEntitySet="AvenantSet">
+          <ScalarProperty Name="NumAvenant" ColumnName="NumAvenant" />
+          <ScalarProperty Name="DateAvenant" ColumnName="DateAvenant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CollaborateurContrat" TypeName="AbiDao.CollaborateurContrat" StoreEntitySet="ContratSet">
+      <EndProperty Name="Collaborateur">
+        <ScalarProperty Name="Matricule" ColumnName="Collaborateur_Matricule" />
+      </EndProperty>
+      <EndProperty Name="Contrat">
+        <ScalarProperty Name="NumContrat" ColumnName="NumContrat" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CollaborateurAugmentationSalaire" TypeName="AbiDao.CollaborateurAugmentationSalaire" StoreEntitySet="AugmentationSalaireSet">
+      <EndProperty Name="Collaborateur">
+        <ScalarProperty Name="Matricule" ColumnName="Collaborateur_Matricule" />
+      </EndProperty>
+      <EndProperty Name="AugmentationSalaire">
+        <ScalarProperty Name="IdAugmentation" ColumnName="IdAugmentation" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ContratAvenant" TypeName="AbiDao.ContratAvenant" StoreEntitySet="AvenantSet">
+      <EndProperty Name="Contrat">
+        <ScalarProperty Name="NumContrat" ColumnName="Contrat_NumContrat" />
+      </EndProperty>
+      <EndProperty Name="Avenant">
+        <ScalarProperty Name="NumAvenant" ColumnName="NumAvenant" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

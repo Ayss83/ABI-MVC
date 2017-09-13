@@ -377,7 +377,6 @@
         private System.Windows.Forms.Label lblAdresse;
         private System.Windows.Forms.Label lblSituation;
         private System.Windows.Forms.Label lblStatut;
-        private System.Windows.Forms.Label lblPhoto;
         private System.Windows.Forms.Label lblMatricule;
         private System.Windows.Forms.TextBox txtMatricule;
         private System.Windows.Forms.TextBox txtNom;
@@ -400,5 +399,6 @@
         internal System.Windows.Forms.Button btnAjoutContrat;
         internal System.Windows.Forms.Button btnDetailsContrat;
         internal System.Windows.Forms.DataGridView grdContrats;
+        internal System.Windows.Forms.Label lblPhoto;
     }
 }

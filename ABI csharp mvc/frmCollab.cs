@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassesMetier;
 
 namespace ABI_csharp_mvc
 {
@@ -48,12 +49,12 @@ namespace ABI_csharp_mvc
         public frmCollab(Collaborateur unCollab)
         {
             InitializeComponent();
+
+            //Affichage des contenus
             this.txtMatricule.Text = Convert.ToString(unCollab.Matricule);
             this.txtNom.Text = unCollab.NomCollabo;
             this.txtPrenom.Text = unCollab.PrenomCollabo;
             this.txtAdresse.Text = unCollab.Adresse;
-            this.cbxFonction.Text = unCollab.FonctionCollabo;
-            this.cbxSituation.SelectedText = unCollab.SituationFamiliale;
 
             if (unCollab.Photo.Length < 7) // Condition temporaire, à modifier plus tard si besoin
             {
@@ -61,6 +62,11 @@ namespace ABI_csharp_mvc
             }
 
             this.alimenteBox();
+            this.cbxFonction.Text = unCollab.FonctionCollabo;
+            this.cbxSituation.Text = unCollab.SituationFamiliale;
+
+            //Gestion d'affichage d'éléments d'interface graphique
+           
             this.btnContratInit.Text = "Voir la liste de contrats";
             this.btnValider.Visible = false;
             this.btnAnnuler.Text = "OK";

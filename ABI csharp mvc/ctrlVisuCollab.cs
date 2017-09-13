@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassesMetier;
 
 namespace ABI_csharp_mvc
 {
@@ -12,6 +13,10 @@ namespace ABI_csharp_mvc
         private frmCollab leForm;
         private Collaborateur leCollab;
 
+        /// <summary>
+        /// Constructeur, instancie et configure un frmCollab de visualisation, le remplit avec les informations du collaborateur reçu en paramètre
+        /// </summary>
+        /// <param name="unCollab">une instance de Collaborateur</param>
         public ctrlVisuCollab(Collaborateur unCollab)
         {
             leCollab = unCollab;
@@ -22,6 +27,35 @@ namespace ABI_csharp_mvc
             leForm.grdContrats.CellDoubleClick += this.grdContrats_CellDoubleClick;
             leForm.btnDetailsContrat.Click += this.btnVoirContrat_Click;
             leForm.btnAjoutContrat.Click += this.btnAjoutContrat_Click;
+            leForm.btnAnnuler.Click += this.btnOK_Click;
+            
+            //Désactivation des contrôles pour visualiser uniquement
+            foreach (Control c in leForm.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox t = c as TextBox;
+                    t.ReadOnly = true;
+                }
+                if (c is ComboBox)
+                {
+                    ComboBox cbx = c as ComboBox;
+                    cbx.Enabled = false;
+                }
+                if (c is RadioButton)
+                {
+                    RadioButton rbt = c as RadioButton;
+                    rbt.Enabled = false;
+                }
+            }
+
+            //Masquage du label photo si pas de photo associée au collaborateur
+            if (leCollab.Photo.Length < 7) 
+            {
+                leForm.lblPhoto.Visible = false;
+            }
+
+            leForm.btnChoixImage.Visible = false;
             leForm.Show();
         }
 
@@ -58,6 +92,17 @@ namespace ABI_csharp_mvc
                 leCollab.AddContrat(leFormNouvContrat.Contrat());
                 leForm.grdContrats.DataSource=leCollab.ListerContrats();
             }
+        }
+
+        /// <summary>
+        /// Méthode évenementielle de fermeture du frmCollab au clic sur le btnAnnuler (marqué "OK")
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void btnOK_Click(Object sender, EventArgs e)
+        {
+            this.leForm.Close();
+            this.leForm = null;
         }
 
         /// <summary>

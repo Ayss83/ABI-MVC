@@ -113,6 +113,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ABIDAO\ABIDAO.csproj">
+      <Project>{feed9244-2911-4203-a35d-70fa48556a97}</Project>
+      <Name>ABIDAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClassesMetier\ClassesMetier.csproj">
       <Project>{ce51fd98-8cd0-47b0-ba6f-edc770b3d0c4}</Project>
       <Name>ClassesMetier</Name>

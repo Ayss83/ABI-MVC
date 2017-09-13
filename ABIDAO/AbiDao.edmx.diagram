@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="189491ffabe94b72b1becb0b77e6d2c8" Name="Diagram1" >
+        <EntityTypeShape EntityType="AbiDao.Collaborateur" Width="1.5" PointX="3.875" PointY="1.375" />
+        <EntityTypeShape EntityType="AbiDao.Contrat" Width="1.5" PointX="7" PointY="1.875" />
+        <AssociationConnector Association="AbiDao.CollaborateurContrat" />
+        <EntityTypeShape EntityType="AbiDao.CDI" Width="1.5" PointX="8.125" PointY="0.5" />
+        <InheritanceConnector EntityType="AbiDao.CDI" />
+        <EntityTypeShape EntityType="AbiDao.ContratTemporaire" Width="1.5" PointX="7.5" PointY="4.5" />
+        <InheritanceConnector EntityType="AbiDao.ContratTemporaire" />
+        <EntityTypeShape EntityType="AbiDao.CDD" Width="1.5" PointX="9.875" PointY="2.75" />
+        <InheritanceConnector EntityType="AbiDao.CDD" ManuallyRouted="false" >
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="AbiDao.Stage" Width="1.5" PointX="9.875" PointY="4.625" />
+        <InheritanceConnector EntityType="AbiDao.Stage" ManuallyRouted="true" >
+          <ConnectorPoint PointX="9" PointY="5.3838552002547146" />
+          <ConnectorPoint PointX="9.4375" PointY="5.3838552002547146" />
+          <ConnectorPoint PointX="9.4375" PointY="5.3956444629589155" />
+          <ConnectorPoint PointX="9.875" PointY="5.3956444629589155" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="AbiDao.Interim" Width="1.5" PointX="9.875" PointY="6.75" />
+        <InheritanceConnector EntityType="AbiDao.Interim" ManuallyRouted="false" >
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="AbiDao.AugmentationSalaire" Width="1.5" PointX="1.625" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="AbiDao.CollaborateurAugmentationSalaire" />
+        <EntityTypeShape EntityType="AbiDao.Avenant" Width="1.5" PointX="5.125" PointY="4.5" />
+        <AssociationConnector Association="AbiDao.ContratAvenant" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABI csharp mvc", "ABI cshar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesMetier", "ClassesMetier\ClassesMetier.csproj", "{CE51FD98-8CD0-47B0-BA6F-EDC770B3D0C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABIDAO", "ABIDAO\ABIDAO.csproj", "{FEED9244-2911-4203-A35D-70FA48556A97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CE51FD98-8CD0-47B0-BA6F-EDC770B3D0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE51FD98-8CD0-47B0-BA6F-EDC770B3D0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE51FD98-8CD0-47B0-BA6F-EDC770B3D0C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEED9244-2911-4203-A35D-70FA48556A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEED9244-2911-4203-A35D-70FA48556A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEED9244-2911-4203-A35D-70FA48556A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEED9244-2911-4203-A35D-70FA48556A97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

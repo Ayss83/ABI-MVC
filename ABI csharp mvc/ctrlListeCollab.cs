@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using ClassesMetier;
+using ABIDAO;
 
 namespace ABI_csharp_mvc
 {
@@ -19,6 +21,7 @@ namespace ABI_csharp_mvc
         public ctrlListeCollab()
         {
             lesCollabs = new ListeCollab();
+
             leForm = new frmListeCollab(lesCollabs.ListerCollab());
             leForm.grdCollab.CellDoubleClick += new DataGridViewCellEventHandler(this.grdCollabs_DoubleClick);
             leForm.btnAjouter.Click += new EventHandler(this.ajoutCollab);
@@ -82,7 +85,7 @@ namespace ABI_csharp_mvc
         /// Méthode retournant l'objet collaborateur correspondant à la ligne actuellement sélectionnée
         /// </summary>
         /// <returns>Collaborateur correspondant à la ligne</returns>
-        private Collaborateur selectLigne()
+        private ClassesMetier.Collaborateur selectLigne()
         {
             Int32 matricule;
             //Récupération valeur du matricule dans la première case de la rangée
