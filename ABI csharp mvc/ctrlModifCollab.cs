@@ -20,7 +20,6 @@ namespace ABI_csharp_mvc
             leForm.btnAnnuler.Text = "Annuler";
             leForm.btnValider.Click += this.btnOK_Click;
             leForm.btnAnnuler.Click += this.btnAnnuler_Click;
-            //leForm.MdiParent = frmMDI.getInstance();
             if (leForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 if (leForm.VerifChamps())
