@@ -36,7 +36,7 @@ namespace ClassesMetier
         /// <param name="uneQualif">Qualification</param>
         /// <param name="uneDateDeb">Date de début du contrat</param>
         /// <param name="uneDateFin">Date de fin du contrat</param>
-        public MInterim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) : base(unMotif, uneDateFinPrev, unNum, uneQualif, uneDateDeb, uneDateFin)
+        public MInterim(String uneAgence, String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime? uneDateFin) : base(unMotif, uneDateFinPrev, unNum, uneQualif, uneDateDeb, uneDateFin)
         {
             initInterim(uneAgence);
         }

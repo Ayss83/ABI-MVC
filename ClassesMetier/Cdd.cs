@@ -36,7 +36,7 @@ namespace ClassesMetier
         /// <param name="unMotif">Motif d'établissement du contrat</param>
         /// <param name="uneDateFinPrev">Date de fin prévue</param>
         /// <param name="uneDateFin">Date de fin du contrat</param>
-        public MCdd(Decimal unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev, DateTime uneDateFin) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb,uneDateFin)
+        public MCdd(Decimal unSalaire, DateTime uneDateDeb, String uneQualif, int unNum, String unMotif, DateTime uneDateFinPrev, DateTime? uneDateFin) :base(unMotif,uneDateFinPrev,unNum,uneQualif,uneDateDeb,uneDateFin)
        {
             initSalaire(unSalaire);
         }

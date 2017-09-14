@@ -43,6 +43,16 @@ namespace ClassesMetier
              this.collaborateurs.Add(newCollaborateur.Matricule,newCollaborateur);
        }
 
+        public void ModifierCollaborateur(MCollaborateur leCollaborateur)
+        {
+            if (leCollaborateur == null)
+                return;
+            if (this.collaborateurs == null)
+                this.collaborateurs = new SortedDictionary<int, MCollaborateur>();
+            if (this.collaborateurs.ContainsKey(leCollaborateur.Matricule))
+                this.collaborateurs[leCollaborateur.Matricule] = leCollaborateur;
+        }
+
        /// <summary>
        /// Méthode retournant le contenu du la liste (Matricule + Nom) sous forme de string
        /// </summary>
@@ -70,16 +80,19 @@ namespace ClassesMetier
             datatableCollab.Columns.Add(new DataColumn("Fonction", typeof(String)));
             datatableCollab.Columns.Add(new DataColumn("Statut", typeof(String)));
 
-            foreach(KeyValuePair<int,MCollaborateur> kvp in collaborateurs)
+            if (collaborateurs!=null)
             {
-                DataRow dr = datatableCollab.NewRow();
-                dr[0] = kvp.Key;
-                dr[1] = kvp.Value.NomCollabo;
-                dr[2] = kvp.Value.PrenomCollabo;
-                dr[3] = kvp.Value.FonctionCollabo;
-                dr[4] = kvp.Value.Statut;
+                foreach (KeyValuePair<int, MCollaborateur> kvp in collaborateurs)
+                {
+                    DataRow dr = datatableCollab.NewRow();
+                    dr[0] = kvp.Key;
+                    dr[1] = kvp.Value.NomCollabo;
+                    dr[2] = kvp.Value.PrenomCollabo;
+                    dr[3] = kvp.Value.FonctionCollabo;
+                    dr[4] = kvp.Value.Statut;
 
-                datatableCollab.Rows.Add(dr);
+                    datatableCollab.Rows.Add(dr);
+                }
             }
             return datatableCollab;
         }

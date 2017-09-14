@@ -32,7 +32,7 @@ namespace ClassesMetier
         /// <param name="uneQualif">Qualification du collaborateur</param>
         /// <param name="uneDateDeb">Date de début du contrat</param>
         /// <param name="uneDateFin">Date de fin du contrat</param>
-        public MContrat(int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin)
+        public MContrat(int unNum, String uneQualif, DateTime uneDateDeb, DateTime? uneDateFin)
        {
             initContrat(unNum, uneQualif, uneDateDeb);
             DateFinContrat = uneDateFin;

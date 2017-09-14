@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassesMetier;
+using ABIDAO;
 
 namespace ABI_csharp_mvc
 {
@@ -23,6 +24,7 @@ namespace ABI_csharp_mvc
             leForm = new frmCollab(unCollab);
             leForm.Text = unCollab.PrenomCollabo + " " + unCollab.NomCollabo;
             leForm.MdiParent = frmMDI.getInstance();
+            CollaborateurDAOEFStatic.InstancieContrats(leCollab);
             leForm.grdContrats.DataSource = unCollab.ListerContrats();
             leForm.grdContrats.CellDoubleClick += this.grdContrats_CellDoubleClick;
             leForm.btnDetailsContrat.Click += this.btnVoirContrat_Click;

@@ -16,7 +16,7 @@ namespace ABI_csharp_mvc
 
         private List<String> fonctions = new List<string>();
         private List<String> situations = new List<string>();
-        internal MCollaborateur Collab;
+        private MCollaborateur Collab;
 
         
 
@@ -49,7 +49,7 @@ namespace ABI_csharp_mvc
         public frmCollab(MCollaborateur unCollab)
         {
             InitializeComponent();
-
+            this.Collab = unCollab;
             //Affichage des contenus
             this.txtMatricule.Text = Convert.ToString(unCollab.Matricule);
             this.txtNom.Text = unCollab.NomCollabo;
@@ -94,6 +94,11 @@ namespace ABI_csharp_mvc
             this.flpValidAnnul.Width = 422;
         }
 
+        public MCollaborateur getCollab()
+        {
+            return Collab;
+        }
+
         /// <summary>
         /// Action attribuée au bouton btnContratInit quand le constructeur destiné à la visualisation/modification est appelé
         /// </summary>
@@ -134,51 +139,114 @@ namespace ABI_csharp_mvc
             return resultat;
         }
 
+        /// <summary>
+        /// Méthode d'instanciation d'un objet MCollaborateur
+        /// </summary>
+        /// <returns>Booleen indiquant la réussite</returns>
         public bool Instancie()
         {
             try
             {
                 if (this.rbtActif.Checked == true)
                 {
-                    Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.SelectedItem, this.txtAdresse.Text, this.ofdChoixImage.FileName, (string)this.cbxSituation.SelectedItem, this.rbtActif.Text);
-                    return true;
-                }else
-                {
-                    Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.SelectedItem, this.txtAdresse.Text, this.ofdChoixImage.FileName, (string)this.cbxSituation.SelectedItem, this.rbtInactif.Text);
+                    if (Collab == null)
+                    {
+                        Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.SelectedItem, this.txtAdresse.Text, this.ofdChoixImage.FileName, (string)this.cbxSituation.SelectedItem, this.rbtActif.Text);
+
+                    }
+                    else
+                    {
+                        completeExistant();
+                    }
                     return true;
                 }
-            }catch(Exception ex)
+                else
+                {
+                    if (Collab == null)
+                    {
+                    Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.SelectedItem, this.txtAdresse.Text, this.ofdChoixImage.FileName, (string)this.cbxSituation.SelectedItem, this.rbtInactif.Text);
+                    }
+                    else
+                    {
+                        completeExistant();
+                    }
+                    return true;
+                }
+            }
+            catch (Exception ex)
             {
                 try
                 {
                     if (this.rbtActif.Checked == true)
                     {
+                        if (Collab == null)
+                        {
                         Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, this.txtAdresse.Text, (string)this.cbxFonction.SelectedItem, this.rbtActif.Text);
-                        return true;
-                    }else
-                    {
-                        Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, this.txtAdresse.Text, (string)this.cbxFonction.SelectedItem, this.rbtInactif.Text);
+                        }else
+                        {
+                            completeExistant();
+                        }
                         return true;
                     }
-                }catch(Exception exc)
+                    else
+                    {
+                        if (Collab == null)
+                        {
+                        Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, this.txtAdresse.Text, (string)this.cbxFonction.SelectedItem, this.rbtInactif.Text);
+                        }else
+                        {
+                            completeExistant();
+                        }
+                        return true;
+                    }
+                }
+                catch (Exception exc)
                 {
                     try
                     {
                         if (this.rbtActif.Checked == true)
                         {
+                            if (Collab == null)
+                            {
                             Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.Text, this.rbtActif.Text);
-                            return true;
-                        }else
-                        {
-                            Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.Text, this.rbtInactif.Text);
+                            }else
+                            {
+                                completeExistant();
+                            }
                             return true;
                         }
-                    }catch(Exception exce)
+                        else
+                        {
+                            if (Collab == null)
+                            {
+                            Collab = new MCollaborateur(this.txtNom.Text, this.txtPrenom.Text, (string)this.cbxFonction.Text, this.rbtInactif.Text);
+                            }else
+                            {
+                                completeExistant();
+                            }
+                            return true;
+                        }
+                    }
+                    catch (Exception exce)
                     {
                         return false;
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Remplit les champs d'un collaborateur
+        /// </summary>
+        private void completeExistant()
+        {
+            Collab.NomCollabo = this.txtNom.Text;
+            Collab.PrenomCollabo = this.txtPrenom.Text;
+            Collab.FonctionCollabo = (string)this.cbxFonction.SelectedItem;
+            Collab.Adresse = this.txtAdresse.Text;
+            Collab.Photo = this.ofdChoixImage.FileName;
+            Collab.SituationFamiliale = (string)this.cbxSituation.SelectedItem;
+            Collab.Statut = this.rbtActif.Text;
         }
 
         /// <summary>

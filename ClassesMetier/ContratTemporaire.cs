@@ -20,7 +20,7 @@ namespace ClassesMetier
        /// <param name="uneQualif">Qualification</param>
        /// <param name="uneDateDeb">Date de début du cotnrat</param>
        /// <param name="uneDateFin">Date de fin du contrat</param>
-       public MContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
+       public MContratTemporaire(String unMotif, DateTime uneDateFinPrev, int unNum, String uneQualif, DateTime uneDateDeb, DateTime? uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
         {
             initContratTemp(unMotif, uneDateFinPrev);
         }

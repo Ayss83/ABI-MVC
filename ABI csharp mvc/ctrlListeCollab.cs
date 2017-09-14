@@ -53,8 +53,9 @@ namespace ABI_csharp_mvc
             if (nouvCollab.Retour == DialogResult.OK)
             {
                 //Récupération du collaborateur créé dans le form et ajout dans la liste
-                lesCollabs.AjouterCollaborateur(nouvCollab.leCollab);
                 CollaborateurDAOEFStatic.InsereCollaborateur(nouvCollab.leCollab);
+                //Mise à jour de la liste de collaborateurs depuis la DB
+                CollaborateurDAOEFStatic.InstancieCollaborateurs(lesCollabs);
                 //Remise à jour de l'affichage
                 this.leForm.grdCollab.DataSource=lesCollabs.ListerCollab();
             }
@@ -77,7 +78,14 @@ namespace ABI_csharp_mvc
         /// <param name="e"></param>
         private void modifCollab(object sender, EventArgs e)
         {
+            //Instancie un frmCollab via le contrôleur de modification de collaborateur (affiche en modal)
             ctrlModifCollab modifCollab = new ctrlModifCollab(this.selectLigne());
+            //Met à jour la listeCollab
+            CollaborateurDAOEFStatic.InstancieCollaborateurs(lesCollabs);
+            //Met à jour la datasource de la datagridview
+            this.leForm.grdCollab.DataSource = lesCollabs.ListerCollab();
+            //Raffraîchit l'affichage
+            this.leForm.Refresh();
         }
 //Fin méthodes évenementielles
 
@@ -91,10 +99,11 @@ namespace ABI_csharp_mvc
             Int32 matricule;
             //Récupération valeur du matricule dans la première case de la rangée
             matricule = (Int32)leForm.grdCollab.CurrentRow.Cells[0].Value;
-            ClassesMetier.MCollaborateur unCollab;
-            //Recherche du collaborateur correspondant au matricule dans le dictionnaire
-            unCollab = lesCollabs.RestituerCollaborateur(matricule);
-            return unCollab;
+            //MCollaborateur unCollab;
+            ////Recherche du collaborateur correspondant au matricule dans le dictionnaire
+            //unCollab = lesCollabs.RestituerCollaborateur(matricule);
+            //return unCollab;
+            return CollaborateurDAOEFStatic.RetourneCollaborateur(matricule);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ClassesMetier
         /// <param name="uneQualif">Qualification</param>
         /// <param name="uneDateDeb">Date de début du contrat</param>
         /// <param name="uneDateFin">Date de fin du contrat</param>
-        public MCdi(Decimal unSalaire, int unNum, String uneQualif, DateTime uneDateDeb, DateTime uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
+        public MCdi(Decimal unSalaire, int unNum, String uneQualif, DateTime uneDateDeb, DateTime? uneDateFin) :base(unNum,uneQualif,uneDateDeb,uneDateFin)
         {
             initSalaire(unSalaire);
         }

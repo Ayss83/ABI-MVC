@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/13/2017 13:06:28
--- Generated from EDMX file: C:\Users\DL-CDI\Documents\Visual Studio 2015\Projects\ABI csharp mvc\ABIDAO\AbiDao.edmx
+-- Date Created: 09/14/2017 10:50:50
+-- Generated from EDMX file: C:\Users\DL-CDI\documents\visual studio 2015\Projects\ABI csharp mvc\ABIDAO\AbiDao.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,11 +17,62 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_CollaborateurContrat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContratSet] DROP CONSTRAINT [FK_CollaborateurContrat];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CollaborateurAugmentationSalaire]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AugmentationSalaireSet] DROP CONSTRAINT [FK_CollaborateurAugmentationSalaire];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ContratAvenant]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AvenantSet] DROP CONSTRAINT [FK_ContratAvenant];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CDI_inherits_Contrat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContratSet_CDI] DROP CONSTRAINT [FK_CDI_inherits_Contrat];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ContratTemporaire_inherits_Contrat]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContratSet_ContratTemporaire] DROP CONSTRAINT [FK_ContratTemporaire_inherits_Contrat];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CDD_inherits_ContratTemporaire]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContratSet_CDD] DROP CONSTRAINT [FK_CDD_inherits_ContratTemporaire];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Stage_inherits_ContratTemporaire]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContratSet_Stage] DROP CONSTRAINT [FK_Stage_inherits_ContratTemporaire];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Interim_inherits_ContratTemporaire]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContratSet_Interim] DROP CONSTRAINT [FK_Interim_inherits_ContratTemporaire];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[CollaborateurSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CollaborateurSet];
+GO
+IF OBJECT_ID(N'[dbo].[ContratSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ContratSet];
+GO
+IF OBJECT_ID(N'[dbo].[AugmentationSalaireSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AugmentationSalaireSet];
+GO
+IF OBJECT_ID(N'[dbo].[AvenantSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AvenantSet];
+GO
+IF OBJECT_ID(N'[dbo].[ContratSet_CDI]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ContratSet_CDI];
+GO
+IF OBJECT_ID(N'[dbo].[ContratSet_ContratTemporaire]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ContratSet_ContratTemporaire];
+GO
+IF OBJECT_ID(N'[dbo].[ContratSet_CDD]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ContratSet_CDD];
+GO
+IF OBJECT_ID(N'[dbo].[ContratSet_Stage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ContratSet_Stage];
+GO
+IF OBJECT_ID(N'[dbo].[ContratSet_Interim]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ContratSet_Interim];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -29,7 +80,7 @@ GO
 
 -- Creating table 'CollaborateurSet'
 CREATE TABLE [dbo].[CollaborateurSet] (
-    [Matricule] int  NOT NULL,
+    [Matricule] int IDENTITY(1,1) NOT NULL,
     [NomCollabo] nvarchar(max)  NOT NULL,
     [PrenomCollabo] nvarchar(max)  NOT NULL,
     [FonctionCollabo] nvarchar(max)  NOT NULL,
@@ -42,7 +93,7 @@ GO
 
 -- Creating table 'ContratSet'
 CREATE TABLE [dbo].[ContratSet] (
-    [NumContrat] int  NOT NULL,
+    [NumContrat] int IDENTITY(1,1) NOT NULL,
     [Qualification] nvarchar(max)  NOT NULL,
     [DateDebutContrat] datetime  NOT NULL,
     [DateFinContrat] datetime  NULL,
@@ -54,14 +105,14 @@ GO
 CREATE TABLE [dbo].[AugmentationSalaireSet] (
     [Date] datetime  NOT NULL,
     [Augmentation] decimal(18,0)  NOT NULL,
-    [IdAugmentation] int  NOT NULL,
+    [IdAugmentation] int IDENTITY(1,1) NOT NULL,
     [Collaborateur_Matricule] int  NOT NULL
 );
 GO
 
 -- Creating table 'AvenantSet'
 CREATE TABLE [dbo].[AvenantSet] (
-    [NumAvenant] int  NOT NULL,
+    [NumAvenant] int IDENTITY(1,1) NOT NULL,
     [DateAvenant] datetime  NOT NULL,
     [Contrat_NumContrat] int  NOT NULL
 );

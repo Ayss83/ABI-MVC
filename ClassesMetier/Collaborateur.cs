@@ -100,19 +100,13 @@ namespace ClassesMetier
              return nomCollabo;
           }
           set
-          {
-            if (this.nomCollabo != value)
             {
-                if(this.nomCollabo == null || this.nomCollabo == "")
-                //{
-                //    throw new Exception("Le nom doit être renseigné");
-                //}else
-                //{
+                if (this.nomCollabo != value)
+                {
                     this.nomCollabo = value.Trim().ToUpper();
-                //}
+                }
             }
-          }
-       }
+        }
    
        /// <summary>
        /// Fonction du collaborateur (obligatoire)

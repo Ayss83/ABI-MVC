@@ -18,7 +18,7 @@ namespace ABI_csharp_mvc
     class ctrlNouvCollab
     {
         private frmCollab leForm;
-        private MListeCollab laListe;
+        //private MListeCollab laListe;
         internal DialogResult Retour;
         internal MCollaborateur leCollab;
         private MContrat leContrat;
@@ -64,7 +64,7 @@ namespace ABI_csharp_mvc
             {
                 if (leForm.Instancie())
                 {
-                    this.leCollab = leForm.Collab;
+                    this.leCollab = leForm.getCollab(); ;
                     leCollab.AddContrat(this.leContrat);
                     leForm.DialogResult = DialogResult.OK;
                     this.Retour = DialogResult.OK;

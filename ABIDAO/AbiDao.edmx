@@ -52,7 +52,7 @@
     <Key>
       <PropertyRef Name="Matricule" />
     </Key>
-    <Property Name="Matricule" Type="int" Nullable="false" />
+    <Property Name="Matricule" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NomCollabo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PrenomCollabo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FonctionCollabo" Type="nvarchar(max)" Nullable="false" />
@@ -65,7 +65,7 @@
     <Key>
       <PropertyRef Name="NumContrat" />
     </Key>
-    <Property Name="NumContrat" Type="int" Nullable="false" />
+    <Property Name="NumContrat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Qualification" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DateDebutContrat" Type="datetime" Nullable="false" />
     <Property Name="DateFinContrat" Type="datetime" Nullable="true" />
@@ -77,14 +77,14 @@
     </Key>
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Augmentation" Type="decimal" Nullable="false" />
-    <Property Name="IdAugmentation" Type="int" Nullable="false" />
+    <Property Name="IdAugmentation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Collaborateur_Matricule" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AvenantSet">
     <Key>
       <PropertyRef Name="NumAvenant" />
     </Key>
-    <Property Name="NumAvenant" Type="int" Nullable="false" />
+    <Property Name="NumAvenant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DateAvenant" Type="datetime" Nullable="false" />
     <Property Name="Contrat_NumContrat" Type="int" Nullable="false" />
   </EntityType>
@@ -258,7 +258,7 @@
           <Key>
             <PropertyRef Name="Matricule" />
           </Key>
-          <Property Name="Matricule" Type="Int32" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
+          <Property Name="Matricule" Type="Int32" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NomCollabo" Type="String" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
           <Property Name="PrenomCollabo" Type="String" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Internal" />
           <Property Name="FonctionCollabo" Type="String" Nullable="false" />
@@ -273,7 +273,7 @@
           <Key>
             <PropertyRef Name="NumContrat" />
           </Key>
-          <Property Name="NumContrat" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="NumContrat" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Qualification" Type="String" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="DateDebutContrat" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="DateFinContrat" Type="DateTime" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
@@ -309,7 +309,7 @@
           <Property Name="Date" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <Property Name="Augmentation" Type="Decimal" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Collaborateur" Relationship="AbiDao.CollaborateurAugmentationSalaire" FromRole="AugmentationSalaire" ToRole="Collaborateur" />
-          <Property Name="IdAugmentation" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="IdAugmentation" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="CollaborateurAugmentationSalaire">
           <End Type="AbiDao.Collaborateur" Role="Collaborateur" Multiplicity="1" />
@@ -319,7 +319,7 @@
           <Key>
             <PropertyRef Name="NumAvenant" />
           </Key>
-          <Property Name="NumAvenant" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
+          <Property Name="NumAvenant" Type="Int32" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateAvenant" Type="DateTime" Nullable="false" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Contrat" Relationship="AbiDao.ContratAvenant" FromRole="Avenant" ToRole="Contrat" />
         </EntityType>

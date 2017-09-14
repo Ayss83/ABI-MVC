@@ -27,7 +27,9 @@ namespace ABI_csharp_mvc
                 {
                     if (leForm.Instancie())
                     {
-                        CollaborateurDAOEFStatic.ModifieCollaborateur(leForm.Collab);
+
+                        CollaborateurDAOEFStatic.ModifieCollaborateur(leForm.getCollab());
+                        
                     }
                 }
             }
