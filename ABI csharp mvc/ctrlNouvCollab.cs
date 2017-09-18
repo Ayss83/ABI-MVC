@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassesMetier;
+using ABIDAO;
 
 namespace ABI_csharp_mvc
 {
@@ -21,7 +22,7 @@ namespace ABI_csharp_mvc
         //private MListeCollab laListe;
         internal DialogResult Retour;
         internal MCollaborateur leCollab;
-        private MContrat leContrat;
+        internal MContrat leContrat;
 
         /// <summary>
         /// Constructeur, instancie, affecte les actions à différents boutons et affiche un form pour créer un nouveau collaborateur
@@ -66,6 +67,7 @@ namespace ABI_csharp_mvc
                 {
                     this.leCollab = leForm.getCollab(); ;
                     leCollab.AddContrat(this.leContrat);
+                    //ContratDAOEFStatic.InsereContrat(this.leContrat, DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(this.leCollab.Matricule));
                     leForm.DialogResult = DialogResult.OK;
                     this.Retour = DialogResult.OK;
                 }
@@ -80,6 +82,11 @@ namespace ABI_csharp_mvc
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             leForm.DialogResult = DialogResult.Cancel;
+        }
+
+        private void btnAjoutContrat_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

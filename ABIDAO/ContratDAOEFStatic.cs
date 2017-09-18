@@ -7,7 +7,7 @@ using ClassesMetier;
 
 namespace ABIDAO
 {
-    class ContratDAOEFStatic
+    public class ContratDAOEFStatic
     {
         public static void InsereContrat(MContrat unContrat, Collaborateur unCollabEF)
         {

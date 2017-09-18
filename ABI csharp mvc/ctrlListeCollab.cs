@@ -52,8 +52,11 @@ namespace ABI_csharp_mvc
             ctrlNouvCollab nouvCollab = new ctrlNouvCollab();
             if (nouvCollab.Retour == DialogResult.OK)
             {
+                Collaborateur collabEnCours;
                 //Récupération du collaborateur créé dans le form et ajout dans la liste
-                CollaborateurDAOEFStatic.InsereCollaborateur(nouvCollab.leCollab);
+                collabEnCours = CollaborateurDAOEFStatic.InsereCollaborateur(nouvCollab.leCollab);
+
+                ContratDAOEFStatic.InsereContrat(nouvCollab.leContrat, collabEnCours);
                 //Mise à jour de la liste de collaborateurs depuis la DB
                 CollaborateurDAOEFStatic.InstancieCollaborateurs(lesCollabs);
                 //Remise à jour de l'affichage

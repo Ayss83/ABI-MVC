@@ -113,10 +113,11 @@ namespace ABIDAO
         }
 
         /// <summary>
-        /// Méthode qui instancie un Collaborateur à partir d'un MCollaborateur et l'enregistre en DB
+        /// Méthode qui instancie un Collaborateur à partir d'un MCollaborateur et l'enregistre en DB, retourne le Collaborateur pour pouvoir le relier à un contrat
         /// </summary>
         /// <param name="unCollab">une instance de MCollaborateur</param>
-        public static void InsereCollaborateur(MCollaborateur unCollab)
+        /// <returns>Le Collaborateur inséré dans la DB</returns>
+        public static Collaborateur InsereCollaborateur(MCollaborateur unCollab)
         {
             if (DonneesDAO.DbContextAbiDao == null)
             {
@@ -134,8 +135,8 @@ namespace ABIDAO
 
             DonneesDAO.DbContextAbiDao.CollaborateurSet.Add(CollabEF);
             DonneesDAO.DbContextAbiDao.SaveChanges();
-     
 
+            return CollabEF;
         }
 
         /// <summary>
