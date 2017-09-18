@@ -92,7 +92,6 @@ namespace ABI_csharp_mvc
             if (leFormNouvContrat.Resultat() == DialogResult.OK)
             {
                 leCollab.AddContrat(leFormNouvContrat.Contrat());
-                ContratDAOEFStatic.InsereContrat(leFormNouvContrat.Contrat(), leCollab);
                 leForm.grdContrats.DataSource=leCollab.ListerContrats();
             }
         }
@@ -109,13 +108,12 @@ namespace ABI_csharp_mvc
         }
 
         /// <summary>
-        /// Méthode de sélection de contrat dans la DB d'après le numéro récupéré dans la première cellule de la ligne de la gridview sélectionnée
+        /// Méthode de sélection de contrat dans la liste du collaborateur d'après le numéro récupéré dans la première cellule de la ligne de la gridview sélectionnée
         /// </summary>
         private void selectContrat()
         {
             MContrat leContrat;
-            //leContrat = leCollab.RetourneContrat(Convert.ToInt32(leForm.grdContrats.CurrentRow.Cells[0].Value));
-            leContrat = ContratDAOEFStatic.RetourneContrat(Convert.ToInt32(leForm.grdContrats.CurrentRow.Cells[0].Value));
+            leContrat = leCollab.RetourneContrat(Convert.ToInt32(leForm.grdContrats.CurrentRow.Cells[0].Value));
             ctrlVisuContrat leFormContrat = new ctrlVisuContrat(leContrat);
         }
     }

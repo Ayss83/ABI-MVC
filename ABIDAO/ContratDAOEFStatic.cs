@@ -7,25 +7,15 @@ using ClassesMetier;
 
 namespace ABIDAO
 {
-    public class ContratDAOEFStatic
+    class ContratDAOEFStatic
     {
-        /// <summary>
-        /// Méthode d'ajout d'un contrat à un collaborateur en DB
-        /// </summary>
-        /// <param name="unContrat">Le contrat à ajouter</param>
-        /// <param name="unCollabEF">le Collaborateur auquel appartient le contrat</param>
-        public static void InsereContrat(MContrat unContrat, MCollaborateur unCollab)
+        public static void InsereContrat(MContrat unContrat, Collaborateur unCollabEF)
         {
             if (DonneesDAO.DbContextAbiDao == null)
             {
                 DonneesDAO.DbContextAbiDao = new AbiDaoContainer();
             }
 
-            //Instanciation d'un Collaborateur et recherche en DB de la correspondance avec le matricule du MCollaborateur reçu en paramètre
-            Collaborateur unCollabEF;
-            unCollabEF = DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(unCollab.Matricule);
-
-            //Instancie un Contrat pour l'ajouter à la DB correspondant au type réel du Mcontrat fourni
             if(unContrat is MCdi)
             {
                 CDI unCdi = new CDI();
@@ -81,74 +71,6 @@ namespace ABIDAO
 
                 DonneesDAO.DbContextAbiDao.ContratSet.Add(unInterim);
                 DonneesDAO.DbContextAbiDao.SaveChanges();
-            }
-        }
-
-        /// <summary>
-        /// Méthode retournant un MContrat correspondant au numéro de contrat recherché dans la DB
-        /// </summary>
-        /// <param name="leNumContrat">Numéro de contrat recherché</param>
-        /// <returns>Instance de MContrat correspondant au numéro</returns>
-        public static MContrat RetourneContrat(Int32 leNumContrat)
-        {
-            if (DonneesDAO.DbContextAbiDao == null)
-            {
-                DonneesDAO.DbContextAbiDao = new AbiDaoContainer();
-            }
-
-            //Instanciation d'un contrat et recherche de la correspondance du numéro en DB
-            Contrat contratEF;
-            contratEF = DonneesDAO.DbContextAbiDao.ContratSet.Find(leNumContrat);
-
-            MContrat leContrat;
-            //Instanciation de leContrat selon son type réel et retourne leContrat après instanciation
-            if(contratEF is CDI)
-            {
-                leContrat = new MCdi((contratEF as CDI).SalaireBrut, 
-                    contratEF.NumContrat, 
-                    contratEF.Qualification, 
-                    contratEF.DateDebutContrat, 
-                    contratEF.DateFinContrat);
-
-                return leContrat;
-            }
-            else if(contratEF is CDD)
-            {
-                leContrat = new MCdd((contratEF as CDD).SalaireBrut, 
-                    contratEF.DateDebutContrat, 
-                    contratEF.Qualification, 
-                    contratEF.NumContrat, 
-                    (contratEF as CDD).Motif, 
-                    (DateTime)(contratEF as CDD).DateFinPrevue, 
-                    contratEF.DateFinContrat);
-
-                return leContrat;
-            }
-            else if(contratEF is Stage)
-            {
-                leContrat = new MStage((contratEF as Stage).Ecole, 
-                    (contratEF as Stage).Mission, 
-                    (Decimal)(contratEF as Stage).Indemnite, 
-                    (contratEF as Stage).Motif, 
-                    (DateTime)(contratEF as Stage).DateFinPrevue, 
-                    contratEF.NumContrat, 
-                    contratEF.Qualification, 
-                    contratEF.DateDebutContrat, 
-                    contratEF.DateFinContrat);
-
-                return leContrat;
-            }
-            else
-            {
-                leContrat = new MInterim((contratEF as Interim).AgenceInterim, 
-                    (contratEF as Interim).Motif, 
-                    (DateTime)(contratEF as Interim).DateFinPrevue, 
-                    contratEF.NumContrat, 
-                    contratEF.Qualification, 
-                    contratEF.DateDebutContrat, 
-                    contratEF.DateFinContrat);
-
-                return leContrat;
             }
         }
     }

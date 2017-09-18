@@ -59,8 +59,7 @@ namespace ABIDAO
 
             MContrat leContrat;
 
-            //Parcours de tous les contrats retournés par la requête et instanciation correspondant à leur type réel
-            foreach (Contrat contrat in query)
+            foreach(Contrat contrat in query)
             {
                 if(contrat is CDD)
                 {
@@ -123,10 +122,8 @@ namespace ABIDAO
             {
                 DonneesDAO.DbContextAbiDao = new AbiDaoContainer();
             }
-            //Instancie un nouveau Collaborateur
-            Collaborateur CollabEF = new Collaborateur();
 
-            //Attribue les valeurs du MCollaborateur reçu en paramètre au Collaborateur
+            Collaborateur CollabEF = new Collaborateur();
             CollabEF.NomCollabo = unCollab.NomCollabo;
             CollabEF.PrenomCollabo = unCollab.PrenomCollabo;
             CollabEF.FonctionCollabo = unCollab.FonctionCollabo;
@@ -135,7 +132,6 @@ namespace ABIDAO
             CollabEF.Statut = unCollab.Statut;
             CollabEF.Photo = unCollab.Photo;
 
-            //Ajoute le nouveau Collaborateur au CollaborateurSet et enregistre les changements en DB
             DonneesDAO.DbContextAbiDao.CollaborateurSet.Add(CollabEF);
             DonneesDAO.DbContextAbiDao.SaveChanges();
      
@@ -152,13 +148,8 @@ namespace ABIDAO
             {
                 DonneesDAO.DbContextAbiDao = new AbiDaoContainer();
             }
-            //Instancie un nouveau Collaborateur
             Collaborateur CollabEF = new Collaborateur();
-
-            //Cherche la correspondance en DB avec le matricule du MCollaborateur reçu en paramètre
             CollabEF = DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(unCollab.Matricule);
-
-            //Met à jour les valeurs des attributs du Collaborateur avec les valeurs du MCollaborateur
             CollabEF.NomCollabo = unCollab.NomCollabo;
             CollabEF.PrenomCollabo = unCollab.PrenomCollabo;
             CollabEF.FonctionCollabo = unCollab.FonctionCollabo;
@@ -167,7 +158,6 @@ namespace ABIDAO
             CollabEF.Statut = unCollab.Statut;
             CollabEF.Photo = unCollab.Photo;
 
-            //Enregistre les changements en DB
             DonneesDAO.DbContextAbiDao.SaveChanges();
         }
 
