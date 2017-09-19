@@ -30,6 +30,7 @@ namespace ABI_csharp_mvc
             leForm.btnDetailsContrat.Click += this.btnVoirContrat_Click;
             leForm.btnAjoutContrat.Click += this.btnAjoutContrat_Click;
             leForm.btnAnnuler.Click += this.btnOK_Click;
+            leForm.btnCloture.Click += this.btnCloturer_Click;
             
             //Désactivation des contrôles pour visualiser uniquement
             foreach (Control c in leForm.Controls)
@@ -92,6 +93,7 @@ namespace ABI_csharp_mvc
             if (leFormNouvContrat.Resultat() == DialogResult.OK)
             {
                 leCollab.AddContrat(leFormNouvContrat.Contrat());
+                ContratDAOEFStatic.InsereContrat(leFormNouvContrat.Contrat(), DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(leCollab.Matricule));
                 leForm.grdContrats.DataSource=leCollab.ListerContrats();
             }
         }
@@ -114,7 +116,30 @@ namespace ABI_csharp_mvc
         {
             MContrat leContrat;
             leContrat = leCollab.RetourneContrat(Convert.ToInt32(leForm.grdContrats.CurrentRow.Cells[0].Value));
+
             ctrlVisuContrat leFormContrat = new ctrlVisuContrat(leContrat);
+        }
+
+        public void btnCloturer_Click(object sender, EventArgs e)
+        {
+            Contrat contratACloturer;
+            contratACloturer = DonneesDAO.DbContextAbiDao.ContratSet.Find(Convert.ToInt32(leForm.grdContrats.CurrentRow.Cells[0].Value));
+            if (contratACloturer.Cloture == true)
+            {
+                MessageBox.Show("Ce contrat est déjà cloturé en date du " + contratACloturer.getDateFin(), "Erreur", MessageBoxButtons.OK);
+            }
+            else
+            {
+                DialogResult dr = MessageBox.Show("Voulez vous vraiment clôturer ce contrat?", "Confirmation de clôture", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    contratACloturer.Cloture = true;
+                    contratACloturer.setDateFin(DateTime.Now);
+                    Collaborateur collabAModifier = DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(leCollab.Matricule);
+                    collabAModifier.ContratActif = null;
+                    DonneesDAO.DbContextAbiDao.SaveChanges();
+                }
+            }
         }
     }
 }

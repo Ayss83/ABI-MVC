@@ -17,6 +17,7 @@ namespace ABIDAO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Contrat()
         {
+            this.Cloture = false;
             this.Avenant = new HashSet<Avenant>();
         }
     
@@ -24,6 +25,7 @@ namespace ABIDAO
         internal string Qualification { get; set; }
         internal System.DateTime DateDebutContrat { get; set; }
         internal Nullable<System.DateTime> DateFinContrat { get; set; }
+        public bool Cloture { get; set; }
     
         public virtual Collaborateur Collaborateur { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -775,24 +775,15 @@
         private System.Windows.Forms.Panel pnlNumContrat;
         private System.Windows.Forms.TextBox txtNumContrat;
         private System.Windows.Forms.Panel pnlQualif;
-        private System.Windows.Forms.TextBox txtQualif;
         private System.Windows.Forms.Panel pnlSalaire;
-        private System.Windows.Forms.TextBox txtSalaire;
         private System.Windows.Forms.Panel pnlIndemnite;
-        private System.Windows.Forms.TextBox txtIndemnite;
         private System.Windows.Forms.Panel pnlMotif;
-        private System.Windows.Forms.TextBox txtMotif;
         private System.Windows.Forms.Panel pnlMission;
-        private System.Windows.Forms.TextBox txtMission;
         private System.Windows.Forms.Panel pnlDateDeb;
-        private System.Windows.Forms.DateTimePicker dtpDateDebut;
         private System.Windows.Forms.Panel pnlDateFinPrev;
-        private System.Windows.Forms.DateTimePicker dtpDateFinPrev;
         private System.Windows.Forms.Panel pnlDateFin;
         private System.Windows.Forms.Panel pnlAgence;
-        private System.Windows.Forms.TextBox txtAgence;
         private System.Windows.Forms.Panel pnlEcole;
-        private System.Windows.Forms.TextBox txtEcole;
         private System.Windows.Forms.Button btnAvenants;
         private System.Windows.Forms.Label lblTypeContrat;
         private System.Windows.Forms.RadioButton rbtCdd;
@@ -820,5 +811,14 @@
         private System.Windows.Forms.Label lblErreurAgence;
         private System.Windows.Forms.Label lblErreurEcole;
         private System.Windows.Forms.Label lblErreurFinPrevue;
+        internal System.Windows.Forms.TextBox txtQualif;
+        internal System.Windows.Forms.TextBox txtSalaire;
+        internal System.Windows.Forms.TextBox txtIndemnite;
+        internal System.Windows.Forms.TextBox txtMotif;
+        internal System.Windows.Forms.TextBox txtMission;
+        internal System.Windows.Forms.DateTimePicker dtpDateDebut;
+        internal System.Windows.Forms.DateTimePicker dtpDateFinPrev;
+        internal System.Windows.Forms.TextBox txtAgence;
+        internal System.Windows.Forms.TextBox txtEcole;
     }
 }

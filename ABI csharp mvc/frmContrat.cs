@@ -15,15 +15,20 @@ namespace ABI_csharp_mvc
     {
         internal MContrat Contrat;
 
+        /// <summary>
+        /// Constructeur basique pour la création d'un nouveau contrat, initialise les controles en mode cdd
+        /// </summary>
         public frmContrat()
         {
             InitializeComponent();
             this.masqueGridview();
             this.ModeCdd();
-            //Mise à zéro en attendant de récupérer un numéro depuis la base de données
-            this.txtNumContrat.Text = "0";
         }
 
+        /// <summary>
+        /// Constructeur, remplit les champs avec les informations du MContrat reçu en paramètre et initialise selon le type de contrat
+        /// </summary>
+        /// <param name="unContrat">instance du contrat à afficher</param>
         public frmContrat(MContrat unContrat)
         {
             if(unContrat is MCdd)
@@ -47,8 +52,80 @@ namespace ABI_csharp_mvc
                     this.dtpDateFin.Value = (DateTime)unContrat.DateFinContrat;
                 }
             }
+            else if(unContrat is MCdi)
+            {
+                InitializeComponent();
+                this.ModeCdi();
+                this.rbtCdi.Checked = true;
+                this.masqueGridview();
+                this.txtNumContrat.Text = Convert.ToString(unContrat.NumContrat);
+                this.txtQualif.Text = unContrat.Qualification;
+                this.dtpDateDebut.Value = unContrat.DateDebutContrat;
+                this.txtSalaire.Text = Convert.ToString((unContrat as MCdi).SalaireBrut);
+                if ((unContrat as MCdi).DateFinContrat == null)
+                {
+                    this.chkFinNonConnue.Checked = true;
+                    this.dtpDateFin.Enabled = false;
+                }
+                else
+                {
+                    this.chkFinNonConnue.Checked = false;
+                    this.dtpDateFin.Value = (DateTime)unContrat.DateFinContrat;
+                }
+            }
+            else if(unContrat is MStage)
+            {
+                InitializeComponent();
+                this.ModeStage();
+                this.rbtStage.Checked = true;
+                this.masqueGridview();
+                this.txtNumContrat.Text = Convert.ToString(unContrat.NumContrat);
+                this.txtQualif.Text = unContrat.Qualification;
+                this.txtIndemnite.Text = Convert.ToString((unContrat as MStage).Indemnite);
+                this.txtMotif.Text = (unContrat as MStage).Motif;
+                this.txtMission.Text = (unContrat as MStage).Mission;
+                this.dtpDateDebut.Value = unContrat.DateDebutContrat;
+                this.dtpDateFinPrev.Value = (unContrat as MStage).DateFinPrevue;
+                if ((unContrat as MStage).DateFinContrat == null)
+                {
+                    this.chkFinNonConnue.Checked = true;
+                    this.dtpDateFin.Enabled = false;
+                }
+                else
+                {
+                    this.chkFinNonConnue.Checked = false;
+                    this.dtpDateFin.Value = (DateTime)unContrat.DateFinContrat;
+                }
+                this.txtEcole.Text = (unContrat as MStage).Ecole;
+            }
+            else
+            {
+                InitializeComponent();
+                this.ModeInterim();
+                this.rbtInterim.Checked = true;
+                this.masqueGridview();
+                this.txtNumContrat.Text = Convert.ToString(unContrat.NumContrat);
+                this.txtQualif.Text = unContrat.Qualification;
+                this.txtMotif.Text = (unContrat as MInterim).Motif;
+                this.dtpDateDebut.Value = unContrat.DateDebutContrat;
+                this.dtpDateFinPrev.Value = (unContrat as MInterim).DateFinPrevue;
+                if ((unContrat as MInterim).DateFinContrat == null)
+                {
+                    this.chkFinNonConnue.Checked = true;
+                    this.dtpDateFin.Enabled = false;
+                }
+                else
+                {
+                    this.chkFinNonConnue.Checked = false;
+                    this.dtpDateFin.Value = (DateTime)unContrat.DateFinContrat;
+                }
+                this.txtAgence.Text = (unContrat as MInterim).AgenceInterim;
+            }
         }
 
+        /// <summary>
+        /// Méthode qui masque la datagridview des avenants et ses boutons associés
+        /// </summary>
         private void masqueGridview()
         {
             this.grdAvenant.Visible = false;
@@ -57,6 +134,10 @@ namespace ABI_csharp_mvc
             this.btnMasquer.Visible = false;
         }
 
+        /// <summary>
+        /// Méthode pour sélectionner le constructeur adéquat pour instancier un contrat
+        /// </summary>
+        /// <returns>Booleen pour la réussite de l'instanciation</returns>
         public bool Instancie()
         {
             if (this.rbtCdd.Checked == true)
@@ -76,7 +157,8 @@ namespace ABI_csharp_mvc
                 {
                     Contrat = new MCdi(Convert.ToDecimal(this.txtSalaire.Text), Convert.ToInt32(this.txtNumContrat.Text), this.txtQualif.Text, this.dtpDateDebut.Value.Date);
                     return true;
-                }else
+                }
+                else
                 {
                     Contrat = new MCdi(Convert.ToDecimal(this.txtSalaire.Text), Convert.ToInt32(this.txtNumContrat.Text), this.txtQualif.Text, this.dtpDateDebut.Value.Date, this.dtpDateFin.Value.Date);
                     return true;
@@ -244,6 +326,36 @@ namespace ABI_csharp_mvc
             this.lblErreurMotif.Visible = false;
             this.lblErreurQualif.Visible = false;
             this.lblErreurSalaire.Visible = false;
+        }
+
+        /// <summary>
+        /// Méthode de passage des controles en readonly ou disabled pour visualisation sans possibilité de modification
+        /// </summary>
+        public void ModeVisu()
+        {
+            //Parcours des controls du form
+            foreach(Control c in this.Controls)
+            {
+                if (c is FlowLayoutPanel)
+                {
+                    //parcours des controls dans le flowLayoutPanel
+                    foreach(Control p in c.Controls)
+                    {
+                        //parcours des controls dans chaque panel
+                        foreach(Control t in p.Controls)
+                        {
+                            if (t is TextBox)
+                                (t as TextBox).ReadOnly = true;
+                            if (t is DateTimePicker)
+                                t.Enabled = false;
+                            if (t is CheckBox)
+                                t.Enabled = false;
+                        }
+                    }
+                }
+                if (c is RadioButton)
+                    c.Enabled = false;
+            }
         }
 
 //Méthodes changement de type de contrat

@@ -60,6 +60,7 @@
     <Property Name="Statut" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Photo" Type="nvarchar(max)" Nullable="true" />
     <Property Name="SituationFamiliale" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ContratActif" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="ContratSet">
     <Key>
@@ -69,6 +70,7 @@
     <Property Name="Qualification" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DateDebutContrat" Type="datetime" Nullable="false" />
     <Property Name="DateFinContrat" Type="datetime" Nullable="true" />
+    <Property Name="Cloture" Type="bit" Nullable="false" DefaultValue="false" />
     <Property Name="Collaborateur_Matricule" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AugmentationSalaireSet">
@@ -268,6 +270,7 @@
           <Property Name="SituationFamiliale" Type="String" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Contrat" Relationship="AbiDao.CollaborateurContrat" FromRole="Collaborateur" ToRole="Contrat" />
           <NavigationProperty Name="AugmentationSalaire" Relationship="AbiDao.CollaborateurAugmentationSalaire" FromRole="Collaborateur" ToRole="AugmentationSalaire" />
+          <Property Name="ContratActif" Type="Int32" Nullable="true" />
         </EntityType>
         <EntityType Name="Contrat" Abstract="true" >
           <Key>
@@ -279,6 +282,7 @@
           <Property Name="DateFinContrat" Type="DateTime" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Collaborateur" Relationship="AbiDao.CollaborateurContrat" FromRole="Contrat" ToRole="Collaborateur" />
           <NavigationProperty Name="Avenant" Relationship="AbiDao.ContratAvenant" FromRole="Contrat" ToRole="Avenant" />
+          <Property Name="Cloture" Type="Boolean" Nullable="false" DefaultValue="false" />
         </EntityType>
         <Association Name="CollaborateurContrat">
           <End Type="AbiDao.Collaborateur" Role="Collaborateur" Multiplicity="1" />
@@ -344,6 +348,7 @@
           <ScalarProperty Name="Statut" ColumnName="Statut" />
           <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="SituationFamiliale" ColumnName="SituationFamiliale" />
+          <ScalarProperty Name="ContratActif" ColumnName="ContratActif" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -354,6 +359,7 @@
           <ScalarProperty Name="Qualification" ColumnName="Qualification" />
           <ScalarProperty Name="DateDebutContrat" ColumnName="DateDebutContrat" />
           <ScalarProperty Name="DateFinContrat" ColumnName="DateFinContrat" />
+          <ScalarProperty Name="Cloture" ColumnName="Cloture" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(AbiDao.CDI)">

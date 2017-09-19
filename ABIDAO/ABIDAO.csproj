@@ -79,6 +79,7 @@
       <DependentUpon>AbiDao.tt</DependentUpon>
     </Compile>
     <Compile Include="CollaborateurDAOEFStatic.cs" />
+    <Compile Include="Contrat.complement.cs" />
     <Compile Include="ContratDAOEFStatic.cs" />
     <Compile Include="DonneesDAO.cs" />
     <Compile Include="Collaborateur.cs">
@@ -129,6 +130,7 @@
       <LastGenOutput>AbiDao.cs</LastGenOutput>
       <DependentUpon>AbiDao.edmx</DependentUpon>
     </Content>
+    <Content Include="AbiDao2.edmx.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

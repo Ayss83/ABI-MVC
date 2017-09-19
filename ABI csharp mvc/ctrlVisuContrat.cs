@@ -16,8 +16,15 @@ namespace ABI_csharp_mvc
             leForm = new frmContrat(unContrat);
             leForm.MdiParent = frmMDI.getInstance();
             leForm.Text = "Contrat N°" + unContrat.NumContrat;
+            leForm.ModeVisu();
+            leForm.btnAnnuler.Visible = false;
+            leForm.btnValider.Click += this.btnValider_Click;
             leForm.Show();
         }
 
+        public void btnValider_Click(object sender, EventArgs e)
+        {
+            leForm.Close();
+        }
     }
 }

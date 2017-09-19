@@ -32,6 +32,7 @@ namespace ABI_csharp_mvc
             this.btnAjoutContrat.Visible = false;
             this.btnDetailsContrat.Visible = false;
             this.btnMasquer.Visible = false;
+            this.btnCloture.Visible = false;
 
             this.alimenteBox();
             this.flpValidAnnul.Width = 422; //NPMM : Valeur avec datagridview visible : 856
@@ -75,6 +76,7 @@ namespace ABI_csharp_mvc
             this.btnAjoutContrat.Visible = false;
             this.btnDetailsContrat.Visible = false;
             this.btnMasquer.Visible = false;
+            this.btnCloture.Visible = false;
             this.flpValidAnnul.Width = 422;
             this.btnContratInit.Click += new EventHandler(this.btnContratInit_Click);
         }
@@ -91,6 +93,7 @@ namespace ABI_csharp_mvc
             this.btnAjoutContrat.Visible = false;
             this.btnDetailsContrat.Visible = false;
             this.btnMasquer.Visible = false;
+            this.btnCloture.Visible = false;
             this.flpValidAnnul.Width = 422;
         }
 
@@ -111,6 +114,7 @@ namespace ABI_csharp_mvc
             this.btnAjoutContrat.Visible = true;
             this.btnDetailsContrat.Visible = true;
             this.btnMasquer.Visible = true;
+            this.btnCloture.Visible = true;
             this.flpValidAnnul.Width = 856;
         }
 

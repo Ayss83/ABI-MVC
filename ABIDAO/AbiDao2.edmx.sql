@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/19/2017 15:34:57
+-- Date Created: 09/19/2017 13:18:46
 -- Generated from EDMX file: C:\Users\CDI14\Source\Repos\ABI csharp mvc\ABIDAO\AbiDao.edmx
 -- --------------------------------------------------
 
@@ -87,8 +87,7 @@ CREATE TABLE [dbo].[CollaborateurSet] (
     [Adresse] nvarchar(max)  NULL,
     [Statut] nvarchar(max)  NULL,
     [Photo] nvarchar(max)  NULL,
-    [SituationFamiliale] nvarchar(max)  NULL,
-    [ContratActif] int  NULL
+    [SituationFamiliale] nvarchar(max)  NULL
 );
 GO
 

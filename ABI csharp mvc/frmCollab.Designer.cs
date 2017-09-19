@@ -57,6 +57,7 @@
             this.flpValidAnnul = new System.Windows.Forms.FlowLayoutPanel();
             this.flpImgBtnContrat = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMasquer = new System.Windows.Forms.Button();
+            this.btnCloture = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdContrats)).BeginInit();
             this.flpValidAnnul.SuspendLayout();
@@ -279,18 +280,18 @@
             // 
             // btnAjoutContrat
             // 
-            this.btnAjoutContrat.Location = new System.Drawing.Point(499, 463);
+            this.btnAjoutContrat.Location = new System.Drawing.Point(568, 463);
             this.btnAjoutContrat.Name = "btnAjoutContrat";
-            this.btnAjoutContrat.Size = new System.Drawing.Size(119, 23);
+            this.btnAjoutContrat.Size = new System.Drawing.Size(100, 23);
             this.btnAjoutContrat.TabIndex = 23;
             this.btnAjoutContrat.Text = "Ajouter un contrat";
             this.btnAjoutContrat.UseVisualStyleBackColor = true;
             // 
             // btnDetailsContrat
             // 
-            this.btnDetailsContrat.Location = new System.Drawing.Point(624, 463);
+            this.btnDetailsContrat.Location = new System.Drawing.Point(672, 463);
             this.btnDetailsContrat.Name = "btnDetailsContrat";
-            this.btnDetailsContrat.Size = new System.Drawing.Size(119, 23);
+            this.btnDetailsContrat.Size = new System.Drawing.Size(104, 23);
             this.btnDetailsContrat.TabIndex = 24;
             this.btnDetailsContrat.Text = "Voir détails contrat";
             this.btnDetailsContrat.UseVisualStyleBackColor = true;
@@ -318,13 +319,22 @@
             // 
             // btnMasquer
             // 
-            this.btnMasquer.Location = new System.Drawing.Point(749, 463);
+            this.btnMasquer.Location = new System.Drawing.Point(780, 463);
             this.btnMasquer.Name = "btnMasquer";
-            this.btnMasquer.Size = new System.Drawing.Size(119, 23);
+            this.btnMasquer.Size = new System.Drawing.Size(88, 23);
             this.btnMasquer.TabIndex = 27;
             this.btnMasquer.Text = "Masquer la liste";
             this.btnMasquer.UseVisualStyleBackColor = true;
             this.btnMasquer.Click += new System.EventHandler(this.btnMasquer_Click);
+            // 
+            // btnCloture
+            // 
+            this.btnCloture.Location = new System.Drawing.Point(474, 463);
+            this.btnCloture.Name = "btnCloture";
+            this.btnCloture.Size = new System.Drawing.Size(89, 23);
+            this.btnCloture.TabIndex = 28;
+            this.btnCloture.Text = "Cloturer contrat";
+            this.btnCloture.UseVisualStyleBackColor = true;
             // 
             // frmCollab
             // 
@@ -333,6 +343,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(880, 549);
+            this.Controls.Add(this.btnCloture);
             this.Controls.Add(this.btnMasquer);
             this.Controls.Add(this.flpImgBtnContrat);
             this.Controls.Add(this.flpValidAnnul);
@@ -400,5 +411,6 @@
         internal System.Windows.Forms.Button btnDetailsContrat;
         internal System.Windows.Forms.DataGridView grdContrats;
         internal System.Windows.Forms.Label lblPhoto;
+        internal System.Windows.Forms.Button btnCloture;
     }
 }

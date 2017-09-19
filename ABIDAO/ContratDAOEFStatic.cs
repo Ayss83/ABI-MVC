@@ -25,6 +25,7 @@ namespace ABIDAO
                 unCdi.DateFinContrat = unContrat.DateFinContrat;
                 unCdi.Collaborateur = unCollabEF;
 
+                unCollabEF.ContratActif = unCdi.NumContrat;
                 DonneesDAO.DbContextAbiDao.ContratSet.Add(unCdi);
                 DonneesDAO.DbContextAbiDao.SaveChanges();
             }
@@ -39,6 +40,7 @@ namespace ABIDAO
                 unCdd.Motif = (unContrat as MCdd).Motif;
                 unCdd.Collaborateur = unCollabEF;
 
+                unCollabEF.ContratActif = unCdd.NumContrat;
                 DonneesDAO.DbContextAbiDao.ContratSet.Add(unCdd);
                 DonneesDAO.DbContextAbiDao.SaveChanges();
             }
@@ -55,6 +57,7 @@ namespace ABIDAO
                 unStage.Ecole = (unContrat as MStage).Ecole;
                 unStage.Collaborateur = unCollabEF;
 
+                unCollabEF.ContratActif = unStage.NumContrat;
                 DonneesDAO.DbContextAbiDao.ContratSet.Add(unStage);
                 DonneesDAO.DbContextAbiDao.SaveChanges();
             }
@@ -69,6 +72,7 @@ namespace ABIDAO
                 unInterim.AgenceInterim = (unContrat as MInterim).AgenceInterim;
                 unInterim.Collaborateur = unCollabEF;
 
+                unCollabEF.ContratActif = unInterim.NumContrat;
                 DonneesDAO.DbContextAbiDao.ContratSet.Add(unInterim);
                 DonneesDAO.DbContextAbiDao.SaveChanges();
             }
