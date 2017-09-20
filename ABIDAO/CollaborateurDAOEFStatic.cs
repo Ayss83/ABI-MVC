@@ -166,7 +166,7 @@ namespace ABIDAO
         /// Méthode retournant depuis la DB une instance de MCollaborateur correspondant au numéro de matricule fourni
         /// </summary>
         /// <param name="matricule">numéro de matricule recherché</param>
-        /// <returns></returns>
+        /// <returns>Instance de MCollaborateur trouvé dans la DB</returns>
         public static MCollaborateur RetourneCollaborateur(Int32 matricule)
         {
             if (DonneesDAO.DbContextAbiDao == null)

@@ -29,7 +29,6 @@ namespace ABIDAO
         internal string Statut { get; set; }
         internal string Photo { get; set; }
         internal string SituationFamiliale { get; set; }
-        public Nullable<int> ContratActif { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrat> Contrat { get; set; }

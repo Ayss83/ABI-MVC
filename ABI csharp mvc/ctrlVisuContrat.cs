@@ -11,15 +11,22 @@ namespace ABI_csharp_mvc
     {
         private frmContrat leForm;
 
-        public ctrlVisuContrat(MContrat unContrat)
+        public ctrlVisuContrat(MContrat unContrat, bool modif)
         {
             leForm = new frmContrat(unContrat);
-            leForm.MdiParent = frmMDI.getInstance();
             leForm.Text = "Contrat N°" + unContrat.NumContrat;
             leForm.ModeVisu();
             leForm.btnAnnuler.Visible = false;
             leForm.btnValider.Click += this.btnValider_Click;
-            leForm.Show();
+            if(modif == true)
+            {
+                leForm.ShowDialog();
+            }
+            else
+            {
+                leForm.MdiParent = frmMDI.getInstance();
+                leForm.Show();
+            }
         }
 
         public void btnValider_Click(object sender, EventArgs e)

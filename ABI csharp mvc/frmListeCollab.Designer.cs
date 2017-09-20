@@ -54,6 +54,7 @@
             this.grdCollab.Name = "grdCollab";
             this.grdCollab.ReadOnly = true;
             this.grdCollab.RowHeadersWidth = 50;
+            this.grdCollab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdCollab.Size = new System.Drawing.Size(707, 488);
             this.grdCollab.TabIndex = 0;
             // 

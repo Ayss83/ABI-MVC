@@ -60,7 +60,6 @@
     <Property Name="Statut" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Photo" Type="nvarchar(max)" Nullable="true" />
     <Property Name="SituationFamiliale" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ContratActif" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="ContratSet">
     <Key>
@@ -270,7 +269,6 @@
           <Property Name="SituationFamiliale" Type="String" Nullable="true" cg:GetterAccess="Internal" cg:SetterAccess="Internal" />
           <NavigationProperty Name="Contrat" Relationship="AbiDao.CollaborateurContrat" FromRole="Collaborateur" ToRole="Contrat" />
           <NavigationProperty Name="AugmentationSalaire" Relationship="AbiDao.CollaborateurAugmentationSalaire" FromRole="Collaborateur" ToRole="AugmentationSalaire" />
-          <Property Name="ContratActif" Type="Int32" Nullable="true" />
         </EntityType>
         <EntityType Name="Contrat" Abstract="true" >
           <Key>
@@ -348,7 +346,6 @@
           <ScalarProperty Name="Statut" ColumnName="Statut" />
           <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="SituationFamiliale" ColumnName="SituationFamiliale" />
-          <ScalarProperty Name="ContratActif" ColumnName="ContratActif" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

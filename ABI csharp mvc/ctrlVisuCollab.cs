@@ -117,7 +117,7 @@ namespace ABI_csharp_mvc
             MContrat leContrat;
             leContrat = leCollab.RetourneContrat(Convert.ToInt32(leForm.grdContrats.CurrentRow.Cells[0].Value));
 
-            ctrlVisuContrat leFormContrat = new ctrlVisuContrat(leContrat);
+            ctrlVisuContrat leFormContrat = new ctrlVisuContrat(leContrat,false);
         }
 
         public void btnCloturer_Click(object sender, EventArgs e)
@@ -136,7 +136,6 @@ namespace ABI_csharp_mvc
                     contratACloturer.Cloture = true;
                     contratACloturer.setDateFin(DateTime.Now);
                     Collaborateur collabAModifier = DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(leCollab.Matricule);
-                    collabAModifier.ContratActif = null;
                     DonneesDAO.DbContextAbiDao.SaveChanges();
                 }
             }
