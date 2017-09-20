@@ -140,50 +140,51 @@ namespace ABI_csharp_mvc
         /// <returns>Booleen pour la réussite de l'instanciation</returns>
         public bool Instancie()
         {
+            //numéro de contrat déclaré à 0 dans tous les constructeurs car attribué par la base de données
             if (this.rbtCdd.Checked == true)
             {
                 if (this.chkFinNonConnue.Checked == true)
                 {
-                    Contrat = new MCdd(Convert.ToDecimal(this.txtSalaire.Text), this.dtpDateDebut.Value, this.txtQualif.Text, Convert.ToInt32(this.txtNumContrat.Text), this.txtMotif.Text, this.dtpDateFinPrev.Value.Date);
+                    Contrat = new MCdd(Convert.ToDecimal(this.txtSalaire.Text), this.dtpDateDebut.Value.Date, this.txtQualif.Text, 0, this.txtMotif.Text, this.dtpDateFinPrev.Value.Date);
                     return true;
                 } else
                 {
-                    Contrat = new MCdd(Convert.ToDecimal(this.txtSalaire.Text), this.dtpDateDebut.Value.Date, this.txtQualif.Text, Convert.ToInt32(this.txtNumContrat.Text), this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, this.dtpDateFin.Value.Date);
+                    Contrat = new MCdd(Convert.ToDecimal(this.txtSalaire.Text), this.dtpDateDebut.Value.Date, this.txtQualif.Text, 0, this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, this.dtpDateFin.Value.Date);
                     return true;
                 }
             }else if (this.rbtCdi.Checked == true)
             {
                 if (this.chkFinNonConnue.Checked == true)
                 {
-                    Contrat = new MCdi(Convert.ToDecimal(this.txtSalaire.Text), Convert.ToInt32(this.txtNumContrat.Text), this.txtQualif.Text, this.dtpDateDebut.Value.Date);
+                    Contrat = new MCdi(Convert.ToDecimal(this.txtSalaire.Text), 0, this.txtQualif.Text, this.dtpDateDebut.Value.Date);
                     return true;
                 }
                 else
                 {
-                    Contrat = new MCdi(Convert.ToDecimal(this.txtSalaire.Text), Convert.ToInt32(this.txtNumContrat.Text), this.txtQualif.Text, this.dtpDateDebut.Value.Date, this.dtpDateFin.Value.Date);
+                    Contrat = new MCdi(Convert.ToDecimal(this.txtSalaire.Text), 0, this.txtQualif.Text, this.dtpDateDebut.Value.Date, this.dtpDateFin.Value.Date);
                     return true;
                 }
             }else if (this.rbtInterim.Checked == true)
             {
                 if (this.chkFinNonConnue.Checked == true)
                 {
-                    Contrat = new MInterim(this.txtAgence.Text, this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, Convert.ToInt32(this.txtNumContrat.Text), this.txtQualif.Text, this.dtpDateDebut.Value.Date);
+                    Contrat = new MInterim(this.txtAgence.Text, this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, 0, this.txtQualif.Text, this.dtpDateDebut.Value.Date);
                     return true;
                 }else
                 {
-                    Contrat = new MInterim(this.txtAgence.Text, this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, Convert.ToInt32(this.txtNumContrat.Text), this.txtQualif.Text, this.dtpDateDebut.Value.Date, this.dtpDateFin.Value.Date);
+                    Contrat = new MInterim(this.txtAgence.Text, this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, 0, this.txtQualif.Text, this.dtpDateDebut.Value.Date, this.dtpDateFin.Value.Date);
                     return true;
                 }
             }else if (this.rbtStage.Checked == true)
             {
                 if (this.chkFinNonConnue.Checked == true)
                 {
-                Contrat = new MStage(this.txtEcole.Text, this.txtMission.Text, Convert.ToDecimal(this.txtIndemnite.Text), this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, Convert.ToInt32(this.txtNumContrat.Text), this.txtQualif.Text, this.dtpDateDebut.Value.Date);
+                Contrat = new MStage(this.txtEcole.Text, this.txtMission.Text, Convert.ToDecimal(this.txtIndemnite.Text), this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, 0, this.txtQualif.Text, this.dtpDateDebut.Value.Date);
                 return true;
                 }
                 else
                 {
-                    Contrat = new MStage(this.txtEcole.Text, this.txtMission.Text, Convert.ToDecimal(this.txtIndemnite.Text), this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, Convert.ToInt32(this.txtNumContrat.Text), this.txtQualif.Text, this.dtpDateDebut.Value.Date, this.dtpDateFin.Value.Date);
+                    Contrat = new MStage(this.txtEcole.Text, this.txtMission.Text, Convert.ToDecimal(this.txtIndemnite.Text), this.txtMotif.Text, this.dtpDateFinPrev.Value.Date, 0, this.txtQualif.Text, this.dtpDateDebut.Value.Date, this.dtpDateFin.Value.Date);
                     return true;
                 }
             }else
