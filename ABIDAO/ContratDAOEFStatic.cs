@@ -25,9 +25,18 @@ namespace ABIDAO
                 unCdi.DateFinContrat = unContrat.DateFinContrat;
                 unCdi.Collaborateur = unCollabEF;
 
-                unCollabEF.ContratActif = unCdi.NumContrat;
-                DonneesDAO.DbContextAbiDao.ContratSet.Add(unCdi);
+                //DonneesDAO.DbContextAbiDao.ContratSet.Add(unCdi);
+                //DonneesDAO.DbContextAbiDao.SaveChanges();
+                //unCollabEF.ContratActif = unCdi.NumContrat;
+                //DonneesDAO.DbContextAbiDao.SaveChanges();
+
+                unCollabEF.Contrat.Add(unCdi);
+                //Enregistrement du contrat en DB pour procéder à l'attribution du numéro par la DB
                 DonneesDAO.DbContextAbiDao.SaveChanges();
+                //Attribution du numéro reçu au collaborateur.contratactif
+                unCollabEF.ContratActif = unCdi.NumContrat;
+                DonneesDAO.DbContextAbiDao.SaveChanges();
+
             }
             else if(unContrat is MCdd)
             {
@@ -40,8 +49,11 @@ namespace ABIDAO
                 unCdd.Motif = (unContrat as MCdd).Motif;
                 unCdd.Collaborateur = unCollabEF;
 
+                unCollabEF.Contrat.Add(unCdd);
+                //Enregistrement du contrat en DB pour procéder à l'attribution du numéro par la DB
+                DonneesDAO.DbContextAbiDao.SaveChanges();
+                //Attribution du numéro reçu au collaborateur.contratactif
                 unCollabEF.ContratActif = unCdd.NumContrat;
-                DonneesDAO.DbContextAbiDao.ContratSet.Add(unCdd);
                 DonneesDAO.DbContextAbiDao.SaveChanges();
             }
             else if(unContrat is MStage)
@@ -57,8 +69,11 @@ namespace ABIDAO
                 unStage.Ecole = (unContrat as MStage).Ecole;
                 unStage.Collaborateur = unCollabEF;
 
+                unCollabEF.Contrat.Add(unStage);
+                //Enregistrement du contrat en DB pour procéder à l'attribution du numéro par la DB
+                DonneesDAO.DbContextAbiDao.SaveChanges();
+                //Attribution du numéro reçu au collaborateur.contratactif
                 unCollabEF.ContratActif = unStage.NumContrat;
-                DonneesDAO.DbContextAbiDao.ContratSet.Add(unStage);
                 DonneesDAO.DbContextAbiDao.SaveChanges();
             }
             else
@@ -72,8 +87,11 @@ namespace ABIDAO
                 unInterim.AgenceInterim = (unContrat as MInterim).AgenceInterim;
                 unInterim.Collaborateur = unCollabEF;
 
+                unCollabEF.Contrat .Add(unInterim);
+                //Enregistrement du contrat en DB pour procéder à l'attribution du numéro par la DB
+                DonneesDAO.DbContextAbiDao.SaveChanges();
+                //Attribution du numéro reçu au collaborateur.contratactif
                 unCollabEF.ContratActif = unInterim.NumContrat;
-                DonneesDAO.DbContextAbiDao.ContratSet.Add(unInterim);
                 DonneesDAO.DbContextAbiDao.SaveChanges();
             }
         }
