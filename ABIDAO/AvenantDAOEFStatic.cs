@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassesMetier;
+using System.Data;
 
 namespace ABIDAO
 {
@@ -27,6 +28,24 @@ namespace ABIDAO
 
             DonneesDAO.DbContextAbiDao.AvenantSet.Add(lAvenant);
             DonneesDAO.DbContextAbiDao.SaveChanges();
+        }
+
+        public static void InstancieAvenants(MContrat leContrat)
+        {
+            if (DonneesDAO.DbContextAbiDao == null)
+            {
+                DonneesDAO.DbContextAbiDao = new AbiDaoContainer();
+            }
+
+            var query = from a in DonneesDAO.DbContextAbiDao.AvenantSet
+                        where a.Contrat.NumContrat == leContrat.NumContrat
+                        select a;
+
+            foreach(Avenant a in query)
+            {
+                MAvenant unAvenant = new MAvenant(a.NumAvenant, a.DateAvenant);
+                leContrat.AddAvenant(unAvenant);
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassesMetier;
+using ABIDAO;
 
 namespace ABI_csharp_mvc
 {
@@ -51,6 +52,10 @@ namespace ABI_csharp_mvc
                     this.chkFinNonConnue.Checked = false;
                     this.dtpDateFin.Value = (DateTime)unContrat.DateFinContrat;
                 }
+
+                AvenantDAOEFStatic.InstancieAvenants(unContrat);
+                this.grdAvenant.DataSource = unContrat.ListerAvenants();
+                this.grdAvenant.Refresh();
             }
             else if(unContrat is MCdi)
             {
@@ -72,6 +77,10 @@ namespace ABI_csharp_mvc
                     this.chkFinNonConnue.Checked = false;
                     this.dtpDateFin.Value = (DateTime)unContrat.DateFinContrat;
                 }
+
+                AvenantDAOEFStatic.InstancieAvenants(unContrat);
+                this.grdAvenant.DataSource = unContrat.ListerAvenants();
+                this.grdAvenant.Refresh();
             }
             else if(unContrat is MStage)
             {
@@ -97,6 +106,10 @@ namespace ABI_csharp_mvc
                     this.dtpDateFin.Value = (DateTime)unContrat.DateFinContrat;
                 }
                 this.txtEcole.Text = (unContrat as MStage).Ecole;
+
+                AvenantDAOEFStatic.InstancieAvenants(unContrat);
+                this.grdAvenant.Refresh();
+                this.grdAvenant.DataSource = unContrat.ListerAvenants();
             }
             else
             {
@@ -120,6 +133,10 @@ namespace ABI_csharp_mvc
                     this.dtpDateFin.Value = (DateTime)unContrat.DateFinContrat;
                 }
                 this.txtAgence.Text = (unContrat as MInterim).AgenceInterim;
+
+                AvenantDAOEFStatic.InstancieAvenants(unContrat);
+                this.grdAvenant.Refresh();
+                this.grdAvenant.DataSource = unContrat.ListerAvenants();
             }
         }
 

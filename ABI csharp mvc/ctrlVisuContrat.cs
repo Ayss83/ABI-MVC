@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassesMetier;
+using ABIDAO;
 
 namespace ABI_csharp_mvc
 {
@@ -40,6 +41,9 @@ namespace ABI_csharp_mvc
         public void btnAjoutAvenant_Click(object sender, EventArgs e)
         {
             ctrlNouvAvenant nouvelAvenant = new ctrlNouvAvenant(this.leContrat);
+            if (nouvelAvenant.Resultat == true)
+                AvenantDAOEFStatic.InstancieAvenants(this.leContrat);
+                this.leForm.grdAvenant.DataSource = leContrat.ListerAvenants();
         }
     }
 }

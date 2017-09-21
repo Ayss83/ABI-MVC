@@ -107,7 +107,7 @@ namespace ClassesMetier
              return;
           if (this.avenants == null)
              this.avenants = new SortedDictionary<int,MAvenant>();
-          if (!this.avenants.ContainsValue(newAvenant))
+          if (!this.avenants.ContainsKey(newAvenant.NumAvenant))
              this.avenants.Add(newAvenant.NumAvenant, newAvenant);
        }
 
@@ -118,24 +118,27 @@ namespace ClassesMetier
        public DataTable ListerAvenants()
         {
             DataTable listeAvenants = new DataTable();
-            listeAvenants.Columns.Add("Numéro");
-            listeAvenants.Columns.Add("Date");
+            listeAvenants.Columns.Add("Numéro de l'avenant");
+            listeAvenants.Columns.Add("Date d'établissement");
 
-            DataRow dr = listeAvenants.NewRow();
-            foreach(KeyValuePair<int,MAvenant> kvp in avenants)
+            if (avenants != null)
             {
-                dr["Numéro"] = kvp.Key;
-                dr["Date"] = kvp.Value.DateAvenant;
-                listeAvenants.Rows.Add(dr);
+                foreach(KeyValuePair<int,MAvenant> kvp in avenants)
+                {
+                    DataRow dr = listeAvenants.NewRow();
+                    dr["Numéro de l'avenant"] = kvp.Key;
+                    dr["Date d'établissement"] = kvp.Value.DateAvenant.ToShortDateString();
+                    listeAvenants.Rows.Add(dr);
+                }
             }
             return listeAvenants;
         }
 
-       /// <summary>
-       /// Retourne les informations concernant la classe contrat
-       /// </summary>
-       /// <returns>String des informations du contrat</returns>
-       public override String ToString()
+        /// <summary>
+        /// Retourne les informations concernant la classe contrat
+        /// </summary>
+        /// <returns>String des informations du contrat</returns>
+        public override String ToString()
        {
           if(DateFinContrat !=null)
             {

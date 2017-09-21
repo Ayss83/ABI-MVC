@@ -80,8 +80,6 @@
             this.rbtInterim = new System.Windows.Forms.RadioButton();
             this.rbtStage = new System.Windows.Forms.RadioButton();
             this.grdAvenant = new System.Windows.Forms.DataGridView();
-            this.NumAvenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateAvenant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAjoutAvenant = new System.Windows.Forms.Button();
             this.btnDetailsAvenant = new System.Windows.Forms.Button();
             this.btnMasquer = new System.Windows.Forms.Button();
@@ -627,28 +625,11 @@
             this.grdAvenant.AllowUserToAddRows = false;
             this.grdAvenant.AllowUserToDeleteRows = false;
             this.grdAvenant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdAvenant.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NumAvenant,
-            this.dateAvenant});
             this.grdAvenant.Location = new System.Drawing.Point(409, 30);
             this.grdAvenant.Name = "grdAvenant";
             this.grdAvenant.ReadOnly = true;
             this.grdAvenant.Size = new System.Drawing.Size(394, 413);
             this.grdAvenant.TabIndex = 18;
-            // 
-            // NumAvenant
-            // 
-            this.NumAvenant.HeaderText = "Numéro de l\'avenant";
-            this.NumAvenant.Name = "NumAvenant";
-            this.NumAvenant.ReadOnly = true;
-            this.NumAvenant.Width = 150;
-            // 
-            // dateAvenant
-            // 
-            this.dateAvenant.HeaderText = "Date d\'établissement de l\'avenant";
-            this.dateAvenant.Name = "dateAvenant";
-            this.dateAvenant.ReadOnly = true;
-            this.dateAvenant.Width = 200;
             // 
             // btnAjoutAvenant
             // 
@@ -790,9 +771,6 @@
         private System.Windows.Forms.RadioButton rbtCdi;
         private System.Windows.Forms.RadioButton rbtInterim;
         private System.Windows.Forms.RadioButton rbtStage;
-        private System.Windows.Forms.DataGridView grdAvenant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumAvenant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateAvenant;
         private System.Windows.Forms.Button btnMasquer;
         private System.Windows.Forms.FlowLayoutPanel flpValidAnnul;
         internal System.Windows.Forms.Button btnValider;
@@ -820,5 +798,6 @@
         internal System.Windows.Forms.TextBox txtEcole;
         internal System.Windows.Forms.Button btnAjoutAvenant;
         internal System.Windows.Forms.Button btnDetailsAvenant;
+        internal System.Windows.Forms.DataGridView grdAvenant;
     }
 }

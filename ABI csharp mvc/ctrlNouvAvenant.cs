@@ -13,6 +13,7 @@ namespace ABI_csharp_mvc
     {
         frmAvenant leForm;
         MAvenant lAvenant;
+        public bool Resultat = false;
 
         public ctrlNouvAvenant(MContrat leContrat)
         {
@@ -23,6 +24,7 @@ namespace ABI_csharp_mvc
             {
                 lAvenant = new MAvenant(leForm.dtpDateEtablissement.Value.Date);
                 AvenantDAOEFStatic.InsereAvenant(lAvenant, leContrat);
+                this.Resultat = true;
             }
         }
 
