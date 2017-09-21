@@ -57,10 +57,17 @@
   <ItemGroup>
     <Compile Include="ctrlListeCollab.cs" />
     <Compile Include="ctrlModifCollab.cs" />
+    <Compile Include="ctrlNouvAvenant.cs" />
     <Compile Include="ctrlNouvCollab.cs" />
     <Compile Include="ctrlNouvContrat.cs" />
     <Compile Include="ctrlVisuCollab.cs" />
     <Compile Include="ctrlVisuContrat.cs" />
+    <Compile Include="frmAvenant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAvenant.Designer.cs">
+      <DependentUpon>frmAvenant.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCollab.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAvenant.resx">
+      <DependentUpon>frmAvenant.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCollab.resx">
       <DependentUpon>frmCollab.cs</DependentUpon>
     </EmbeddedResource>

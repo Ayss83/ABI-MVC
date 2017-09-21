@@ -23,10 +23,10 @@ namespace ABI_csharp_mvc
             lesCollabs = new MListeCollab();
             CollaborateurDAOEFStatic.InstancieCollaborateurs(lesCollabs);
             leForm = new frmListeCollab(lesCollabs.ListerCollab());
-            leForm.grdCollab.CellDoubleClick += new DataGridViewCellEventHandler(this.grdCollabs_DoubleClick);
-            leForm.btnAjouter.Click += new EventHandler(this.ajoutCollab);
-            leForm.btnVisualiser.Click += new EventHandler(this.voirCollab);
-            leForm.btnModifier.Click += new EventHandler(this.modifCollab);
+            leForm.grdCollab.CellDoubleClick += this.grdCollabs_DoubleClick;
+            leForm.btnAjouter.Click += this.ajoutCollab;
+            leForm.btnVisualiser.Click += this.voirCollab;
+            leForm.btnModifier.Click += this.modifCollab;
             leForm.MdiParent = frmMDI.getInstance();
             leForm.Show();
         }

@@ -22,6 +22,15 @@ namespace ClassesMetier
             this.DateAvenant = uneDate;
        }
 
+        /// <summary>
+        /// Constructeur pour un avenant avec seulement date en paramètre, le numéro est attribué par la DB
+        /// </summary>
+        /// <param name="uneDate">Date d'établissement de l'avenant</param>
+        public MAvenant(DateTime uneDate)
+        {
+            this.DateAvenant = uneDate;
+        }
+
        private int numAvenant;
        private DateTime dateAvenant;
 
