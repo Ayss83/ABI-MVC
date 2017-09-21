@@ -58,9 +58,11 @@ namespace ABI_csharp_mvc
             this.txtAdresse.Text = unCollab.Adresse;
 
             if (unCollab.Photo == null || unCollab.Photo.Length < 7) // Condition temporaire, à modifier plus tard si besoin
-            {
                 this.pbPhoto.Visible = false;
-            }
+
+            //RadioButton Actif coché par défaut, vérification du statut pour cocher rbtInactif au besoin
+            if (unCollab.Statut == "Inactif")
+                this.rbtInactif.Checked = true;
 
             this.alimenteBox();
             this.cbxFonction.Text = unCollab.FonctionCollabo;
@@ -250,7 +252,10 @@ namespace ABI_csharp_mvc
             Collab.Adresse = this.txtAdresse.Text;
             Collab.Photo = this.ofdChoixImage.FileName;
             Collab.SituationFamiliale = (string)this.cbxSituation.SelectedItem;
-            Collab.Statut = this.rbtActif.Text;
+            if (rbtActif.Checked == true)
+                Collab.Statut = rbtActif.Text;
+            else
+                Collab.Statut = rbtInactif.Text;
         }
 
         /// <summary>

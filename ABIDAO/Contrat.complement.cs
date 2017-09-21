@@ -17,5 +17,10 @@ namespace ABIDAO
         {
             return this.DateFinContrat;
         }
+
+        public Int32 GetNumContrat()
+        {
+            return this.NumContrat;
+        }
     }
 }

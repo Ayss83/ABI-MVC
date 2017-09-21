@@ -27,8 +27,9 @@ namespace ABI_csharp_mvc
             leForm.grdContrats.DataSource = unCollab.ListerContrats();
             leForm.grdContrats.CellDoubleClick += this.grdContrats_CellDoubleClick;
             leForm.btnDetailsContrat.Click += this.btnVoirContrat_Click;
+            leForm.btnCloture.Click += this.btnCloturer_Click;
             leForm.btnAjoutContrat.Click += this.btnAjoutContrat_Click;
-            
+
             //leForm.MdiParent = frmMDI.getInstance();
             if (leForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -99,6 +100,27 @@ namespace ABI_csharp_mvc
             leContrat = leCollab.RetourneContrat(Convert.ToInt32(leForm.grdContrats.CurrentRow.Cells[0].Value));
 
             ctrlVisuContrat leFormContrat = new ctrlVisuContrat(leContrat, true);
+        }
+
+        public void btnCloturer_Click(object sender, EventArgs e)
+        {
+            Contrat contratACloturer;
+            contratACloturer = DonneesDAO.DbContextAbiDao.ContratSet.Find(Convert.ToInt32(leForm.grdContrats.CurrentRow.Cells[0].Value));
+            if (contratACloturer.Cloture == true)
+            {
+                MessageBox.Show("Ce contrat est déjà cloturé en date du " + contratACloturer.getDateFin(), "Erreur", MessageBoxButtons.OK);
+            }
+            else
+            {
+                DialogResult dr = MessageBox.Show("Voulez vous vraiment clôturer ce contrat?", "Confirmation de clôture", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    contratACloturer.Cloture = true;
+                    contratACloturer.setDateFin(DateTime.Now);
+                    //Collaborateur collabAModifier = DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(leCollab.Matricule);
+                    DonneesDAO.DbContextAbiDao.SaveChanges();
+                }
+            }
         }
     }
 }

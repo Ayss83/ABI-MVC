@@ -78,6 +78,7 @@
     <Compile Include="CDI.cs">
       <DependentUpon>AbiDao.tt</DependentUpon>
     </Compile>
+    <Compile Include="Collaborateur.complement.cs" />
     <Compile Include="CollaborateurDAOEFStatic.cs" />
     <Compile Include="Contrat.complement.cs" />
     <Compile Include="ContratDAOEFStatic.cs" />

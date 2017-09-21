@@ -92,8 +92,15 @@ namespace ABI_csharp_mvc
             ctrlNouvContrat leFormNouvContrat = new ctrlNouvContrat();
             if (leFormNouvContrat.Resultat() == DialogResult.OK)
             {
+                //Recherche du collaborateur dans la DB et instanciation
+                Collaborateur collabReceveur = DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(leCollab.Matricule);
+                //Insertion du contrat en DB
+                ContratDAOEFStatic.InsereContrat(leFormNouvContrat.Contrat(), collabReceveur);
+                //Attribution du bon numéro au MContrat
+                leFormNouvContrat.Contrat().NumContrat = ContratDAOEFStatic.getContratActif(collabReceveur).GetNumContrat();
+                //Insertion du contrat dans dictionnaire
                 leCollab.AddContrat(leFormNouvContrat.Contrat());
-                ContratDAOEFStatic.InsereContrat(leFormNouvContrat.Contrat(), DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(leCollab.Matricule));
+                //Remise à jour de l'affichage
                 leForm.grdContrats.DataSource=leCollab.ListerContrats();
             }
         }
@@ -135,7 +142,7 @@ namespace ABI_csharp_mvc
                 {
                     contratACloturer.Cloture = true;
                     contratACloturer.setDateFin(DateTime.Now);
-                    Collaborateur collabAModifier = DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(leCollab.Matricule);
+                    //Collaborateur collabAModifier = DonneesDAO.DbContextAbiDao.CollaborateurSet.Find(leCollab.Matricule);
                     DonneesDAO.DbContextAbiDao.SaveChanges();
                 }
             }
