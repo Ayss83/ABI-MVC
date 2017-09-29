@@ -96,15 +96,5 @@ namespace ClassesMetier
             }
             return datatableCollab;
         }
-
-        /// <summary>
-        /// Méthode retournant une instance de collaborateur correspondant au matricule reçu en paramètre depuis le dictionnaire
-        /// </summary>
-        /// <param name="matricule">Matricule recherché</param>
-        /// <returns></returns>
-        public MCollaborateur RestituerCollaborateur(Int32 matricule)
-        {
-            return collaborateurs[matricule];
-        }
     }
 }

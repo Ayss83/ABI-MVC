@@ -154,21 +154,6 @@ namespace ClassesMetier
             }
         }
 
-       /// <summary>
-       /// Méthode permettant de définir une date de fin de contrat
-       /// </summary>
-       /// <param name="uneDateFin">La date de fin de contrat</param>
-       public void Cloturer(DateTime uneDateFin)
-       {
-            if(uneDateFin>DateDebutContrat)
-            {
-            this.DateFinContrat = uneDateFin;
-            }else
-            {
-                throw new Exception("La date de fin ne peut pas être plus ancienne que la date de début");
-            }
-       }
-
         /// <summary>
         /// Méthode d'initialisation des 3 attributs de base d'un contrat pour les constructeurs
         /// </summary>

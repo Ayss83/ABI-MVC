@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassesMetier.MAugmentationSalaire">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABAAAAASAAAAA=</HashCode>
+      <FileName>AugmentationSalaire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.MAvenant">
+    <Position X="12.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAEAAQAAAAACAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Avenant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.MCdd">
+    <Position X="2.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAABAA=</HashCode>
+      <FileName>Cdd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.MCdi">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAABAA=</HashCode>
+      <FileName>Cdi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.MCollaborateur">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQQAAAkOAAEADAEBAAABAIggCACIoBAAAIAQAQAAIA=</HashCode>
+      <FileName>Collaborateur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.MContrat">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAZAAgAkQAAAAAAEAAIAAAAACAAAAAAAACAAAAgAAIA=</HashCode>
+      <FileName>Contrat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.MContratTemporaire">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAIAAAACAAACAEAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>ContratTemporaire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.Donnees">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Donnees.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.MInterim">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAIAUAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.MListeCollab">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAgAAAAAADAAEAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>ListeCollab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassesMetier.MStage">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAACABAAAgAAAAEABAAAAAAAAAAAAAAQAAAAEAAAAA=</HashCode>
+      <FileName>Stage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

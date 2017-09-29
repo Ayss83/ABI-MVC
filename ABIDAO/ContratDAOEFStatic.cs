@@ -108,6 +108,11 @@ namespace ABIDAO
             }
         }
 
+        /// <summary>
+        /// Méthode retournant l'instance Contrat correspondant au contratActif du collaborateur
+        /// </summary>
+        /// <param name="unCollab">collaborateur dont on recherche le contrat</param>
+        /// <returns>Le contrat actif du collaborateur</returns>
         public static Contrat getContratActif(Collaborateur unCollab)
         {
             if (DonneesDAO.DbContextAbiDao == null)
@@ -128,64 +133,7 @@ namespace ABIDAO
             else
             {
                 return null;
-            }
-
-
-            //MContrat leContrat;
-
-            //if(query is CDI)
-            //{
-            //    CDI contrat = (query as CDI);
-                
-            //    leContrat = new MCdi(contrat.SalaireBrut, 
-            //        contrat.NumContrat, 
-            //        contrat.Qualification, 
-            //        contrat.DateDebutContrat);
-
-            //    return leContrat;
-            //}
-            //else if(query is CDD)
-            //{
-            //    CDD contrat = (query as CDD);
-                
-            //    leContrat = new MCdd(contrat.SalaireBrut, 
-            //        contrat.DateDebutContrat, 
-            //        contrat.Qualification, 
-            //        contrat.NumContrat, 
-            //        contrat.Motif, 
-            //        (DateTime)contrat.DateFinPrevue);
-
-            //    return leContrat;
-            //}
-            //else if(query is Stage)
-            //{
-            //    Stage contrat = (query as Stage);
-
-            //    leContrat = new MStage(contrat.Ecole, 
-            //        contrat.Mission, 
-            //        (Decimal)contrat.Indemnite, 
-            //        contrat.Motif, 
-            //        (DateTime)contrat.DateFinPrevue, 
-            //        contrat.NumContrat, 
-            //        contrat.Qualification, 
-            //        contrat.DateDebutContrat);
-
-            //    return leContrat;
-            //}
-            //else
-            //{
-            //    Interim contrat = (query as Interim);
-
-            //    leContrat = new MInterim(contrat.AgenceInterim, 
-            //        contrat.Motif, 
-            //        (DateTime)contrat.DateFinPrevue, 
-            //        contrat.NumContrat, 
-            //        contrat.Qualification, 
-            //        contrat.DateDebutContrat);
-
-            //    return leContrat;
-            //}
-           
+            }           
         }
     }
 }

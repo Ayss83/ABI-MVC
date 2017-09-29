@@ -18,13 +18,18 @@
         <EntityTypeShape EntityType="AbiDao.Stage" Width="1.5" PointX="9.875" PointY="4.625" />
         <InheritanceConnector EntityType="AbiDao.Stage" ManuallyRouted="false" >
         </InheritanceConnector>
-        <EntityTypeShape EntityType="AbiDao.Interim" Width="1.5" PointX="9.875" PointY="6.75" />
+        <EntityTypeShape EntityType="AbiDao.Interim" Width="1.5" PointX="5.5" PointY="4.875" />
         <InheritanceConnector EntityType="AbiDao.Interim" ManuallyRouted="false" >
         </InheritanceConnector>
         <EntityTypeShape EntityType="AbiDao.AugmentationSalaire" Width="1.5" PointX="1.625" PointY="2.25" IsExpanded="true" />
         <AssociationConnector Association="AbiDao.CollaborateurAugmentationSalaire" />
-        <EntityTypeShape EntityType="AbiDao.Avenant" Width="1.5" PointX="5.125" PointY="4.5" />
-        <AssociationConnector Association="AbiDao.ContratAvenant" />
+        <EntityTypeShape EntityType="AbiDao.Avenant" Width="1.5" PointX="3.375" PointY="4.5" />
+        <AssociationConnector Association="AbiDao.ContratAvenant" ManuallyRouted="true" >
+          <ConnectorPoint PointX="7" PointY="4.13789182428728" />
+          <ConnectorPoint PointX="6.5875" PointY="4.1917936197916656" />
+          <ConnectorPoint PointX="4.7961382380968027" PointY="4.1917936197916656" />
+          <ConnectorPoint PointX="4.7961382380968027" PointY="4.5" />
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
